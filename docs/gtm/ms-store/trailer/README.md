@@ -6,6 +6,8 @@
 | --- | --- |
 | Video | `codilo-trailer.mp4` |
 | Thumbnail | `trailer-thumbnail.png` |
+| Audio description | `codilo-trailer-audio-description.mp3` |
+| Closed captions | `codilo-trailer-captions.vtt` |
 | 16:9 hero art | `hero-art.png` |
 | End card (video source) | `end-card.png` |
 | Title | `trailer-title.txt` |
@@ -15,11 +17,20 @@
 - **Video:** 1920×1080, 16:9, 30 seconds, 30 fps
 - **Codec:** H.264 High, yuv420p, AAC stereo (silent) — 2.7 MB
 - **Thumbnail and hero art:** 1920×1080 PNG
+- **Audio description:** 30-second MP3, 128 kbps, 470 KB
+- **Closed captions:** WebVTT, 30-second timeline
 - **Captions:** no IARC age-rating information anywhere in the video
-- **Audio:** no third-party music or sound effects
+- **Audio:** no third-party music or sound effects; the description is
+  synthesized narration
+
+The audio description uses the Windows SAPI English voice. Replace the MP3 with
+a human recording if preferred; the VTT cues use the same wording and timeline.
 
 ## Store checklist
 
+- [x] Thumbnail 1920×1080 (`trailer-thumbnail.png`)
+- [x] Audio description MP3, well under the 500 MB limit
+- [x] Closed captions VTT, well under the 50 MB limit
 - [x] 16:9 hero art supplied above the trailer (`hero-art.png`)
 - [x] One trailer only, well under the 15-trailer limit
 - [x] One video, one title and one thumbnail
