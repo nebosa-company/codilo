@@ -208,6 +208,19 @@ https://github.com/nebosa-company/codilo/blob/main/LICENSE
 Leaving this field blank would apply Microsoft's Standard Application License
 Terms, which do not match Codilo's MIT license.
 
+### Copyright and trademark info
+
+This field is optional and has a 200-character limit. If Nebosa claims Codilo
+as a trademark, use:
+
+Copyright © 2026 Nebosa. Codilo is a trademark of Nebosa. Includes third-party
+open-source components under their respective licenses.
+
+If you do not want to claim trademark rights, use:
+
+Copyright © 2026 Nebosa. Includes third-party open-source components under
+their respective licenses.
+
 ## 5. Automation
 
 `.github/workflows/store.yml` builds the MSIX on demand. Run it from the Actions
