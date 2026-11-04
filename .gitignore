@@ -68,3 +68,4 @@ src-tauri/target-test/
 # re-diffs wholesale is churn, and `npm run check:file-icons` (part of
 # `npm test`) catches a tree that has drifted from the installed version.
 public/file-icons/
+desktop.ini
