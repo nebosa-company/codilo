@@ -44,7 +44,7 @@ import {
  * by CodeMirror, so dropping a file on the editor would paste its path into the
  * document. The tab bar's own drags are told apart by this type being absent.
  */
-const DRAG_TYPE = "application/x-justcode-path";
+const DRAG_TYPE = "application/x-codilo-path";
 
 /** How many children one folder renders before offering the rest.
  *

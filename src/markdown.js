@@ -3,7 +3,7 @@ import { marked } from "marked";
 // Styling for the generated preview. Kept close to GitHub's rendering so the
 // output looks like what most Markdown ends up being read in, and carrying its
 // own dark-mode block so the page follows the OS setting once it is open in the
-// browser, where JustCode's theme no longer applies.
+// browser, where Codilo's theme no longer applies.
 const PREVIEW_CSS = `
   :root { color-scheme: light dark; }
   body {

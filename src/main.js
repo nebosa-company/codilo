@@ -104,25 +104,25 @@ const REVEAL_KEY = /Windows|Win32/i.test(navigator.userAgent)
     : "file.revealLinux";
 
 const STORAGE = {
-  fontSize: "justcode.fontSize",
-  theme: "justcode.theme",
-  toolbar: "justcode.toolbar",
-  statusbar: "justcode.statusbar",
-  spellcheck: "justcode.spellcheck",
-  locale: "justcode.locale",
-  recent: "justcode.recent",
-  recentFolders: "justcode.recentFolders",
-  wordWrap: "justcode.wordWrap",
-  bionicReading: "justcode.bionicReading",
-  newFavourites: "justcode.newFavourites",
-  session: "justcode.session",
-  terminalDock: "justcode.terminalDock",
-  harnessVerbose: "justcode.harnessVerbose",
-  perpPanel: "justcode.perpPanel",
-  perpWidth: "justcode.perpWidth",
-  explorerPanel: "justcode.explorerPanel",
-  explorerWidth: "justcode.explorerWidth",
-  explorer: "justcode.explorer",
+  fontSize: "codilo.fontSize",
+  theme: "codilo.theme",
+  toolbar: "codilo.toolbar",
+  statusbar: "codilo.statusbar",
+  spellcheck: "codilo.spellcheck",
+  locale: "codilo.locale",
+  recent: "codilo.recent",
+  recentFolders: "codilo.recentFolders",
+  wordWrap: "codilo.wordWrap",
+  bionicReading: "codilo.bionicReading",
+  newFavourites: "codilo.newFavourites",
+  session: "codilo.session",
+  terminalDock: "codilo.terminalDock",
+  harnessVerbose: "codilo.harnessVerbose",
+  perpPanel: "codilo.perpPanel",
+  perpWidth: "codilo.perpWidth",
+  explorerPanel: "codilo.explorerPanel",
+  explorerWidth: "codilo.explorerWidth",
+  explorer: "codilo.explorer",
 };
 
 const MAX_RECENT_FILES = 15;
@@ -695,7 +695,7 @@ async function closeTab(id) {
   const owner = paneOfTab(id);
   if (isModified(tab)) {
     const discard = await ask(t("dialog.unsaved", { name: tab.name }), {
-      title: "JustCode",
+      title: "Codilo",
       kind: "warning",
       okLabel: t("dialog.discard"),
       cancelLabel: t("dialog.cancel"),
@@ -897,7 +897,7 @@ function renderStatus() {
   // unsaved changes — it is what the taskbar and Alt+Tab show. `document.title`
   // alone only renames the webview document, not the native window, so the
   // window is told separately.
-  const title = tab ? `${tab.dirty ? "• " : ""}${tab.name} — JustCode` : "JustCode";
+  const title = tab ? `${tab.dirty ? "• " : ""}${tab.name} — Codilo` : "Codilo";
   if (document.title !== title) {
     document.title = title;
     if (underTauri()) getCurrentWindow().setTitle(title).catch(() => {});
@@ -1412,7 +1412,7 @@ async function openPath(path, { quiet = false, line = null, column = null } = {}
     return true;
   } catch (error) {
     if (!quiet) {
-      await message(`${t("error.openFile", { path })}\n\n${error}`, { title: "JustCode", kind: "error" });
+      await message(`${t("error.openFile", { path })}\n\n${error}`, { title: "Codilo", kind: "error" });
     }
     return false;
   } finally {
@@ -1471,7 +1471,7 @@ async function saveTab(tab, { forcePrompt = false } = {}) {
     const contents = tab.eol === "\n" ? text : text.replaceAll("\n", tab.eol);
     await invoke("write_text_file", { path, contents });
   } catch (error) {
-    await message(`${t("error.saveFile", { path })}\n\n${error}`, { title: "JustCode", kind: "error" });
+    await message(`${t("error.saveFile", { path })}\n\n${error}`, { title: "Codilo", kind: "error" });
     return false;
   }
 
@@ -1562,7 +1562,7 @@ async function run() {
       await invoke("open_in_browser", { path });
     } catch (error) {
       await message(`${t("error.preview", { name: current.name })}\n\n${error}`, {
-        title: "JustCode",
+        title: "Codilo",
         kind: "error",
       });
     }
@@ -1580,7 +1580,7 @@ async function run() {
       await invoke("run_script", { path: current.path, kind: SCRIPT_KINDS[current.language] });
     } catch (error) {
       await message(`${t("error.run", { name: current.name })}\n\n${error}`, {
-        title: "JustCode",
+        title: "Codilo",
         kind: "error",
       });
     }
@@ -1594,7 +1594,7 @@ async function run() {
 
   if (!target) {
     await message(t("run.needsPage"), {
-      title: "JustCode",
+      title: "Codilo",
       kind: "warning",
     });
     return;
@@ -1612,7 +1612,7 @@ async function run() {
   try {
     await invoke("open_in_browser", { path: target.path });
   } catch (error) {
-    await message(`${t("error.browser")}\n\n${error}`, { title: "JustCode", kind: "error" });
+    await message(`${t("error.browser")}\n\n${error}`, { title: "Codilo", kind: "error" });
   }
 }
 
@@ -1739,7 +1739,7 @@ async function editCopy() {
   if (lastCopySurface === "terminal" && terminalSelectedText()) {
     if (!(await copyTerminalSelection())) {
       await message(t("clipboard.copyDenied"), {
-        title: "JustCode",
+        title: "Codilo",
         kind: "warning",
       });
     }
@@ -1751,7 +1751,7 @@ async function editCopy() {
   const range = selection.empty ? cursorLineRange() : selection;
   if (!(await writeClipboard(view.state.sliceDoc(range.from, range.to)))) {
     await message(t("clipboard.copyDenied"), {
-      title: "JustCode",
+      title: "Codilo",
       kind: "warning",
     });
   }
@@ -1775,7 +1775,7 @@ async function editPaste() {
     text = await readClipboard();
   } catch {
     await message(t("clipboard.pasteDenied"), {
-      title: "JustCode",
+      title: "Codilo",
       kind: "warning",
     });
     return;
@@ -1974,7 +1974,7 @@ async function revealActiveFile() {
   try {
     await invoke("reveal_in_file_manager", { path: tab.path });
   } catch (error) {
-    await message(`${t("error.show", { name: tab.name })}\n\n${error}`, { title: "JustCode", kind: "error" });
+    await message(`${t("error.show", { name: tab.name })}\n\n${error}`, { title: "Codilo", kind: "error" });
   }
 }
 
@@ -1982,7 +1982,7 @@ async function openExternalUrl(url) {
   try {
     await invoke("open_url", { url });
   } catch (error) {
-    await message(`${t("error.openUrl", { url })}\n\n${error}`, { title: "JustCode", kind: "error" });
+    await message(`${t("error.openUrl", { url })}\n\n${error}`, { title: "Codilo", kind: "error" });
   }
 }
 setLinkHandler(openExternalUrl);
@@ -2010,7 +2010,7 @@ async function confirmClose() {
     // Never leave the window un-closable because a dialog failed; say what
     // happened and treat it as "do not close".
     await message(`${t("error.unsavedCheck")}\n\n${error}`, {
-      title: "JustCode",
+      title: "Codilo",
       kind: "error",
     });
     return false;
@@ -2046,7 +2046,7 @@ async function closeWindow() {
     } catch (closeError) {
       closingWindow = false;
       await message(`${t("error.closeWindow")}\n\n${destroyError}\n${closeError}`, {
-        title: "JustCode",
+        title: "Codilo",
         kind: "error",
       });
     }
@@ -2078,7 +2078,7 @@ async function exitApp() {
     await closeAllTerminals();
     await closeWindow();
   } catch (error) {
-    await message(`${error}`, { title: "JustCode", kind: "error" });
+    await message(`${error}`, { title: "Codilo", kind: "error" });
   }
 }
 
@@ -2101,7 +2101,7 @@ if (underTauri()) {
     } catch (error) {
       // An unhandled rejection here would leave the window permanently
       // un-closable, since the close has already been prevented.
-      await message(`${error}`, { title: "JustCode", kind: "error" });
+      await message(`${error}`, { title: "Codilo", kind: "error" });
     }
   });
 }
@@ -2238,7 +2238,7 @@ async function externalTerminal(profile, elevated) {
   try {
     await openExternalTerminal(profile, elevated);
   } catch (error) {
-    await message(`${error}`, { title: "JustCode", kind: "error" });
+    await message(`${error}`, { title: "Codilo", kind: "error" });
   }
 }
 
@@ -2321,7 +2321,7 @@ async function chooseFileAssociations() {
 
       if (failures.length) {
         await message(`${t("assoc.someFailed")}\n\n${failures.join("\n")}`, {
-          title: "JustCode",
+          title: "Codilo",
           kind: "warning",
         });
       }
@@ -2331,7 +2331,7 @@ async function chooseFileAssociations() {
         const open = await ask(
           `${t("assoc.userChoiceBlocked", { list: blocked.join(", ") })}\n\n${t("assoc.openSettings")}`,
           {
-            title: "JustCode",
+            title: "Codilo",
             kind: "info",
             okLabel: t("assoc.openSettingsOk"),
             cancelLabel: t("dialog.cancel"),
@@ -2341,14 +2341,14 @@ async function chooseFileAssociations() {
           try {
             await invoke("open_default_apps_settings");
           } catch (error) {
-            await message(`${error}`, { title: "JustCode", kind: "error" });
+            await message(`${error}`, { title: "Codilo", kind: "error" });
           }
         }
       } else if (!failures.length) {
         flashStatus(t("assoc.applied", { n: wanted.size }));
       }
     } catch (error) {
-      await message(`${error}`, { title: "JustCode", kind: "error" });
+      await message(`${error}`, { title: "Codilo", kind: "error" });
     }
   });
 }
@@ -3620,7 +3620,7 @@ startupReady
 //
 // A sidecar the editor invokes, never a library it links: an agent loop must
 // not be able to take the editor down with it, and must outlive this window.
-// JustCode builds, starts and works with `crates/` deleted, so everything below
+// Codilo builds, starts and works with `crates/` deleted, so everything below
 // degrades to "the harness is not installed" rather than to an error.
 const perpHost = document.getElementById("perp-panel");
 const perpResizer = document.getElementById("perp-resizer");
@@ -3727,7 +3727,7 @@ perp.configure({
     try {
       await invoke("open_in_browser", { path: `${root}/${relative}` });
     } catch (error) {
-      await message(`${error}`, { title: "JustCode", kind: "error" });
+      await message(`${error}`, { title: "Codilo", kind: "error" });
     }
   },
 });
@@ -3934,7 +3934,7 @@ async function reopenActiveTab() {
     const text = await invoke("read_text_file", { path: tab.path });
     putIntoTab(tab, text);
   } catch (error) {
-    await message(`${error}`, { title: "JustCode", kind: "error" });
+    await message(`${error}`, { title: "Codilo", kind: "error" });
   }
 }
 

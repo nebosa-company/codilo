@@ -1247,7 +1247,7 @@ export function showAbout(version) {
   const head = document.createElement("div");
   head.className = "about-head";
   const name = document.createElement("h1");
-  name.textContent = "JustCode";
+  name.textContent = "Codilo";
   head.append(appLogoElement(56), name);
   body.append(head);
 

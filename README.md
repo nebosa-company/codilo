@@ -1,6 +1,6 @@
 <img src="src-tauri/icons/128x128.png" alt="" width="96" align="left" hspace="12" vspace="4">
 
-# JustCode
+# Codilo
 
 **A small, fast code editor for Windows, macOS and Linux.** It opens instantly,
 stays out of the way, and does the things you actually asked a text editor to
@@ -8,11 +8,11 @@ do.
 
 <br clear="left">
 
-![JustCode: the Explorer open on a project, with a Rust file in the editor](docs/screenshot.png)
+![Codilo: the Explorer open on a project, with a Rust file in the editor](docs/screenshot.png)
 
 ## What this is
 
-JustCode is a deliberate reaction to editors that have become platforms. It is
+Codilo is a deliberate reaction to editors that have become platforms. It is
 one native window over a CodeMirror 6 buffer, with a Rust shell doing the file
 dialogs, disk access, terminals and process launching. That is the whole
 architecture.
@@ -35,7 +35,7 @@ architecture.
 
 The tradeoff is honest and worth stating: there is no debugger, no refactoring
 engine and no language-server intelligence. If you want those, use an IDE —
-they are good at it. JustCode is for the other half of the day.
+they are good at it. Codilo is for the other half of the day.
 
 ## Features
 
@@ -89,7 +89,7 @@ start/end, and `PageUp`/`PageDown` (with `Shift` to extend) move by a page.
 | Spell check (off by default) | **View → Spell Check** |
 | Interface language (36) | **View → Language…** |
 | Keyboard shortcuts | `F1` / **Help → Shortcuts** |
-| Version | **Help → About JustCode** |
+| Version | **Help → About Codilo** |
 | Check for a newer version | **Help → New Version** |
 | Find / replace | `Ctrl+F` / `Ctrl+H` |
 | Go to symbol | `Ctrl+Shift+G` / **Edit → Go to Symbol…** — a filterable list of the declarations in the current file. Disabled for a language with no symbol support, such as plain text |
@@ -259,8 +259,8 @@ GitHub does — only run Markdown you trust.
 
 ### Opening files from Explorer
 
-The installer associates JustCode with the source extensions it supports.
-Double-clicking such a file opens it in JustCode; if a window is already open the
+The installer associates Codilo with the source extensions it supports.
+Double-clicking such a file opens it in Codilo; if a window is already open the
 file joins it as a new tab rather than starting a second copy. Files can also be
 passed on the command line.
 
@@ -334,7 +334,7 @@ Two things worth knowing. Types another program already handles are marked with
 that program's name and left unticked, so clicking through the screen cannot
 quietly take `.pas` away from Delphi. And where Windows has recorded your own
 choice for a type (its hash-protected `UserChoice` key, which applications are
-not permitted to forge), that choice stands — JustCode is added to the "Open
+not permitted to forge), that choice stands — Codilo is added to the "Open
 with" list instead of becoming the default.
 
 The **installer** registers the same file types up front, and its list is
@@ -346,7 +346,7 @@ npm run check:associations   # fail if it has drifted from the registry
 ```
 
 Both the installer and the in-app screen write the same per-extension ProgID
-(`JustCode.<ext>`), so toggling a type in the app cleanly overrides what the
+(`Codilo.<ext>`), so toggling a type in the app cleanly overrides what the
 installer registered instead of leaving a second, competing entry behind.
 
 ## The Explorer

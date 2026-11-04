@@ -4,12 +4,12 @@
 // One entry per extension rather than one lump entry, for two reasons:
 //
 //  - The ProgID the installer writes is the entry's `name`. Naming each one
-//    `JustCode.<ext>` makes it identical to what the in-app File Associations
+//    `Codilo.<ext>` makes it identical to what the in-app File Associations
 //    screen writes, so the two agree instead of leaving competing ProgIDs
 //    behind for the same extension.
 //  - `description` becomes the type name Explorer shows. Per-extension entries
 //    give "Object Pascal unit" and "Terraform config" instead of the same
-//    "Source file edited with JustCode" against every type.
+//    "Source file edited with Codilo" against every type.
 //
 //     node tools/sync-associations.mjs          # rewrite
 //     node tools/sync-associations.mjs --check   # report drift, change nothing
@@ -29,7 +29,7 @@ const associations = associationGroups()
   .flatMap((group) => group.extensions)
   .map((entry) => ({
     ext: [entry.extension],
-    name: `JustCode.${entry.extension}`,
+    name: `Codilo.${entry.extension}`,
     description: entry.label,
     role: "Editor",
   }))
@@ -59,7 +59,7 @@ fs.writeFileSync(confPath, `${JSON.stringify(conf, null, 2)}\n`, "utf8");
 //
 // Tauri's NSIS association macro writes the open command *unquoted*:
 //
-//     D:\Program Files\JustCode\justcode.exe "%1"
+//     D:\Program Files\Codilo\codilo.exe "%1"
 //
 // With a space in the path, CreateProcess tries `D:\Program.exe` before the real
 // executable. The root of a non-system drive is usually writable without
@@ -79,28 +79,28 @@ const lines = associations.flatMap(({ ext: [extension], name }) => [
 // Windows builds the "Open with" list from `Classes\Applications\<exe>` and the
 // Settings ▸ Default apps page from `RegisteredApplications`. Tauri registers
 // neither, so the app is missing from every picker — and a file type it is not
-// already the default for opens the chooser *without JustCode in it*.
+// already the default for opens the chooser *without Codilo in it*.
 const appLines = [
-  `  WriteRegStr SHELL_CONTEXT "Software\\Classes\\Applications\\\${MAINBINARYNAME}.exe" "FriendlyAppName" "JustCode"`,
+  `  WriteRegStr SHELL_CONTEXT "Software\\Classes\\Applications\\\${MAINBINARYNAME}.exe" "FriendlyAppName" "Codilo"`,
   `  WriteRegStr SHELL_CONTEXT "Software\\Classes\\Applications\\\${MAINBINARYNAME}.exe\\DefaultIcon" "" '"$INSTDIR\\\${MAINBINARYNAME}.exe",0'`,
   `  WriteRegStr SHELL_CONTEXT "Software\\Classes\\Applications\\\${MAINBINARYNAME}.exe\\shell\\open\\command" "" '"$INSTDIR\\\${MAINBINARYNAME}.exe" "%1"'`,
   ...associations.map(
     ({ ext: [extension] }) =>
       `  WriteRegStr SHELL_CONTEXT "Software\\Classes\\Applications\\\${MAINBINARYNAME}.exe\\SupportedTypes" ".${extension}" ""`,
   ),
-  `  WriteRegStr SHELL_CONTEXT "Software\\JustCode\\Capabilities" "ApplicationName" "JustCode"`,
-  `  WriteRegStr SHELL_CONTEXT "Software\\JustCode\\Capabilities" "ApplicationDescription" "A small, fast code editor"`,
-  `  WriteRegStr SHELL_CONTEXT "Software\\JustCode\\Capabilities" "ApplicationIcon" '"$INSTDIR\\\${MAINBINARYNAME}.exe",0'`,
+  `  WriteRegStr SHELL_CONTEXT "Software\\Codilo\\Capabilities" "ApplicationName" "Codilo"`,
+  `  WriteRegStr SHELL_CONTEXT "Software\\Codilo\\Capabilities" "ApplicationDescription" "A small, fast code editor"`,
+  `  WriteRegStr SHELL_CONTEXT "Software\\Codilo\\Capabilities" "ApplicationIcon" '"$INSTDIR\\\${MAINBINARYNAME}.exe",0'`,
   ...associations.map(
     ({ ext: [extension], name }) =>
-      `  WriteRegStr SHELL_CONTEXT "Software\\JustCode\\Capabilities\\FileAssociations" ".${extension}" "${name}"`,
+      `  WriteRegStr SHELL_CONTEXT "Software\\Codilo\\Capabilities\\FileAssociations" ".${extension}" "${name}"`,
   ),
-  `  WriteRegStr SHELL_CONTEXT "Software\\RegisteredApplications" "JustCode" "Software\\JustCode\\Capabilities"`,
+  `  WriteRegStr SHELL_CONTEXT "Software\\RegisteredApplications" "Codilo" "Software\\Codilo\\Capabilities"`,
 ];
 
 // Tauri writes DisplayIcon and InstallLocation *quoted*:
 //
-//     DisplayIcon = "D:\Program Files\JustCode\justcode.exe"
+//     DisplayIcon = "D:\Program Files\Codilo\codilo.exe"
 //
 // Neither value is a command line, so nothing unquotes them. Add/Remove Programs
 // asks the icon loader for a file literally named `"D:\Program`, gets nothing,
@@ -121,18 +121,18 @@ const arpLines = [
 // ProgIDs keep pointing at a deleted executable, so double-clicking a `.go`
 // file after uninstalling does nothing at all.
 const unregisterLines = associations.map(
-  ({ ext: [extension] }) => `  !insertmacro JC_UNREGISTER_EXT "${extension}"`,
+  ({ ext: [extension] }) => `  !insertmacro CODILO_UNREGISTER_EXT "${extension}"`,
 );
 
 // Tauri stashes the handler it displaced under `<ProgID>_backup`, but does not
 // check whether that handler is *itself* — so the second install over the first
-// records `JustCode.go_backup = JustCode.go`. Restoring from that on uninstall
+// records `Codilo.go_backup = Codilo.go`. Restoring from that on uninstall
 // would aim the file type at a ProgID the uninstaller had just deleted. Copy a
-// genuine previous owner into our own `JustCode.previous` (which the app never
+// genuine previous owner into our own `Codilo.previous` (which the app never
 // overwrites with itself, so it survives upgrades) and discard the self-
 // referential ones.
 const preserveLines = associations.map(
-  ({ ext: [extension] }) => `  !insertmacro JC_PRESERVE_PRIOR_OWNER "${extension}"`,
+  ({ ext: [extension] }) => `  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "${extension}"`,
 );
 
 const hook = `; Generated by tools/sync-associations.mjs — do not edit by hand.
@@ -142,7 +142,7 @@ const hook = `; Generated by tools/sync-associations.mjs — do not edit by hand
 ;  1. It writes the open command without quoting the executable path. With a
 ;     space in the path ("Program Files"), Windows tries "D:\\Program.exe"
 ;     first — a hijack a non-admin user can usually set up on a second drive.
-;  2. It never registers the application itself, so JustCode does not appear in
+;  2. It never registers the application itself, so Codilo does not appear in
 ;     the "Open with" picker or in Settings > Default apps.
 ;  3. It quotes DisplayIcon and InstallLocation in the uninstall key, so
 ;     Add/Remove Programs cannot load the icon and shows a blank row.
@@ -150,29 +150,29 @@ const hook = `; Generated by tools/sync-associations.mjs — do not edit by hand
 ;     executable after an uninstall.
 
 ; Rescues the displaced handler Tauri recorded, ignoring the case where it
-; "displaced" JustCode itself — see the note in tools/sync-associations.mjs.
-!macro JC_PRESERVE_PRIOR_OWNER EXT
-  ReadRegStr $R0 SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "JustCode.\${EXT}_backup"
-  \${If} $R0 == "JustCode.\${EXT}"
-    DeleteRegValue SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "JustCode.\${EXT}_backup"
+; "displaced" Codilo itself — see the note in tools/sync-associations.mjs.
+!macro CODILO_PRESERVE_PRIOR_OWNER EXT
+  ReadRegStr $R0 SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "Codilo.\${EXT}_backup"
+  \${If} $R0 == "Codilo.\${EXT}"
+    DeleteRegValue SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "Codilo.\${EXT}_backup"
   \${ElseIf} $R0 != ""
-    ReadRegStr $R1 SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "JustCode.previous"
+    ReadRegStr $R1 SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "Codilo.previous"
     \${If} $R1 == ""
-      WriteRegStr SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "JustCode.previous" "$R0"
+      WriteRegStr SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "Codilo.previous" "$R0"
     \${EndIf}
   \${EndIf}
 !macroend
 
 ; Undoes everything this installer wrote for one extension, restoring the
-; handler that owned the type before JustCode took it where we recorded one.
-!macro JC_UNREGISTER_EXT EXT
+; handler that owned the type before Codilo took it where we recorded one.
+!macro CODILO_UNREGISTER_EXT EXT
   ReadRegStr $R0 SHELL_CONTEXT "Software\\Classes\\.\${EXT}" ""
-  \${If} $R0 == "JustCode.\${EXT}"
-    ReadRegStr $R1 SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "JustCode.previous"
+  \${If} $R0 == "Codilo.\${EXT}"
+    ReadRegStr $R1 SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "Codilo.previous"
     ; Fall back to Tauri's own record, unless it names us.
     \${If} $R1 == ""
-      ReadRegStr $R1 SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "JustCode.\${EXT}_backup"
-      \${If} $R1 == "JustCode.\${EXT}"
+      ReadRegStr $R1 SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "Codilo.\${EXT}_backup"
+      \${If} $R1 == "Codilo.\${EXT}"
         StrCpy $R1 ""
       \${EndIf}
     \${EndIf}
@@ -182,11 +182,11 @@ const hook = `; Generated by tools/sync-associations.mjs — do not edit by hand
       WriteRegStr SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "" "$R1"
     \${EndIf}
   \${EndIf}
-  DeleteRegValue SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "JustCode.previous"
-  DeleteRegValue SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "JustCode.\${EXT}_backup"
-  DeleteRegValue SHELL_CONTEXT "Software\\Classes\\.\${EXT}\\OpenWithProgids" "JustCode.\${EXT}"
-  DeleteRegKey SHELL_CONTEXT "Software\\Classes\\JustCode.\${EXT}"
-  DeleteRegValue HKCU "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.\${EXT}\\OpenWithProgids" "JustCode.\${EXT}"
+  DeleteRegValue SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "Codilo.previous"
+  DeleteRegValue SHELL_CONTEXT "Software\\Classes\\.\${EXT}" "Codilo.\${EXT}_backup"
+  DeleteRegValue SHELL_CONTEXT "Software\\Classes\\.\${EXT}\\OpenWithProgids" "Codilo.\${EXT}"
+  DeleteRegKey SHELL_CONTEXT "Software\\Classes\\Codilo.\${EXT}"
+  DeleteRegValue HKCU "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.\${EXT}\\OpenWithProgids" "Codilo.\${EXT}"
 !macroend
 
 !macro NSIS_HOOK_POSTINSTALL
@@ -216,13 +216,13 @@ ${unregisterLines.join("\n")}
   Pop $R0
 
   DeleteRegKey SHELL_CONTEXT "Software\\Classes\\Applications\\\${MAINBINARYNAME}.exe"
-  DeleteRegValue SHELL_CONTEXT "Software\\RegisteredApplications" "JustCode"
-  DeleteRegKey SHELL_CONTEXT "Software\\JustCode\\Capabilities"
+  DeleteRegValue SHELL_CONTEXT "Software\\RegisteredApplications" "Codilo"
+  DeleteRegKey SHELL_CONTEXT "Software\\Codilo\\Capabilities"
   ; NSIS parks the chosen installer language under Software\<publisher>\<product>
   ; and never removes it, which also keeps the publisher key alive.
   DeleteRegKey SHELL_CONTEXT "Software\\\${MANUFACTURER}\\\${PRODUCTNAME}"
   DeleteRegKey /ifempty SHELL_CONTEXT "Software\\\${MANUFACTURER}"
-  DeleteRegKey /ifempty SHELL_CONTEXT "Software\\JustCode"
+  DeleteRegKey /ifempty SHELL_CONTEXT "Software\\Codilo"
 
   System::Call 'shell32::SHChangeNotify(i 0x08000000, i 0, i 0, i 0)'
 !macroend

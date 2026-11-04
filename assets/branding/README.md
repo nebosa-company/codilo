@@ -6,4 +6,4 @@ so a future redesign starts from the source rather than from an exported icon.
 
 | File | Size | Notes |
 | --- | --- | --- |
-| `justcode-logo-sheet.png` | 1024×559 | "jc" monogram wordmark, shown at four sizes on a light background. Not the icon currently shipped. |
+| `codilo.svg` | 512×512 | Blue rounded tile with the white italic C. Vector source of truth for the app mark. |

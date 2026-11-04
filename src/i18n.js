@@ -209,13 +209,13 @@ export const EN = {
   "help.shortcuts": "Shortcuts",
   "help.autismTheme": "Autism Theme",
   "help.bionicReading": "Bionic Reading",
-  "help.about": "About JustCode",
+  "help.about": "About Codilo",
   "help.newVersion": "New Version…",
-  "update.upToDate": "JustCode {version} is the newest version.",
-  "update.available": "JustCode {latest} is out. You are running {current}. Download it now?",
+  "update.upToDate": "Codilo {version} is the newest version.",
+  "update.available": "Codilo {latest} is out. You are running {current}. Download it now?",
   "update.download": "Download",
   "update.downloading": "Downloading {name}…",
-  "update.installQuestion": "{name} has been downloaded. Install it now? JustCode closes so the installer can replace it.",
+  "update.installQuestion": "{name} has been downloaded. Install it now? Codilo closes so the installer can replace it.",
   "update.install": "Install",
   "update.reveal": "Show File",
   "update.noAsset": "Release {version} has no installer for this system.",
@@ -334,9 +334,9 @@ export const EN = {
   "assoc.selectAll": "Select All",
   "assoc.unselectAll": "Unselect All",
   "assoc.apply": "Apply",
-  "assoc.intro": "Choose which file types open in JustCode.",
+  "assoc.intro": "Choose which file types open in Codilo.",
   "assoc.defaultsNote":
-    "Ticked types will open in JustCode. Types another program already handles are marked and left unticked. Where Windows has recorded your own choice for a type, that choice stays and JustCode is only added to the \"Open with\" list.",
+    "Ticked types will open in Codilo. Types another program already handles are marked and left unticked. Where Windows has recorded your own choice for a type, that choice stays and Codilo is only added to the \"Open with\" list.",
   "assoc.currently": "— currently {owner}",
   "assoc.applied": "{n} file type(s) associated",
   "assoc.someFailed": "Some file types could not be registered:",
@@ -345,7 +345,7 @@ export const EN = {
   "assoc.openSettings": "Open Windows default-app settings now?",
   "assoc.openSettingsOk": "Open Settings",
   "modal.shortcutsTitle": "Keyboard shortcuts",
-  "modal.aboutTitle": "About JustCode",
+  "modal.aboutTitle": "About Codilo",
   "modal.languageTitle": "Language",
   "modal.close": "Close (Escape)",
   "about.tagline": "A small, fast code editor.",
@@ -390,7 +390,7 @@ export const EN = {
 
   "help.overviewTitle": "Overview",
   "help.overviewIntro":
-    "JustCode is a small, fast editor for HTML, CSS, JavaScript and general text or code — built to open quickly and stay out of the way, not to replace a full IDE.",
+    "Codilo is a small, fast editor for HTML, CSS, JavaScript and general text or code — built to open quickly and stay out of the way, not to replace a full IDE.",
   "help.overviewPoint1":
     "Files open as tabs in one window; open a folder when you want one, but nothing has to be set up first.",
   "help.overviewPoint2": "Press F1 any time for the full keyboard shortcut reference.",
@@ -403,7 +403,7 @@ export const EN = {
     "Save (Ctrl+S) and Save As (Ctrl+Shift+S) write straight to disk; Save All (Ctrl+Alt+S) covers every changed tab in one go.",
   "help.filesPoint3": "File ▸ Recent Files remembers the last 15 files across restarts.",
   "help.filesPoint4":
-    "File ▸ File Associations… registers JustCode with Windows so it appears as an \"Open with\" option — or the default — for the file types it understands.",
+    "File ▸ File Associations… registers Codilo with Windows so it appears as an \"Open with\" option — or the default — for the file types it understands.",
 
   "help.editingTitle": "Editing",
   "help.editingIntro": "Standard editing, plus a few extras beyond cut, copy, paste, undo and redo.",
@@ -470,7 +470,7 @@ export const EN = {
 
   "help.languageTitle": "Interface Language",
   "help.languageIntro":
-    "The language of JustCode's own menus and dialogs — independent of any file's content or programming language.",
+    "The language of Codilo's own menus and dialogs — independent of any file's content or programming language.",
   "help.languagePoint1":
     "View ▸ Language… lists every translation by its own name rather than its English name, since \"German\" is no help to someone who only reads Deutsch.",
   "help.languagePoint2": "English is built in; every other language downloads the first time it's selected.",

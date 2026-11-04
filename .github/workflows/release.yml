@@ -1,6 +1,6 @@
 name: Release
 
-# Builds the JustCode installer for Windows, Linux, and macOS and publishes
+# Builds the Codilo installer for Windows, Linux, and macOS and publishes
 # them as assets on a GitHub Release. Triggered by pushing a version tag:
 #
 #   git tag v0.1.0
@@ -88,7 +88,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tagName: ${{ github.ref_name }}
-          releaseName: "JustCode ${{ github.ref_name }}"
+          releaseName: "Codilo ${{ github.ref_name }}"
           releaseBody: "Automated build from ${{ github.ref_name }}. Download the installer for your platform below."
           releaseDraft: false
           prerelease: false

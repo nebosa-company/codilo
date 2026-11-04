@@ -21,7 +21,7 @@ import { invoke } from "@tauri-apps/api/core";
 import { ask, message } from "@tauri-apps/plugin-dialog";
 import { t } from "./i18n.js";
 
-const LATEST_RELEASE = "https://api.github.com/repos/nebosa-company/justcode/releases/latest";
+const LATEST_RELEASE = "https://api.github.com/repos/nebosa-company/codilo/releases/latest";
 
 // The installer to look for, per platform, best first. Windows gets the NSIS
 // setup rather than the .msi because that is the one the workflow publishes as
@@ -111,8 +111,8 @@ export async function checkForNewVersion(currentVersion, { flash, quit }) {
   }
 
   // "Install" hands the file to the system and leaves: on Windows the setup
-  // cannot replace a running JustCode, and on the other two the installer is
-  // not JustCode's to drive. Declining still leaves the download in place, so
+  // cannot replace a running Codilo, and on the other two the installer is
+  // not Codilo's to drive. Declining still leaves the download in place, so
   // the other button opens the folder rather than throwing the work away.
   const install = await ask(t("update.installQuestion", { name: installer.name }), {
     title,

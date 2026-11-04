@@ -258,7 +258,7 @@ test("no string is written in English at the point it is shown", () => {
   // Names are not prose and stay as they are: a language is called Rust in
   // every language, and so are the shells and the product.
   const NAMES = new Set([
-    "JustCode", "Perpetum", "HTML", "CSS", "JavaScript", "TypeScript",
+    "Codilo", "Perpetum", "HTML", "CSS", "JavaScript", "TypeScript",
     "JavaScript (JSX)", "TypeScript (TSX)", "Markdown", "Python", "Java",
     "Kotlin", "Swift", "TOML", "Protocol Buffers", "Go", "Rust", "JSON",
     "YAML", "XML", "SQL", "SQL (SQLite)", "SQL (MySQL)", "SQL (PostgreSQL)",

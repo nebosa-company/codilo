@@ -60,13 +60,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "نقل علامة التبويب يمينًا",
     "tabs.moveToStart": "نقل علامة التبويب إلى البداية",
     "help.shortcuts": "الاختصارات",
-    "help.about": "حول JustCode",
+    "help.about": "حول Codilo",
     "help.newVersion": "إصدار جديد…",
-    "update.upToDate": "JustCode {version} هو أحدث إصدار.",
-    "update.available": "صدر JustCode {latest}. أنت تستخدم {current}. هل تريد تنزيله الآن؟",
+    "update.upToDate": "Codilo {version} هو أحدث إصدار.",
+    "update.available": "صدر Codilo {latest}. أنت تستخدم {current}. هل تريد تنزيله الآن؟",
     "update.download": "تنزيل",
     "update.downloading": "جارٍ تنزيل {name}…",
-    "update.installQuestion": "تم تنزيل {name}. هل تريد تثبيته الآن؟ سيُغلق JustCode ليتمكن المثبّت من استبداله.",
+    "update.installQuestion": "تم تنزيل {name}. هل تريد تثبيته الآن؟ سيُغلق Codilo ليتمكن المثبّت من استبداله.",
     "update.install": "تثبيت",
     "update.reveal": "إظهار الملف",
     "update.noAsset": "الإصدار {version} لا يحتوي على مثبّت لهذا النظام.",
@@ -153,8 +153,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "تحديد الكل",
     "assoc.unselectAll": "إلغاء تحديد الكل",
     "assoc.apply": "تطبيق",
-    "assoc.intro": "اختر أنواع الملفات التي تُفتح في JustCode.",
-    "assoc.defaultsNote": "ستُفتح الأنواع المحددة في JustCode. أما الأنواع التي يتولاها برنامج آخر بالفعل فتظهر معلَّمة وتبقى غير محددة. وإذا كان Windows قد سجّل اختيارك الخاص لأحد الأنواع، فسيبقى هذا الاختيار كما هو ويُضاف JustCode إلى قائمة \"فتح باستخدام\" فقط.",
+    "assoc.intro": "اختر أنواع الملفات التي تُفتح في Codilo.",
+    "assoc.defaultsNote": "ستُفتح الأنواع المحددة في Codilo. أما الأنواع التي يتولاها برنامج آخر بالفعل فتظهر معلَّمة وتبقى غير محددة. وإذا كان Windows قد سجّل اختيارك الخاص لأحد الأنواع، فسيبقى هذا الاختيار كما هو ويُضاف Codilo إلى قائمة \"فتح باستخدام\" فقط.",
     "assoc.currently": "— حاليًا {owner}",
     "assoc.applied": "تم إقران {n} من أنواع الملفات",
     "assoc.someFailed": "تعذّر تسجيل بعض أنواع الملفات:",
@@ -162,7 +162,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "هل تريد فتح إعدادات التطبيقات الافتراضية في Windows الآن؟",
     "assoc.openSettingsOk": "فتح الإعدادات",
     "modal.shortcutsTitle": "اختصارات لوحة المفاتيح",
-    "modal.aboutTitle": "حول JustCode",
+    "modal.aboutTitle": "حول Codilo",
     "modal.languageTitle": "اللغة",
     "modal.close": "إغلاق (Escape)",
     "about.tagline": "محرر شيفرة صغير وسريع.",
@@ -318,20 +318,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "نظرة عامة",
     "help.overviewIntro":
-      "JustCode محرر صغير وسريع لملفات HTML وCSS وJavaScript والنصوص والشيفرات العامة — صُمم ليُفتح بسرعة ويبقى بعيدًا عن الطريق، لا ليحل محل بيئة تطوير متكاملة.",
+      "Codilo محرر صغير وسريع لملفات HTML وCSS وJavaScript والنصوص والشيفرات العامة — صُمم ليُفتح بسرعة ويبقى بعيدًا عن الطريق، لا ليحل محل بيئة تطوير متكاملة.",
     "help.overviewPoint1":
       "تُفتح الملفات كعلامات تبويب في نافذة واحدة؛ لا يوجد مشروع أو مساحة عمل يجب إعدادها أولًا.",
     "help.overviewPoint2": "اضغط F1 في أي وقت لعرض المرجع الكامل لاختصارات لوحة المفاتيح.",
 
     "help.filesTitle": "الملفات",
-    "help.filesIntro": "تُفتح الملفات كعلامات تبويب؛ ليس لدى JustCode مفهوم مشروع أو مساحة عمل.",
+    "help.filesIntro": "تُفتح الملفات كعلامات تبويب؛ ليس لدى Codilo مفهوم مشروع أو مساحة عمل.",
     "help.filesPoint1":
       "ملف جديد (Ctrl+N) يقدّم قوالب بداية للعديد من اللغات، أو مستندًا فارغًا؛ فتح… (Ctrl+O) يقبل عدة ملفات دفعة واحدة.",
     "help.filesPoint2":
       "حفظ (Ctrl+S) وحفظ باسم (Ctrl+Shift+S) يكتبان مباشرة على القرص؛ حفظ الكل (Ctrl+Alt+S) يشمل كل علامة تبويب تم تعديلها دفعة واحدة.",
     "help.filesPoint3": "ملف ▸ الملفات الأخيرة يتذكر آخر 15 ملفًا عبر إعادة التشغيل.",
     "help.filesPoint4":
-      "ملف ▸ ارتباطات الملفات… يسجّل JustCode لدى ويندوز بحيث يظهر كخيار \"فتح باستخدام\" — أو كالتطبيق الافتراضي — لأنواع الملفات التي يفهمها.",
+      "ملف ▸ ارتباطات الملفات… يسجّل Codilo لدى ويندوز بحيث يظهر كخيار \"فتح باستخدام\" — أو كالتطبيق الافتراضي — لأنواع الملفات التي يفهمها.",
 
     "help.editingTitle": "التحرير",
     "help.editingIntro": "تحرير قياسي، بالإضافة إلى بعض الإضافات إلى جانب القص والنسخ واللصق والتراجع والإعادة.",
@@ -398,7 +398,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "لغة الواجهة",
     "help.languageIntro":
-      "لغة قوائم JustCode وحواراته الخاصة — مستقلة عن محتوى أي ملف أو لغة البرمجة المستخدمة فيه.",
+      "لغة قوائم Codilo وحواراته الخاصة — مستقلة عن محتوى أي ملف أو لغة البرمجة المستخدمة فيه.",
     "help.languagePoint1":
       "عرض ▸ اللغة… يسرد كل ترجمة باسمها الخاص بدلًا من اسمها بالإنجليزية، لأن \"German\" لا تفيد من لا يقرأ إلا الألمانية.",
     "help.languagePoint2": "الإنجليزية مدمجة؛ أي لغة أخرى تُنزَّل عند اختيارها لأول مرة.",
@@ -619,13 +619,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Премести раздела надясно",
     "tabs.moveToStart": "Премести раздела в началото",
     "help.shortcuts": "Клавишни комбинации",
-    "help.about": "За JustCode",
+    "help.about": "За Codilo",
     "help.newVersion": "Нова версия…",
-    "update.upToDate": "JustCode {version} е най-новата версия.",
-    "update.available": "Излезе JustCode {latest}. Използвате {current}. Да се изтегли ли сега?",
+    "update.upToDate": "Codilo {version} е най-новата версия.",
+    "update.available": "Излезе Codilo {latest}. Използвате {current}. Да се изтегли ли сега?",
     "update.download": "Изтегляне",
     "update.downloading": "Изтегляне на {name}…",
-    "update.installQuestion": "{name} е изтеглен. Да се инсталира ли сега? JustCode ще се затвори, за да може инсталаторът да го замени.",
+    "update.installQuestion": "{name} е изтеглен. Да се инсталира ли сега? Codilo ще се затвори, за да може инсталаторът да го замени.",
     "update.install": "Инсталиране",
     "update.reveal": "Показване на файла",
     "update.noAsset": "Издание {version} няма инсталатор за тази система.",
@@ -712,8 +712,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Избери всички",
     "assoc.unselectAll": "Отмени избора",
     "assoc.apply": "Приложи",
-    "assoc.intro": "Изберете кои типове файлове да се отварят с JustCode.",
-    "assoc.defaultsNote": "Отметнатите типове ще се отварят в JustCode. Типовете, които вече се обработват от друга програма, са откроени и остават без отметка. Ако Windows е запомнил вашия собствен избор за даден тип, този избор се запазва, а JustCode само се добавя към списъка „Отваряне с“.",
+    "assoc.intro": "Изберете кои типове файлове да се отварят с Codilo.",
+    "assoc.defaultsNote": "Отметнатите типове ще се отварят в Codilo. Типовете, които вече се обработват от друга програма, са откроени и остават без отметка. Ако Windows е запомнил вашия собствен избор за даден тип, този избор се запазва, а Codilo само се добавя към списъка „Отваряне с“.",
     "assoc.currently": "— в момента {owner}",
     "assoc.applied": "Свързани типове файлове: {n}",
     "assoc.someFailed": "Някои типове файлове не можаха да бъдат регистрирани:",
@@ -721,7 +721,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Да се отворят ли настройките на Windows за приложения по подразбиране?",
     "assoc.openSettingsOk": "Отваряне на Настройки",
     "modal.shortcutsTitle": "Клавишни комбинации",
-    "modal.aboutTitle": "За JustCode",
+    "modal.aboutTitle": "За Codilo",
     "modal.languageTitle": "Език",
     "modal.close": "Затваряне (Escape)",
     "about.tagline": "Малък и бърз редактор на код.",
@@ -877,20 +877,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Общ преглед",
     "help.overviewIntro":
-      "JustCode е малък, бърз редактор за HTML, CSS, JavaScript и общ текст или код — създаден да се отваря бързо и да не пречи, а не да замества пълноценна среда за разработка.",
+      "Codilo е малък, бърз редактор за HTML, CSS, JavaScript и общ текст или код — създаден да се отваря бързо и да не пречи, а не да замества пълноценна среда за разработка.",
     "help.overviewPoint1":
       "Файловете се отварят като раздели в един прозорец; няма проект или работно пространство за първоначално настройване.",
     "help.overviewPoint2": "Натиснете F1 по всяко време за пълния справочник с клавишни комбинации.",
 
     "help.filesTitle": "Файлове",
-    "help.filesIntro": "Файловете се отварят като раздели; JustCode няма концепция за проект или работно пространство.",
+    "help.filesIntro": "Файловете се отварят като раздели; Codilo няма концепция за проект или работно пространство.",
     "help.filesPoint1":
       "Нов файл (Ctrl+N) предлага начални шаблони за много езици или празен документ; Отваряне… (Ctrl+O) приема няколко файла наведнъж.",
     "help.filesPoint2":
       "Запазване (Ctrl+S) и Запазване като (Ctrl+Shift+S) записват направо на диска; Запазване на всички (Ctrl+Alt+S) обхваща всички променени раздели наведнъж.",
     "help.filesPoint3": "Файл ▸ Скорошни файлове помни последните 15 файла между рестартирания.",
     "help.filesPoint4":
-      "Файл ▸ Файлови асоциации… регистрира JustCode в Windows, за да се появява като опция „Отваряне с“ — или като по подразбиране — за типовете файлове, които разпознава.",
+      "Файл ▸ Файлови асоциации… регистрира Codilo в Windows, за да се появява като опция „Отваряне с“ — или като по подразбиране — за типовете файлове, които разпознава.",
 
     "help.editingTitle": "Редактиране",
     "help.editingIntro": "Стандартно редактиране плюс няколко екстри освен изрязване, копиране, поставяне, отмяна и повторение.",
@@ -957,7 +957,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Език на интерфейса",
     "help.languageIntro":
-      "Езикът на собствените менюта и диалози на JustCode — независим от съдържанието или езика за програмиране на който и да е файл.",
+      "Езикът на собствените менюта и диалози на Codilo — независим от съдържанието или езика за програмиране на който и да е файл.",
     "help.languagePoint1":
       "Изглед ▸ Език… изброява всеки превод с неговото собствено име, а не английското му име, тъй като „German“ не помага на някого, който чете само немски.",
     "help.languagePoint2": "Английският е вграден; всеки друг език се изтегля при първото си избиране.",
@@ -1178,13 +1178,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "向右移动选项卡",
     "tabs.moveToStart": "将选项卡移到开头",
     "help.shortcuts": "快捷键",
-    "help.about": "关于 JustCode",
+    "help.about": "关于 Codilo",
     "help.newVersion": "新版本…",
-    "update.upToDate": "JustCode {version} 已是最新版本。",
-    "update.available": "JustCode {latest} 已发布，你正在使用 {current}。现在下载吗？",
+    "update.upToDate": "Codilo {version} 已是最新版本。",
+    "update.available": "Codilo {latest} 已发布，你正在使用 {current}。现在下载吗？",
     "update.download": "下载",
     "update.downloading": "正在下载 {name}…",
-    "update.installQuestion": "{name} 已下载完成。现在安装吗？JustCode 将关闭，以便安装程序替换它。",
+    "update.installQuestion": "{name} 已下载完成。现在安装吗？Codilo 将关闭，以便安装程序替换它。",
     "update.install": "安装",
     "update.reveal": "显示文件",
     "update.noAsset": "版本 {version} 没有适用于本系统的安装包。",
@@ -1271,8 +1271,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "全选",
     "assoc.unselectAll": "取消全选",
     "assoc.apply": "应用",
-    "assoc.intro": "选择要用JustCode打开的文件类型。",
-    "assoc.defaultsNote": "勾选的类型将在 JustCode 中打开。已由其他程序处理的类型会标记出来，并保持未勾选状态。如果 Windows 已记录你对某个类型的选择，该选择将保持不变，JustCode 只会被添加到“打开方式”列表中。",
+    "assoc.intro": "选择要用Codilo打开的文件类型。",
+    "assoc.defaultsNote": "勾选的类型将在 Codilo 中打开。已由其他程序处理的类型会标记出来，并保持未勾选状态。如果 Windows 已记录你对某个类型的选择，该选择将保持不变，Codilo 只会被添加到“打开方式”列表中。",
     "assoc.currently": "— 当前为 {owner}",
     "assoc.applied": "已关联 {n} 种文件类型",
     "assoc.someFailed": "部分文件类型无法注册：",
@@ -1280,7 +1280,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "立即打开 Windows 默认应用设置？",
     "assoc.openSettingsOk": "打开设置",
     "modal.shortcutsTitle": "键盘快捷键",
-    "modal.aboutTitle": "关于 JustCode",
+    "modal.aboutTitle": "关于 Codilo",
     "modal.languageTitle": "语言",
     "modal.close": "关闭（Escape）",
     "about.tagline": "小巧快速的代码编辑器。",
@@ -1435,18 +1435,18 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "概览",
     "help.overviewIntro":
-      "JustCode 是一款小巧快速的编辑器，适用于 HTML、CSS、JavaScript 以及一般文本或代码——它旨在快速打开、不碍事，而非取代完整的 IDE。",
+      "Codilo 是一款小巧快速的编辑器，适用于 HTML、CSS、JavaScript 以及一般文本或代码——它旨在快速打开、不碍事，而非取代完整的 IDE。",
     "help.overviewPoint1": "文件以标签页形式在单一窗口中打开；无需先设置项目或工作区。",
     "help.overviewPoint2": "随时按 F1 可查看完整的键盘快捷键参考。",
 
     "help.filesTitle": "文件",
-    "help.filesIntro": "文件以标签页形式打开；JustCode 没有项目或工作区的概念。",
+    "help.filesIntro": "文件以标签页形式打开；Codilo 没有项目或工作区的概念。",
     "help.filesPoint1":
       "“新建文件”（Ctrl+N）为多种语言提供起始模板，或创建空白文档；“打开…”（Ctrl+O）可一次接受多个文件。",
     "help.filesPoint2":
       "“保存”（Ctrl+S）和“另存为”（Ctrl+Shift+S）会直接写入磁盘；“全部保存”（Ctrl+Alt+S）一次性覆盖所有已修改的标签页。",
     "help.filesPoint3": "“文件 ▸ 最近文件”会记住重启后最近打开的 15 个文件。",
-    "help.filesPoint4": "“文件 ▸ 文件关联…”会向 Windows 注册 JustCode，使其在其支持的文件类型中作为“打开方式”选项——或作为默认程序——出现。",
+    "help.filesPoint4": "“文件 ▸ 文件关联…”会向 Windows 注册 Codilo，使其在其支持的文件类型中作为“打开方式”选项——或作为默认程序——出现。",
 
     "help.editingTitle": "编辑",
     "help.editingIntro": "标准编辑功能，外加剪切、复制、粘贴、撤销、重做之外的一些附加功能。",
@@ -1497,7 +1497,7 @@ export const TRANSLATIONS = {
     "help.spellCheckPoint2": "可通过“查看 ▸ 拼写检查”切换。",
 
     "help.languageTitle": "界面语言",
-    "help.languageIntro": "JustCode 自身菜单和对话框所使用的语言——与任何文件的内容或所用编程语言无关。",
+    "help.languageIntro": "Codilo 自身菜单和对话框所使用的语言——与任何文件的内容或所用编程语言无关。",
     "help.languagePoint1": "“查看 ▸ 语言…”会以每种语言自身的名称列出翻译，而非其英文名称，因为对只会读中文的人来说，“German”毫无帮助。",
     "help.languagePoint2": "内置英语；其他语言会在首次选择时下载。",
 
@@ -1717,13 +1717,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "向右移動索引標籤",
     "tabs.moveToStart": "將索引標籤移到開頭",
     "help.shortcuts": "快速鍵",
-    "help.about": "關於 JustCode",
+    "help.about": "關於 Codilo",
     "help.newVersion": "新版本…",
-    "update.upToDate": "JustCode {version} 已是最新版本。",
-    "update.available": "JustCode {latest} 已發布，你正在使用 {current}。要立即下載嗎？",
+    "update.upToDate": "Codilo {version} 已是最新版本。",
+    "update.available": "Codilo {latest} 已發布，你正在使用 {current}。要立即下載嗎？",
     "update.download": "下載",
     "update.downloading": "正在下載 {name}…",
-    "update.installQuestion": "{name} 已下載完成。要立即安裝嗎？JustCode 會關閉，讓安裝程式替換它。",
+    "update.installQuestion": "{name} 已下載完成。要立即安裝嗎？Codilo 會關閉，讓安裝程式替換它。",
     "update.install": "安裝",
     "update.reveal": "顯示檔案",
     "update.noAsset": "版本 {version} 沒有適用於此系統的安裝檔。",
@@ -1810,8 +1810,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "全選",
     "assoc.unselectAll": "取消全選",
     "assoc.apply": "套用",
-    "assoc.intro": "選擇要以JustCode開啟的檔案類型。",
-    "assoc.defaultsNote": "勾選的類型將在 JustCode 中開啟。已由其他程式處理的類型會標示出來，並保持未勾選。如果 Windows 已記錄您對某個類型的選擇，該選擇會保留，JustCode 只會加入「開啟方式」清單。",
+    "assoc.intro": "選擇要以Codilo開啟的檔案類型。",
+    "assoc.defaultsNote": "勾選的類型將在 Codilo 中開啟。已由其他程式處理的類型會標示出來，並保持未勾選。如果 Windows 已記錄您對某個類型的選擇，該選擇會保留，Codilo 只會加入「開啟方式」清單。",
     "assoc.currently": "— 目前為 {owner}",
     "assoc.applied": "已關聯 {n} 種檔案類型",
     "assoc.someFailed": "部分檔案類型無法註冊：",
@@ -1819,7 +1819,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "要立即開啟 Windows 預設應用程式設定嗎？",
     "assoc.openSettingsOk": "開啟設定",
     "modal.shortcutsTitle": "鍵盤快速鍵",
-    "modal.aboutTitle": "關於 JustCode",
+    "modal.aboutTitle": "關於 Codilo",
     "modal.languageTitle": "語言",
     "modal.close": "關閉（Escape）",
     "about.tagline": "小巧快速的程式碼編輯器。",
@@ -1974,18 +1974,18 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "總覽",
     "help.overviewIntro":
-      "JustCode 是一款小巧快速的編輯器，適用於 HTML、CSS、JavaScript 以及一般文字或程式碼——旨在快速開啟、不擋路，而非取代完整的 IDE。",
+      "Codilo 是一款小巧快速的編輯器，適用於 HTML、CSS、JavaScript 以及一般文字或程式碼——旨在快速開啟、不擋路，而非取代完整的 IDE。",
     "help.overviewPoint1": "檔案以標籤頁形式在單一視窗中開啟；無需先設定專案或工作區。",
     "help.overviewPoint2": "隨時按 F1 可檢視完整的鍵盤快速鍵參考。",
 
     "help.filesTitle": "檔案",
-    "help.filesIntro": "檔案以標籤頁形式開啟；JustCode 沒有專案或工作區的概念。",
+    "help.filesIntro": "檔案以標籤頁形式開啟；Codilo 沒有專案或工作區的概念。",
     "help.filesPoint1":
       "「新增檔案」（Ctrl+N）提供多種語言的起始範本，或建立空白文件；「開啟…」（Ctrl+O）可一次接受多個檔案。",
     "help.filesPoint2":
       "「儲存」（Ctrl+S）與「另存新檔」（Ctrl+Shift+S）會直接寫入磁碟；「全部儲存」（Ctrl+Alt+S）一次涵蓋所有已變更的標籤頁。",
     "help.filesPoint3": "「檔案 ▸ 最近使用的檔案」會在重新啟動後記住最近的 15 個檔案。",
-    "help.filesPoint4": "「檔案 ▸ 檔案關聯…」會向 Windows 註冊 JustCode，使其在支援的檔案類型中作為「開啟方式」選項——或作為預設程式——出現。",
+    "help.filesPoint4": "「檔案 ▸ 檔案關聯…」會向 Windows 註冊 Codilo，使其在支援的檔案類型中作為「開啟方式」選項——或作為預設程式——出現。",
 
     "help.editingTitle": "編輯",
     "help.editingIntro": "標準編輯功能，外加剪下、複製、貼上、復原、重做之外的幾項附加功能。",
@@ -2036,7 +2036,7 @@ export const TRANSLATIONS = {
     "help.spellCheckPoint2": "可透過「檢視 ▸ 拼字檢查」切換。",
 
     "help.languageTitle": "介面語言",
-    "help.languageIntro": "JustCode 本身選單與對話方塊所使用的語言——與任何檔案的內容或所用的程式語言無關。",
+    "help.languageIntro": "Codilo 本身選單與對話方塊所使用的語言——與任何檔案的內容或所用的程式語言無關。",
     "help.languagePoint1": "「檢視 ▸ 語言…」會以每種語言自己的名稱列出翻譯，而非其英文名稱，因為對只看得懂中文的人來說，「German」毫無幫助。",
     "help.languagePoint2": "英文為內建語言；其他語言會在首次選用時下載。",
 
@@ -2256,13 +2256,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Pomakni karticu desno",
     "tabs.moveToStart": "Pomakni karticu na početak",
     "help.shortcuts": "Prečaci",
-    "help.about": "O programu JustCode",
+    "help.about": "O programu Codilo",
     "help.newVersion": "Nova verzija…",
-    "update.upToDate": "JustCode {version} najnovija je verzija.",
-    "update.available": "Izašao je JustCode {latest}. Koristite {current}. Preuzeti ga sada?",
+    "update.upToDate": "Codilo {version} najnovija je verzija.",
+    "update.available": "Izašao je Codilo {latest}. Koristite {current}. Preuzeti ga sada?",
     "update.download": "Preuzmi",
     "update.downloading": "Preuzimanje {name}…",
-    "update.installQuestion": "{name} je preuzet. Instalirati ga sada? JustCode će se zatvoriti kako bi ga instalacijski program mogao zamijeniti.",
+    "update.installQuestion": "{name} je preuzet. Instalirati ga sada? Codilo će se zatvoriti kako bi ga instalacijski program mogao zamijeniti.",
     "update.install": "Instaliraj",
     "update.reveal": "Prikaži datoteku",
     "update.noAsset": "Izdanje {version} nema instalacijski program za ovaj sustav.",
@@ -2349,8 +2349,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Odaberi sve",
     "assoc.unselectAll": "Poništi odabir",
     "assoc.apply": "Primijeni",
-    "assoc.intro": "Odaberite koje se vrste datoteka otvaraju u JustCode.",
-    "assoc.defaultsNote": "Označeni tipovi otvarat će se u JustCodeu. Tipovi kojima već upravlja drugi program posebno su istaknuti i ostaju bez kvačice. Ako je Windows zabilježio vaš vlastiti izbor za neki tip, taj izbor ostaje, a JustCode se samo dodaje na popis „Otvori pomoću”.",
+    "assoc.intro": "Odaberite koje se vrste datoteka otvaraju u Codilo.",
+    "assoc.defaultsNote": "Označeni tipovi otvarat će se u Codilou. Tipovi kojima već upravlja drugi program posebno su istaknuti i ostaju bez kvačice. Ako je Windows zabilježio vaš vlastiti izbor za neki tip, taj izbor ostaje, a Codilo se samo dodaje na popis „Otvori pomoću”.",
     "assoc.currently": "— trenutačno {owner}",
     "assoc.applied": "Pridruženo vrsta datoteka: {n}",
     "assoc.someFailed": "Neke vrste datoteka nije bilo moguće registrirati:",
@@ -2358,7 +2358,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Otvoriti sada Windows postavke zadanih aplikacija?",
     "assoc.openSettingsOk": "Otvori postavke",
     "modal.shortcutsTitle": "Tipkovni prečaci",
-    "modal.aboutTitle": "O programu JustCode",
+    "modal.aboutTitle": "O programu Codilo",
     "modal.languageTitle": "Jezik",
     "modal.close": "Zatvori (Escape)",
     "about.tagline": "Mali i brzi uređivač koda.",
@@ -2514,20 +2514,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Pregled",
     "help.overviewIntro":
-      "JustCode je mali, brzi uređivač za HTML, CSS, JavaScript i općenit tekst ili kod — izrađen da se brzo otvara i ne smeta, a ne da zamijeni potpuni IDE.",
+      "Codilo je mali, brzi uređivač za HTML, CSS, JavaScript i općenit tekst ili kod — izrađen da se brzo otvara i ne smeta, a ne da zamijeni potpuni IDE.",
     "help.overviewPoint1":
       "Datoteke se otvaraju kao kartice u jednom prozoru; ne postoji projekt ili radni prostor koji treba prvo postaviti.",
     "help.overviewPoint2": "Pritisnite F1 u bilo kojem trenutku za potpuni popis tipkovničkih prečaca.",
 
     "help.filesTitle": "Datoteke",
-    "help.filesIntro": "Datoteke se otvaraju kao kartice; JustCode nema koncept projekta ili radnog prostora.",
+    "help.filesIntro": "Datoteke se otvaraju kao kartice; Codilo nema koncept projekta ili radnog prostora.",
     "help.filesPoint1":
       "Nova datoteka (Ctrl+N) nudi početne predloške za mnoge jezike ili prazan dokument; Otvori… (Ctrl+O) prihvaća nekoliko datoteka odjednom.",
     "help.filesPoint2":
       "Spremi (Ctrl+S) i Spremi kao (Ctrl+Shift+S) pišu izravno na disk; Spremi sve (Ctrl+Alt+S) obuhvaća sve promijenjene kartice odjednom.",
     "help.filesPoint3": "Datoteka ▸ Nedavne datoteke pamti posljednjih 15 datoteka između ponovnih pokretanja.",
     "help.filesPoint4":
-      "Datoteka ▸ Povezivanja datoteka… registrira JustCode kod Windowsa tako da se pojavljuje kao opcija \"Otvori pomoću\" — ili zadana — za vrste datoteka koje razumije.",
+      "Datoteka ▸ Povezivanja datoteka… registrira Codilo kod Windowsa tako da se pojavljuje kao opcija \"Otvori pomoću\" — ili zadana — za vrste datoteka koje razumije.",
 
     "help.editingTitle": "Uređivanje",
     "help.editingIntro": "Standardno uređivanje, plus nekoliko dodataka uz izrezivanje, kopiranje, lijepljenje, poništavanje i ponavljanje.",
@@ -2594,7 +2594,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Jezik sučelja",
     "help.languageIntro":
-      "Jezik vlastitih izbornika i dijaloga JustCodea — neovisan o sadržaju ili programskom jeziku bilo koje datoteke.",
+      "Jezik vlastitih izbornika i dijaloga Codiloa — neovisan o sadržaju ili programskom jeziku bilo koje datoteke.",
     "help.languagePoint1":
       "Prikaz ▸ Jezik… navodi svaki prijevod pod vlastitim imenom, a ne engleskim imenom, jer \"German\" ne pomaže nekome tko čita samo hrvatski.",
     "help.languagePoint2": "Engleski je ugrađen; svaki drugi jezik preuzima se prilikom prvog odabira.",
@@ -2815,13 +2815,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Přesunout kartu doprava",
     "tabs.moveToStart": "Přesunout kartu na začátek",
     "help.shortcuts": "Klávesové zkratky",
-    "help.about": "O aplikaci JustCode",
+    "help.about": "O aplikaci Codilo",
     "help.newVersion": "Nová verze…",
-    "update.upToDate": "JustCode {version} je nejnovější verze.",
-    "update.available": "Vyšel JustCode {latest}. Používáte {current}. Stáhnout jej nyní?",
+    "update.upToDate": "Codilo {version} je nejnovější verze.",
+    "update.available": "Vyšel Codilo {latest}. Používáte {current}. Stáhnout jej nyní?",
     "update.download": "Stáhnout",
     "update.downloading": "Stahování {name}…",
-    "update.installQuestion": "{name} byl stažen. Nainstalovat jej nyní? JustCode se zavře, aby jej instalátor mohl nahradit.",
+    "update.installQuestion": "{name} byl stažen. Nainstalovat jej nyní? Codilo se zavře, aby jej instalátor mohl nahradit.",
     "update.install": "Nainstalovat",
     "update.reveal": "Zobrazit soubor",
     "update.noAsset": "Vydání {version} nemá instalátor pro tento systém.",
@@ -2908,8 +2908,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Vybrat vše",
     "assoc.unselectAll": "Zrušit výběr",
     "assoc.apply": "Použít",
-    "assoc.intro": "Vyberte, které typy souborů se budou otevírat v JustCode.",
-    "assoc.defaultsNote": "Zaškrtnuté typy se budou otevírat v JustCode. Typy, které už zpracovává jiný program, jsou zvýrazněné a zůstávají nezaškrtnuté. Pokud si Windows zapamatoval vaši vlastní volbu pro daný typ, tato volba zůstane zachována a JustCode se pouze přidá do seznamu „Otevřít v programu“.",
+    "assoc.intro": "Vyberte, které typy souborů se budou otevírat v Codilo.",
+    "assoc.defaultsNote": "Zaškrtnuté typy se budou otevírat v Codilo. Typy, které už zpracovává jiný program, jsou zvýrazněné a zůstávají nezaškrtnuté. Pokud si Windows zapamatoval vaši vlastní volbu pro daný typ, tato volba zůstane zachována a Codilo se pouze přidá do seznamu „Otevřít v programu“.",
     "assoc.currently": "— aktuálně {owner}",
     "assoc.applied": "Přiřazeno typů souborů: {n}",
     "assoc.someFailed": "Některé typy souborů se nepodařilo zaregistrovat:",
@@ -2917,7 +2917,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Otevřít nyní nastavení výchozích aplikací Windows?",
     "assoc.openSettingsOk": "Otevřít Nastavení",
     "modal.shortcutsTitle": "Klávesové zkratky",
-    "modal.aboutTitle": "O aplikaci JustCode",
+    "modal.aboutTitle": "O aplikaci Codilo",
     "modal.languageTitle": "Jazyk",
     "modal.close": "Zavřít (Escape)",
     "about.tagline": "Malý a rychlý editor kódu.",
@@ -3073,20 +3073,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Přehled",
     "help.overviewIntro":
-      "JustCode je malý, rychlý editor pro HTML, CSS, JavaScript a obecný text nebo kód — vytvořený tak, aby se rychle otevíral a nepřekážel, ne aby nahradil plnohodnotné IDE.",
+      "Codilo je malý, rychlý editor pro HTML, CSS, JavaScript a obecný text nebo kód — vytvořený tak, aby se rychle otevíral a nepřekážel, ne aby nahradil plnohodnotné IDE.",
     "help.overviewPoint1":
       "Soubory se otevírají jako karty v jednom okně; neexistuje projekt ani pracovní prostor, který by bylo nutné nejprve nastavit.",
     "help.overviewPoint2": "Kdykoli stiskněte F1 pro úplný přehled klávesových zkratek.",
 
     "help.filesTitle": "Soubory",
-    "help.filesIntro": "Soubory se otevírají jako karty; JustCode nemá koncept projektu ani pracovního prostoru.",
+    "help.filesIntro": "Soubory se otevírají jako karty; Codilo nemá koncept projektu ani pracovního prostoru.",
     "help.filesPoint1":
       "Nový soubor (Ctrl+N) nabízí počáteční šablony pro mnoho jazyků nebo prázdný dokument; Otevřít… (Ctrl+O) přijímá více souborů najednou.",
     "help.filesPoint2":
       "Uložit (Ctrl+S) a Uložit jako (Ctrl+Shift+S) zapisují přímo na disk; Uložit vše (Ctrl+Alt+S) pokryje všechny změněné karty najednou.",
     "help.filesPoint3": "Soubor ▸ Poslední soubory si pamatuje posledních 15 souborů napříč restarty.",
     "help.filesPoint4":
-      "Soubor ▸ Přidružení souborů… zaregistruje JustCode ve Windows, takže se objeví jako volba \"Otevřít pomocí\" — nebo jako výchozí — pro typy souborů, kterým rozumí.",
+      "Soubor ▸ Přidružení souborů… zaregistruje Codilo ve Windows, takže se objeví jako volba \"Otevřít pomocí\" — nebo jako výchozí — pro typy souborů, kterým rozumí.",
 
     "help.editingTitle": "Úpravy",
     "help.editingIntro": "Standardní úpravy plus pár extra funkcí navíc k vyjmutí, kopírování, vložení, zpět a znovu.",
@@ -3153,7 +3153,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Jazyk rozhraní",
     "help.languageIntro":
-      "Jazyk vlastních nabídek a dialogů JustCode — nezávislý na obsahu nebo programovacím jazyce jakéhokoli souboru.",
+      "Jazyk vlastních nabídek a dialogů Codilo — nezávislý na obsahu nebo programovacím jazyce jakéhokoli souboru.",
     "help.languagePoint1":
       "Zobrazit ▸ Jazyk… uvádí každý překlad pod jeho vlastním názvem, nikoli anglickým, protože \"German\" nepomůže někomu, kdo čte pouze česky.",
     "help.languagePoint2": "Angličtina je vestavěná; každý jiný jazyk se stáhne při prvním výběru.",
@@ -3374,13 +3374,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Flyt fane til højre",
     "tabs.moveToStart": "Flyt fane forrest",
     "help.shortcuts": "Genveje",
-    "help.about": "Om JustCode",
+    "help.about": "Om Codilo",
     "help.newVersion": "Ny version…",
-    "update.upToDate": "JustCode {version} er den nyeste version.",
-    "update.available": "JustCode {latest} er udkommet. Du kører {current}. Vil du hente den nu?",
+    "update.upToDate": "Codilo {version} er den nyeste version.",
+    "update.available": "Codilo {latest} er udkommet. Du kører {current}. Vil du hente den nu?",
     "update.download": "Hent",
     "update.downloading": "Henter {name}…",
-    "update.installQuestion": "{name} er hentet. Vil du installere den nu? JustCode lukker, så installationsprogrammet kan erstatte den.",
+    "update.installQuestion": "{name} er hentet. Vil du installere den nu? Codilo lukker, så installationsprogrammet kan erstatte den.",
     "update.install": "Installer",
     "update.reveal": "Vis fil",
     "update.noAsset": "Udgivelse {version} har ingen installation til dette system.",
@@ -3467,8 +3467,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Markér alle",
     "assoc.unselectAll": "Fjern markering af alle",
     "assoc.apply": "Anvend",
-    "assoc.intro": "Vælg hvilke filtyper der skal åbnes i JustCode.",
-    "assoc.defaultsNote": "Markerede typer åbnes i JustCode. Typer, som et andet program allerede håndterer, er fremhævet og forbliver umarkerede. Hvis Windows har registreret dit eget valg for en type, bevares det valg, og JustCode føjes blot til listen \"Åbn med\".",
+    "assoc.intro": "Vælg hvilke filtyper der skal åbnes i Codilo.",
+    "assoc.defaultsNote": "Markerede typer åbnes i Codilo. Typer, som et andet program allerede håndterer, er fremhævet og forbliver umarkerede. Hvis Windows har registreret dit eget valg for en type, bevares det valg, og Codilo føjes blot til listen \"Åbn med\".",
     "assoc.currently": "— i øjeblikket {owner}",
     "assoc.applied": "{n} filtype(r) tilknyttet",
     "assoc.someFailed": "Nogle filtyper kunne ikke registreres:",
@@ -3476,7 +3476,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Vil du åbne Windows-indstillingerne for standardapps nu?",
     "assoc.openSettingsOk": "Åbn Indstillinger",
     "modal.shortcutsTitle": "Tastaturgenveje",
-    "modal.aboutTitle": "Om JustCode",
+    "modal.aboutTitle": "Om Codilo",
     "modal.languageTitle": "Sprog",
     "modal.close": "Luk (Escape)",
     "about.tagline": "En lille, hurtig kodeeditor.",
@@ -3632,20 +3632,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Oversigt",
     "help.overviewIntro":
-      "JustCode er en lille, hurtig editor til HTML, CSS, JavaScript og generel tekst eller kode — bygget til at åbne hurtigt og holde sig ude af vejen, ikke til at erstatte et fuldt IDE.",
+      "Codilo er en lille, hurtig editor til HTML, CSS, JavaScript og generel tekst eller kode — bygget til at åbne hurtigt og holde sig ude af vejen, ikke til at erstatte et fuldt IDE.",
     "help.overviewPoint1":
       "Filer åbnes som faner i ét vindue; der er ikke noget projekt eller arbejdsområde, der skal opsættes først.",
     "help.overviewPoint2": "Tryk på F1 når som helst for den fulde tastaturgenvejsoversigt.",
 
     "help.filesTitle": "Filer",
-    "help.filesIntro": "Filer åbnes som faner; JustCode har ikke noget projekt- eller arbejdsområdebegreb.",
+    "help.filesIntro": "Filer åbnes som faner; Codilo har ikke noget projekt- eller arbejdsområdebegreb.",
     "help.filesPoint1":
       "Ny fil (Ctrl+N) tilbyder startskabeloner til mange sprog, eller et tomt dokument; Åbn… (Ctrl+O) accepterer flere filer på én gang.",
     "help.filesPoint2":
       "Gem (Ctrl+S) og Gem som (Ctrl+Shift+S) skriver direkte til disk; Gem alle (Ctrl+Alt+S) dækker alle ændrede faner på én gang.",
     "help.filesPoint3": "Fil ▸ Seneste filer husker de sidste 15 filer på tværs af genstarter.",
     "help.filesPoint4":
-      "Fil ▸ Filtilknytninger… registrerer JustCode hos Windows, så det vises som en \"Åbn med\"-mulighed — eller standarden — for de filtyper, det forstår.",
+      "Fil ▸ Filtilknytninger… registrerer Codilo hos Windows, så det vises som en \"Åbn med\"-mulighed — eller standarden — for de filtyper, det forstår.",
 
     "help.editingTitle": "Redigering",
     "help.editingIntro": "Standardredigering plus nogle ekstra funktioner ud over klip, kopiér, indsæt, fortryd og gentag.",
@@ -3712,7 +3712,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Grænsefladesprog",
     "help.languageIntro":
-      "Sproget for JustCodes egne menuer og dialogbokse — uafhængigt af indholdet eller programmeringssproget i en given fil.",
+      "Sproget for Codilos egne menuer og dialogbokse — uafhængigt af indholdet eller programmeringssproget i en given fil.",
     "help.languagePoint1":
       "Vis ▸ Sprog… viser hver oversættelse under dens eget navn i stedet for det engelske navn, da \"German\" ikke hjælper nogen, der kun læser dansk.",
     "help.languagePoint2": "Engelsk er indbygget; ethvert andet sprog downloades, første gang det vælges.",
@@ -3933,13 +3933,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Tabblad naar rechts verplaatsen",
     "tabs.moveToStart": "Tabblad naar begin verplaatsen",
     "help.shortcuts": "Sneltoetsen",
-    "help.about": "Over JustCode",
+    "help.about": "Over Codilo",
     "help.newVersion": "Nieuwe versie…",
-    "update.upToDate": "JustCode {version} is de nieuwste versie.",
-    "update.available": "JustCode {latest} is uit. U gebruikt {current}. Nu downloaden?",
+    "update.upToDate": "Codilo {version} is de nieuwste versie.",
+    "update.available": "Codilo {latest} is uit. U gebruikt {current}. Nu downloaden?",
     "update.download": "Downloaden",
     "update.downloading": "{name} downloaden…",
-    "update.installQuestion": "{name} is gedownload. Nu installeren? JustCode sluit zodat het installatieprogramma het kan vervangen.",
+    "update.installQuestion": "{name} is gedownload. Nu installeren? Codilo sluit zodat het installatieprogramma het kan vervangen.",
     "update.install": "Installeren",
     "update.reveal": "Bestand tonen",
     "update.noAsset": "Release {version} heeft geen installatieprogramma voor dit systeem.",
@@ -4026,8 +4026,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Alles selecteren",
     "assoc.unselectAll": "Alles deselecteren",
     "assoc.apply": "Toepassen",
-    "assoc.intro": "Kies welke bestandstypen in JustCode worden geopend.",
-    "assoc.defaultsNote": "Aangevinkte typen worden in JustCode geopend. Typen die al door een ander programma worden afgehandeld, zijn gemarkeerd en blijven uitgevinkt. Als Windows uw eigen keuze voor een type heeft vastgelegd, blijft die keuze behouden en wordt JustCode alleen aan de lijst \"Openen met\" toegevoegd.",
+    "assoc.intro": "Kies welke bestandstypen in Codilo worden geopend.",
+    "assoc.defaultsNote": "Aangevinkte typen worden in Codilo geopend. Typen die al door een ander programma worden afgehandeld, zijn gemarkeerd en blijven uitgevinkt. Als Windows uw eigen keuze voor een type heeft vastgelegd, blijft die keuze behouden en wordt Codilo alleen aan de lijst \"Openen met\" toegevoegd.",
     "assoc.currently": "— momenteel {owner}",
     "assoc.applied": "{n} bestandstype(n) gekoppeld",
     "assoc.someFailed": "Sommige bestandstypen konden niet worden geregistreerd:",
@@ -4035,7 +4035,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Windows-instellingen voor standaard-apps nu openen?",
     "assoc.openSettingsOk": "Instellingen openen",
     "modal.shortcutsTitle": "Sneltoetsen",
-    "modal.aboutTitle": "Over JustCode",
+    "modal.aboutTitle": "Over Codilo",
     "modal.languageTitle": "Taal",
     "modal.close": "Sluiten (Escape)",
     "about.tagline": "Een kleine, snelle code-editor.",
@@ -4191,20 +4191,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Overzicht",
     "help.overviewIntro":
-      "JustCode is een kleine, snelle editor voor HTML, CSS, JavaScript en algemene tekst of code — gebouwd om snel te openen en niet in de weg te zitten, niet om een volledige IDE te vervangen.",
+      "Codilo is een kleine, snelle editor voor HTML, CSS, JavaScript en algemene tekst of code — gebouwd om snel te openen en niet in de weg te zitten, niet om een volledige IDE te vervangen.",
     "help.overviewPoint1":
       "Bestanden openen als tabbladen in één venster; er is geen project of werkruimte die eerst moet worden ingesteld.",
     "help.overviewPoint2": "Druk op elk moment op F1 voor het volledige overzicht van sneltoetsen.",
 
     "help.filesTitle": "Bestanden",
-    "help.filesIntro": "Bestanden openen als tabbladen; JustCode kent geen project- of werkruimteconcept.",
+    "help.filesIntro": "Bestanden openen als tabbladen; Codilo kent geen project- of werkruimteconcept.",
     "help.filesPoint1":
       "Nieuw bestand (Ctrl+N) biedt startsjablonen voor veel talen, of een leeg document; Openen… (Ctrl+O) accepteert meerdere bestanden tegelijk.",
     "help.filesPoint2":
       "Opslaan (Ctrl+S) en Opslaan als (Ctrl+Shift+S) schrijven direct naar schijf; Alles opslaan (Ctrl+Alt+S) dekt alle gewijzigde tabbladen in één keer.",
     "help.filesPoint3": "Bestand ▸ Recente bestanden onthoudt de laatste 15 bestanden tussen herstarts.",
     "help.filesPoint4":
-      "Bestand ▸ Bestandskoppelingen… registreert JustCode bij Windows, zodat het verschijnt als optie \"Openen met\" — of als standaard — voor de bestandstypen die het begrijpt.",
+      "Bestand ▸ Bestandskoppelingen… registreert Codilo bij Windows, zodat het verschijnt als optie \"Openen met\" — of als standaard — voor de bestandstypen die het begrijpt.",
 
     "help.editingTitle": "Bewerken",
     "help.editingIntro": "Standaard bewerken plus wat extra's naast knippen, kopiëren, plakken, ongedaan maken en opnieuw.",
@@ -4271,7 +4271,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Interfacetaal",
     "help.languageIntro":
-      "De taal van JustCodes eigen menu's en dialoogvensters — onafhankelijk van de inhoud of programmeertaal van een bestand.",
+      "De taal van Codilos eigen menu's en dialoogvensters — onafhankelijk van de inhoud of programmeertaal van een bestand.",
     "help.languagePoint1":
       "Beeld ▸ Taal… toont elke vertaling onder haar eigen naam in plaats van de Engelse naam, want \"German\" helpt niemand die alleen Nederlands leest.",
     "help.languagePoint2": "Engels is ingebouwd; elke andere taal wordt gedownload bij de eerste keuze.",
@@ -4492,13 +4492,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Siirrä välilehti oikealle",
     "tabs.moveToStart": "Siirrä välilehti alkuun",
     "help.shortcuts": "Pikanäppäimet",
-    "help.about": "Tietoja JustCodesta",
+    "help.about": "Tietoja Codilosta",
     "help.newVersion": "Uusi versio…",
-    "update.upToDate": "JustCode {version} on uusin versio.",
-    "update.available": "JustCode {latest} on ilmestynyt. Käytössäsi on {current}. Ladataanko se nyt?",
+    "update.upToDate": "Codilo {version} on uusin versio.",
+    "update.available": "Codilo {latest} on ilmestynyt. Käytössäsi on {current}. Ladataanko se nyt?",
     "update.download": "Lataa",
     "update.downloading": "Ladataan {name}…",
-    "update.installQuestion": "{name} on ladattu. Asennetaanko se nyt? JustCode sulkeutuu, jotta asennusohjelma voi korvata sen.",
+    "update.installQuestion": "{name} on ladattu. Asennetaanko se nyt? Codilo sulkeutuu, jotta asennusohjelma voi korvata sen.",
     "update.install": "Asenna",
     "update.reveal": "Näytä tiedosto",
     "update.noAsset": "Julkaisussa {version} ei ole asennusohjelmaa tälle järjestelmälle.",
@@ -4585,8 +4585,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Valitse kaikki",
     "assoc.unselectAll": "Poista kaikki valinnat",
     "assoc.apply": "Käytä",
-    "assoc.intro": "Valitse, mitkä tiedostotyypit avataan JustCodessa.",
-    "assoc.defaultsNote": "Valitut tyypit avataan JustCodessa. Tyypit, joita jokin toinen ohjelma jo käsittelee, on merkitty eikä niitä ole valittu. Jos Windows on tallentanut oman valintasi jollekin tyypille, valinta säilyy ja JustCode vain lisätään ”Avaa sovelluksessa” -luetteloon.",
+    "assoc.intro": "Valitse, mitkä tiedostotyypit avataan Codilossa.",
+    "assoc.defaultsNote": "Valitut tyypit avataan Codilossa. Tyypit, joita jokin toinen ohjelma jo käsittelee, on merkitty eikä niitä ole valittu. Jos Windows on tallentanut oman valintasi jollekin tyypille, valinta säilyy ja Codilo vain lisätään ”Avaa sovelluksessa” -luetteloon.",
     "assoc.currently": "— tällä hetkellä {owner}",
     "assoc.applied": "{n} tiedostotyyppiä liitetty",
     "assoc.someFailed": "Joitakin tiedostotyyppejä ei voitu rekisteröidä:",
@@ -4594,7 +4594,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Avataanko Windowsin oletussovellusten asetukset nyt?",
     "assoc.openSettingsOk": "Avaa asetukset",
     "modal.shortcutsTitle": "Näppäimistön pikanäppäimet",
-    "modal.aboutTitle": "Tietoja JustCodesta",
+    "modal.aboutTitle": "Tietoja Codilosta",
     "modal.languageTitle": "Kieli",
     "modal.close": "Sulje (Escape)",
     "about.tagline": "Pieni ja nopea koodieditori.",
@@ -4750,20 +4750,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Yleiskatsaus",
     "help.overviewIntro":
-      "JustCode on pieni, nopea editori HTML-, CSS-, JavaScript- ja yleisille teksti- tai koodiedostoille — suunniteltu avautumaan nopeasti ja pysymään tieltä pois, ei korvaamaan täysimittaista kehitysympäristöä.",
+      "Codilo on pieni, nopea editori HTML-, CSS-, JavaScript- ja yleisille teksti- tai koodiedostoille — suunniteltu avautumaan nopeasti ja pysymään tieltä pois, ei korvaamaan täysimittaista kehitysympäristöä.",
     "help.overviewPoint1":
       "Tiedostot avautuvat välilehtinä yhdessä ikkunassa; ei ole projektia tai työtilaa, joka pitäisi asettaa ensin.",
     "help.overviewPoint2": "Paina F1 milloin tahansa nähdäksesi koko pikanäppäinluettelon.",
 
     "help.filesTitle": "Tiedostot",
-    "help.filesIntro": "Tiedostot avautuvat välilehtinä; JustCodessa ei ole projekti- tai työtilakäsitettä.",
+    "help.filesIntro": "Tiedostot avautuvat välilehtinä; Codilossa ei ole projekti- tai työtilakäsitettä.",
     "help.filesPoint1":
       "Uusi tiedosto (Ctrl+N) tarjoaa aloitusmalleja monille kielille tai tyhjän asiakirjan; Avaa… (Ctrl+O) hyväksyy useita tiedostoja kerralla.",
     "help.filesPoint2":
       "Tallenna (Ctrl+S) ja Tallenna nimellä (Ctrl+Shift+S) kirjoittavat suoraan levylle; Tallenna kaikki (Ctrl+Alt+S) kattaa kaikki muutetut välilehdet kerralla.",
     "help.filesPoint3": "Tiedosto ▸ Viimeisimmät tiedostot muistaa 15 viimeisintä tiedostoa uudelleenkäynnistysten yli.",
     "help.filesPoint4":
-      "Tiedosto ▸ Tiedostoliitokset… rekisteröi JustCoden Windowsiin, jolloin se näkyy \"Avaa sovelluksella\" -vaihtoehtona — tai oletuksena — tuntemilleen tiedostotyypeille.",
+      "Tiedosto ▸ Tiedostoliitokset… rekisteröi Codilon Windowsiin, jolloin se näkyy \"Avaa sovelluksella\" -vaihtoehtona — tai oletuksena — tuntemilleen tiedostotyypeille.",
 
     "help.editingTitle": "Muokkaus",
     "help.editingIntro": "Tavallinen muokkaus sekä muutama lisäominaisuus leikkaamisen, kopioinnin, liittämisen, kumoamisen ja uudelleentekemisen lisäksi.",
@@ -4830,7 +4830,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Käyttöliittymän kieli",
     "help.languageIntro":
-      "JustCoden omien valikkojen ja valintaikkunoiden kieli — riippumaton minkään tiedoston sisällöstä tai ohjelmointikielestä.",
+      "Codilon omien valikkojen ja valintaikkunoiden kieli — riippumaton minkään tiedoston sisällöstä tai ohjelmointikielestä.",
     "help.languagePoint1":
       "Näytä ▸ Kieli… luettelee jokaisen käännöksen sen omalla nimellä eikä englanninkielisellä nimellä, sillä \"German\" ei auta ketään, joka lukee vain suomea.",
     "help.languagePoint2": "Englanti on sisäänrakennettu; jokainen muu kieli ladataan, kun se valitaan ensimmäisen kerran.",
@@ -5051,13 +5051,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Déplacer l'onglet à droite",
     "tabs.moveToStart": "Déplacer l'onglet au début",
     "help.shortcuts": "Raccourcis",
-    "help.about": "À propos de JustCode",
+    "help.about": "À propos de Codilo",
     "help.newVersion": "Nouvelle version…",
-    "update.upToDate": "JustCode {version} est la version la plus récente.",
-    "update.available": "JustCode {latest} est disponible. Vous utilisez {current}. Le télécharger maintenant ?",
+    "update.upToDate": "Codilo {version} est la version la plus récente.",
+    "update.available": "Codilo {latest} est disponible. Vous utilisez {current}. Le télécharger maintenant ?",
     "update.download": "Télécharger",
     "update.downloading": "Téléchargement de {name}…",
-    "update.installQuestion": "{name} a été téléchargé. L’installer maintenant ? JustCode se ferme pour que le programme d’installation puisse le remplacer.",
+    "update.installQuestion": "{name} a été téléchargé. L’installer maintenant ? Codilo se ferme pour que le programme d’installation puisse le remplacer.",
     "update.install": "Installer",
     "update.reveal": "Afficher le fichier",
     "update.noAsset": "La version {version} n’a pas de programme d’installation pour ce système.",
@@ -5144,8 +5144,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Tout sélectionner",
     "assoc.unselectAll": "Tout désélectionner",
     "assoc.apply": "Appliquer",
-    "assoc.intro": "Choisissez les types de fichiers à ouvrir dans JustCode.",
-    "assoc.defaultsNote": "Les types cochés s'ouvriront dans JustCode. Les types déjà pris en charge par un autre programme sont signalés et laissés décochés. Si Windows a enregistré votre propre choix pour un type, ce choix est conservé et JustCode est simplement ajouté à la liste « Ouvrir avec ».",
+    "assoc.intro": "Choisissez les types de fichiers à ouvrir dans Codilo.",
+    "assoc.defaultsNote": "Les types cochés s'ouvriront dans Codilo. Les types déjà pris en charge par un autre programme sont signalés et laissés décochés. Si Windows a enregistré votre propre choix pour un type, ce choix est conservé et Codilo est simplement ajouté à la liste « Ouvrir avec ».",
     "assoc.currently": "— actuellement {owner}",
     "assoc.applied": "{n} type(s) de fichier associé(s)",
     "assoc.someFailed": "Certains types de fichiers n'ont pas pu être enregistrés :",
@@ -5153,7 +5153,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Ouvrir maintenant les paramètres des applications par défaut de Windows ?",
     "assoc.openSettingsOk": "Ouvrir les Paramètres",
     "modal.shortcutsTitle": "Raccourcis clavier",
-    "modal.aboutTitle": "À propos de JustCode",
+    "modal.aboutTitle": "À propos de Codilo",
     "modal.languageTitle": "Langue",
     "modal.close": "Fermer (Échap)",
     "about.tagline": "Un éditeur de code léger et rapide.",
@@ -5309,20 +5309,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Présentation",
     "help.overviewIntro":
-      "JustCode est un petit éditeur rapide pour HTML, CSS, JavaScript et le texte ou code en général — conçu pour s'ouvrir rapidement et rester discret, pas pour remplacer un IDE complet.",
+      "Codilo est un petit éditeur rapide pour HTML, CSS, JavaScript et le texte ou code en général — conçu pour s'ouvrir rapidement et rester discret, pas pour remplacer un IDE complet.",
     "help.overviewPoint1":
       "Les fichiers s'ouvrent en onglets dans une seule fenêtre ; il n'y a pas de projet ou d'espace de travail à configurer au préalable.",
     "help.overviewPoint2": "Appuyez sur F1 à tout moment pour la référence complète des raccourcis clavier.",
 
     "help.filesTitle": "Fichiers",
-    "help.filesIntro": "Les fichiers s'ouvrent en onglets ; JustCode n'a pas de notion de projet ou d'espace de travail.",
+    "help.filesIntro": "Les fichiers s'ouvrent en onglets ; Codilo n'a pas de notion de projet ou d'espace de travail.",
     "help.filesPoint1":
       "Nouveau fichier (Ctrl+N) propose des modèles de départ pour de nombreux langages, ou un document vierge ; Ouvrir… (Ctrl+O) accepte plusieurs fichiers à la fois.",
     "help.filesPoint2":
       "Enregistrer (Ctrl+S) et Enregistrer sous (Ctrl+Shift+S) écrivent directement sur le disque ; Tout enregistrer (Ctrl+Alt+S) couvre tous les onglets modifiés en une fois.",
     "help.filesPoint3": "Fichier ▸ Fichiers récents mémorise les 15 derniers fichiers entre les redémarrages.",
     "help.filesPoint4":
-      "Fichier ▸ Associations de fichiers… enregistre JustCode auprès de Windows afin qu'il apparaisse comme option \"Ouvrir avec\" — ou comme application par défaut — pour les types de fichiers qu'il comprend.",
+      "Fichier ▸ Associations de fichiers… enregistre Codilo auprès de Windows afin qu'il apparaisse comme option \"Ouvrir avec\" — ou comme application par défaut — pour les types de fichiers qu'il comprend.",
 
     "help.editingTitle": "Édition",
     "help.editingIntro": "Édition standard, plus quelques extras au-delà du couper, copier, coller, annuler et rétablir.",
@@ -5389,7 +5389,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Langue de l'interface",
     "help.languageIntro":
-      "La langue des menus et boîtes de dialogue propres à JustCode — indépendante du contenu ou du langage de programmation d'un fichier.",
+      "La langue des menus et boîtes de dialogue propres à Codilo — indépendante du contenu ou du langage de programmation d'un fichier.",
     "help.languagePoint1":
       "Affichage ▸ Langue… liste chaque traduction sous son propre nom plutôt que son nom anglais, car \"German\" n'aide personne qui ne lit que le français.",
     "help.languagePoint2": "L'anglais est intégré ; toute autre langue est téléchargée lors de sa première sélection.",
@@ -5610,13 +5610,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Registerkarte nach rechts verschieben",
     "tabs.moveToStart": "Registerkarte an den Anfang verschieben",
     "help.shortcuts": "Tastenkürzel",
-    "help.about": "Über JustCode",
+    "help.about": "Über Codilo",
     "help.newVersion": "Neue Version…",
-    "update.upToDate": "JustCode {version} ist die neueste Version.",
-    "update.available": "JustCode {latest} ist erschienen. Sie verwenden {current}. Jetzt herunterladen?",
+    "update.upToDate": "Codilo {version} ist die neueste Version.",
+    "update.available": "Codilo {latest} ist erschienen. Sie verwenden {current}. Jetzt herunterladen?",
     "update.download": "Herunterladen",
     "update.downloading": "{name} wird heruntergeladen…",
-    "update.installQuestion": "{name} wurde heruntergeladen. Jetzt installieren? JustCode wird beendet, damit das Installationsprogramm es ersetzen kann.",
+    "update.installQuestion": "{name} wurde heruntergeladen. Jetzt installieren? Codilo wird beendet, damit das Installationsprogramm es ersetzen kann.",
     "update.install": "Installieren",
     "update.reveal": "Datei anzeigen",
     "update.noAsset": "Version {version} enthält kein Installationsprogramm für dieses System.",
@@ -5703,8 +5703,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Alle auswählen",
     "assoc.unselectAll": "Auswahl aufheben",
     "assoc.apply": "Übernehmen",
-    "assoc.intro": "Wählen Sie, welche Dateitypen in JustCode geöffnet werden.",
-    "assoc.defaultsNote": "Aktivierte Typen werden in JustCode geöffnet. Typen, die bereits von einem anderen Programm verarbeitet werden, sind gekennzeichnet und bleiben deaktiviert. Wenn Windows Ihre eigene Auswahl für einen Typ gespeichert hat, bleibt diese erhalten und JustCode wird nur der Liste „Öffnen mit“ hinzugefügt.",
+    "assoc.intro": "Wählen Sie, welche Dateitypen in Codilo geöffnet werden.",
+    "assoc.defaultsNote": "Aktivierte Typen werden in Codilo geöffnet. Typen, die bereits von einem anderen Programm verarbeitet werden, sind gekennzeichnet und bleiben deaktiviert. Wenn Windows Ihre eigene Auswahl für einen Typ gespeichert hat, bleibt diese erhalten und Codilo wird nur der Liste „Öffnen mit“ hinzugefügt.",
     "assoc.currently": "— derzeit {owner}",
     "assoc.applied": "{n} Dateityp(en) zugeordnet",
     "assoc.someFailed": "Einige Dateitypen konnten nicht registriert werden:",
@@ -5712,7 +5712,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Windows-Einstellungen für Standard-Apps jetzt öffnen?",
     "assoc.openSettingsOk": "Einstellungen öffnen",
     "modal.shortcutsTitle": "Tastenkürzel",
-    "modal.aboutTitle": "Über JustCode",
+    "modal.aboutTitle": "Über Codilo",
     "modal.languageTitle": "Sprache",
     "modal.close": "Schließen (Esc)",
     "about.tagline": "Ein kleiner, schneller Code-Editor.",
@@ -5868,20 +5868,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Überblick",
     "help.overviewIntro":
-      "JustCode ist ein kleiner, schneller Editor für HTML, CSS, JavaScript und allgemeinen Text oder Code — dafür gebaut, schnell zu öffnen und nicht im Weg zu stehen, nicht dafür, eine vollständige IDE zu ersetzen.",
+      "Codilo ist ein kleiner, schneller Editor für HTML, CSS, JavaScript und allgemeinen Text oder Code — dafür gebaut, schnell zu öffnen und nicht im Weg zu stehen, nicht dafür, eine vollständige IDE zu ersetzen.",
     "help.overviewPoint1":
       "Dateien öffnen sich als Tabs in einem Fenster; es gibt kein Projekt oder Arbeitsbereich, das vorher eingerichtet werden müsste.",
     "help.overviewPoint2": "Drücken Sie jederzeit F1 für die vollständige Tastenkürzel-Referenz.",
 
     "help.filesTitle": "Dateien",
-    "help.filesIntro": "Dateien öffnen sich als Tabs; JustCode kennt kein Projekt- oder Arbeitsbereichskonzept.",
+    "help.filesIntro": "Dateien öffnen sich als Tabs; Codilo kennt kein Projekt- oder Arbeitsbereichskonzept.",
     "help.filesPoint1":
       "Neue Datei (Strg+N) bietet Startvorlagen für viele Sprachen oder ein leeres Dokument; Öffnen… (Strg+O) akzeptiert mehrere Dateien gleichzeitig.",
     "help.filesPoint2":
       "Speichern (Strg+S) und Speichern unter (Strg+Umschalt+S) schreiben direkt auf die Festplatte; Alle speichern (Strg+Alt+S) erfasst alle geänderten Tabs auf einmal.",
     "help.filesPoint3": "Datei ▸ Zuletzt verwendete Dateien merkt sich die letzten 15 Dateien über Neustarts hinweg.",
     "help.filesPoint4":
-      "Datei ▸ Dateizuordnungen… registriert JustCode bei Windows, sodass es als Option \"Öffnen mit\" — oder als Standard — für die Dateitypen erscheint, die es versteht.",
+      "Datei ▸ Dateizuordnungen… registriert Codilo bei Windows, sodass es als Option \"Öffnen mit\" — oder als Standard — für die Dateitypen erscheint, die es versteht.",
 
     "help.editingTitle": "Bearbeiten",
     "help.editingIntro": "Standardbearbeitung plus einige Extras neben Ausschneiden, Kopieren, Einfügen, Rückgängig und Wiederholen.",
@@ -5948,7 +5948,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Oberflächensprache",
     "help.languageIntro":
-      "Die Sprache der eigenen Menüs und Dialoge von JustCode — unabhängig vom Inhalt oder der Programmiersprache einer Datei.",
+      "Die Sprache der eigenen Menüs und Dialoge von Codilo — unabhängig vom Inhalt oder der Programmiersprache einer Datei.",
     "help.languagePoint1":
       "Ansicht ▸ Sprache… listet jede Übersetzung unter ihrem eigenen Namen statt ihrem englischen Namen, denn \"German\" hilft niemandem, der nur Deutsch liest.",
     "help.languagePoint2": "Englisch ist eingebaut; jede andere Sprache wird bei der ersten Auswahl heruntergeladen.",
@@ -6169,13 +6169,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Μετακίνηση καρτέλας δεξιά",
     "tabs.moveToStart": "Μετακίνηση καρτέλας στην αρχή",
     "help.shortcuts": "Συντομεύσεις",
-    "help.about": "Σχετικά με το JustCode",
+    "help.about": "Σχετικά με το Codilo",
     "help.newVersion": "Νέα έκδοση…",
-    "update.upToDate": "Το JustCode {version} είναι η νεότερη έκδοση.",
-    "update.available": "Κυκλοφόρησε το JustCode {latest}. Χρησιμοποιείτε την {current}. Λήψη τώρα;",
+    "update.upToDate": "Το Codilo {version} είναι η νεότερη έκδοση.",
+    "update.available": "Κυκλοφόρησε το Codilo {latest}. Χρησιμοποιείτε την {current}. Λήψη τώρα;",
     "update.download": "Λήψη",
     "update.downloading": "Λήψη του {name}…",
-    "update.installQuestion": "Το {name} λήφθηκε. Εγκατάσταση τώρα; Το JustCode θα κλείσει ώστε το πρόγραμμα εγκατάστασης να το αντικαταστήσει.",
+    "update.installQuestion": "Το {name} λήφθηκε. Εγκατάσταση τώρα; Το Codilo θα κλείσει ώστε το πρόγραμμα εγκατάστασης να το αντικαταστήσει.",
     "update.install": "Εγκατάσταση",
     "update.reveal": "Εμφάνιση αρχείου",
     "update.noAsset": "Η έκδοση {version} δεν έχει πρόγραμμα εγκατάστασης για αυτό το σύστημα.",
@@ -6262,8 +6262,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Επιλογή όλων",
     "assoc.unselectAll": "Κατάργηση επιλογής όλων",
     "assoc.apply": "Εφαρμογή",
-    "assoc.intro": "Επιλέξτε ποιοι τύποι αρχείων ανοίγουν στο JustCode.",
-    "assoc.defaultsNote": "Οι επιλεγμένοι τύποι θα ανοίγουν στο JustCode. Οι τύποι που χειρίζεται ήδη κάποιο άλλο πρόγραμμα επισημαίνονται και παραμένουν χωρίς επιλογή. Αν τα Windows έχουν καταγράψει τη δική σας επιλογή για κάποιον τύπο, η επιλογή αυτή διατηρείται και το JustCode απλώς προστίθεται στη λίστα «Άνοιγμα με».",
+    "assoc.intro": "Επιλέξτε ποιοι τύποι αρχείων ανοίγουν στο Codilo.",
+    "assoc.defaultsNote": "Οι επιλεγμένοι τύποι θα ανοίγουν στο Codilo. Οι τύποι που χειρίζεται ήδη κάποιο άλλο πρόγραμμα επισημαίνονται και παραμένουν χωρίς επιλογή. Αν τα Windows έχουν καταγράψει τη δική σας επιλογή για κάποιον τύπο, η επιλογή αυτή διατηρείται και το Codilo απλώς προστίθεται στη λίστα «Άνοιγμα με».",
     "assoc.currently": "— αυτήν τη στιγμή {owner}",
     "assoc.applied": "Συσχετίστηκαν {n} τύποι αρχείων",
     "assoc.someFailed": "Δεν ήταν δυνατή η καταχώριση ορισμένων τύπων αρχείων:",
@@ -6271,7 +6271,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Άνοιγμα τώρα των ρυθμίσεων προεπιλεγμένων εφαρμογών των Windows;",
     "assoc.openSettingsOk": "Άνοιγμα ρυθμίσεων",
     "modal.shortcutsTitle": "Συντομεύσεις πληκτρολογίου",
-    "modal.aboutTitle": "Σχετικά με το JustCode",
+    "modal.aboutTitle": "Σχετικά με το Codilo",
     "modal.languageTitle": "Γλώσσα",
     "modal.close": "Κλείσιμο (Escape)",
     "about.tagline": "Ένας μικρός, γρήγορος επεξεργαστής κώδικα.",
@@ -6427,20 +6427,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Επισκόπηση",
     "help.overviewIntro":
-      "Το JustCode είναι ένας μικρός, γρήγορος επεξεργαστής για HTML, CSS, JavaScript και γενικό κείμενο ή κώδικα — φτιαγμένος για να ανοίγει γρήγορα και να μην εμποδίζει, όχι για να αντικαταστήσει ένα πλήρες IDE.",
+      "Το Codilo είναι ένας μικρός, γρήγορος επεξεργαστής για HTML, CSS, JavaScript και γενικό κείμενο ή κώδικα — φτιαγμένος για να ανοίγει γρήγορα και να μην εμποδίζει, όχι για να αντικαταστήσει ένα πλήρες IDE.",
     "help.overviewPoint1":
       "Τα αρχεία ανοίγουν ως καρτέλες σε ένα παράθυρο· δεν υπάρχει έργο ή χώρος εργασίας που πρέπει να ρυθμιστεί πρώτα.",
     "help.overviewPoint2": "Πατήστε F1 ανά πάσα στιγμή για την πλήρη αναφορά συντομεύσεων πληκτρολογίου.",
 
     "help.filesTitle": "Αρχεία",
-    "help.filesIntro": "Τα αρχεία ανοίγουν ως καρτέλες· το JustCode δεν έχει έννοια έργου ή χώρου εργασίας.",
+    "help.filesIntro": "Τα αρχεία ανοίγουν ως καρτέλες· το Codilo δεν έχει έννοια έργου ή χώρου εργασίας.",
     "help.filesPoint1":
       "Το Νέο αρχείο (Ctrl+N) προσφέρει αρχικά πρότυπα για πολλές γλώσσες, ή ένα κενό έγγραφο· το Άνοιγμα… (Ctrl+O) δέχεται πολλά αρχεία ταυτόχρονα.",
     "help.filesPoint2":
       "Η Αποθήκευση (Ctrl+S) και η Αποθήκευση ως (Ctrl+Shift+S) γράφουν απευθείας στον δίσκο· η Αποθήκευση όλων (Ctrl+Alt+S) καλύπτει όλες τις τροποποιημένες καρτέλες με μία κίνηση.",
     "help.filesPoint3": "Το Αρχείο ▸ Πρόσφατα αρχεία θυμάται τα τελευταία 15 αρχεία ανά επανεκκίνηση.",
     "help.filesPoint4":
-      "Το Αρχείο ▸ Συσχετίσεις αρχείων… καταχωρεί το JustCode στα Windows ώστε να εμφανίζεται ως επιλογή \"Άνοιγμα με\" — ή ως προεπιλογή — για τους τύπους αρχείων που κατανοεί.",
+      "Το Αρχείο ▸ Συσχετίσεις αρχείων… καταχωρεί το Codilo στα Windows ώστε να εμφανίζεται ως επιλογή \"Άνοιγμα με\" — ή ως προεπιλογή — για τους τύπους αρχείων που κατανοεί.",
 
     "help.editingTitle": "Επεξεργασία",
     "help.editingIntro": "Τυπική επεξεργασία, συν μερικά επιπλέον πέρα από αποκοπή, αντιγραφή, επικόλληση, αναίρεση και επανάληψη.",
@@ -6507,7 +6507,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Γλώσσα διεπαφής",
     "help.languageIntro":
-      "Η γλώσσα των δικών του μενού και παραθύρων διαλόγου του JustCode — ανεξάρτητη από το περιεχόμενο ή τη γλώσσα προγραμματισμού οποιουδήποτε αρχείου.",
+      "Η γλώσσα των δικών του μενού και παραθύρων διαλόγου του Codilo — ανεξάρτητη από το περιεχόμενο ή τη γλώσσα προγραμματισμού οποιουδήποτε αρχείου.",
     "help.languagePoint1":
       "Το Προβολή ▸ Γλώσσα… παραθέτει κάθε μετάφραση με το δικό της όνομα αντί για το αγγλικό της όνομα, καθώς το \"German\" δεν βοηθά κάποιον που διαβάζει μόνο ελληνικά.",
     "help.languagePoint2": "Τα Αγγλικά είναι ενσωματωμένα· κάθε άλλη γλώσσα κατεβαίνει με την πρώτη επιλογή της.",
@@ -6728,13 +6728,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "הזז לשונית ימינה",
     "tabs.moveToStart": "הזז לשונית להתחלה",
     "help.shortcuts": "קיצורי מקשים",
-    "help.about": "אודות JustCode",
+    "help.about": "אודות Codilo",
     "help.newVersion": "גרסה חדשה…",
-    "update.upToDate": "JustCode {version} היא הגרסה החדשה ביותר.",
-    "update.available": "JustCode {latest} יצאה. אצלך מותקנת {current}. להוריד אותה עכשיו?",
+    "update.upToDate": "Codilo {version} היא הגרסה החדשה ביותר.",
+    "update.available": "Codilo {latest} יצאה. אצלך מותקנת {current}. להוריד אותה עכשיו?",
     "update.download": "הורדה",
     "update.downloading": "מתבצעת הורדה של {name}…",
-    "update.installQuestion": "{name} הורד. להתקין עכשיו? JustCode ייסגר כדי שתוכנית ההתקנה תוכל להחליף אותו.",
+    "update.installQuestion": "{name} הורד. להתקין עכשיו? Codilo ייסגר כדי שתוכנית ההתקנה תוכל להחליף אותו.",
     "update.install": "התקנה",
     "update.reveal": "הצג קובץ",
     "update.noAsset": "לגרסה {version} אין תוכנית התקנה למערכת הזאת.",
@@ -6821,8 +6821,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "בחר הכול",
     "assoc.unselectAll": "בטל בחירת הכול",
     "assoc.apply": "החל",
-    "assoc.intro": "בחר אילו סוגי קבצים ייפתחו ב-JustCode.",
-    "assoc.defaultsNote": "הסוגים שסימנת ייפתחו ב-JustCode. סוגים שתוכנית אחרת כבר מטפלת בהם מצוינים ברשימה ונשארים ללא סימון. אם Windows רשם את הבחירה שלך עבור סוג מסוים, בחירה זו נשמרת ו-JustCode רק נוסף לרשימה \"פתח באמצעות\".",
+    "assoc.intro": "בחר אילו סוגי קבצים ייפתחו ב-Codilo.",
+    "assoc.defaultsNote": "הסוגים שסימנת ייפתחו ב-Codilo. סוגים שתוכנית אחרת כבר מטפלת בהם מצוינים ברשימה ונשארים ללא סימון. אם Windows רשם את הבחירה שלך עבור סוג מסוים, בחירה זו נשמרת ו-Codilo רק נוסף לרשימה \"פתח באמצעות\".",
     "assoc.currently": "— כרגע {owner}",
     "assoc.applied": "{n} סוגי קבצים שויכו",
     "assoc.someFailed": "לא ניתן היה לרשום חלק מסוגי הקבצים:",
@@ -6830,7 +6830,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "לפתוח כעת את הגדרות אפליקציות ברירת המחדל של Windows?",
     "assoc.openSettingsOk": "פתח הגדרות",
     "modal.shortcutsTitle": "קיצורי מקלדת",
-    "modal.aboutTitle": "אודות JustCode",
+    "modal.aboutTitle": "אודות Codilo",
     "modal.languageTitle": "שפה",
     "modal.close": "סגירה (Escape)",
     "about.tagline": "עורך קוד קטן ומהיר.",
@@ -6986,19 +6986,19 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "סקירה כללית",
     "help.overviewIntro":
-      "JustCode הוא עורך קטן ומהיר עבור HTML, CSS, JavaScript וטקסט או קוד כללי — נבנה כדי להיפתח מהר ולא להפריע, לא כדי להחליף סביבת פיתוח מלאה.",
+      "Codilo הוא עורך קטן ומהיר עבור HTML, CSS, JavaScript וטקסט או קוד כללי — נבנה כדי להיפתח מהר ולא להפריע, לא כדי להחליף סביבת פיתוח מלאה.",
     "help.overviewPoint1": "קבצים נפתחים ככרטיסיות בחלון אחד; אין פרויקט או סביבת עבודה שצריך להגדיר קודם.",
     "help.overviewPoint2": "לחצו F1 בכל עת לרשימת קיצורי המקלדת המלאה.",
 
     "help.filesTitle": "קבצים",
-    "help.filesIntro": "קבצים נפתחים ככרטיסיות; ל-JustCode אין מושג של פרויקט או סביבת עבודה.",
+    "help.filesIntro": "קבצים נפתחים ככרטיסיות; ל-Codilo אין מושג של פרויקט או סביבת עבודה.",
     "help.filesPoint1":
       "קובץ חדש (Ctrl+N) מציע תבניות פתיחה לשפות רבות, או מסמך ריק; פתיחה… (Ctrl+O) מקבלת מספר קבצים בבת אחת.",
     "help.filesPoint2":
       "שמירה (Ctrl+S) ושמירה בשם (Ctrl+Shift+S) כותבות ישירות לדיסק; שמירת הכל (Ctrl+Alt+S) מכסה את כל הכרטיסיות שהשתנו בבת אחת.",
     "help.filesPoint3": "קובץ ▸ קבצים אחרונים זוכר את 15 הקבצים האחרונים בין הפעלות.",
     "help.filesPoint4":
-      "קובץ ▸ שיוכי קבצים… רושם את JustCode אצל Windows כך שיופיע כאפשרות \"פתח באמצעות\" — או כברירת המחדל — עבור סוגי הקבצים שהוא מבין.",
+      "קובץ ▸ שיוכי קבצים… רושם את Codilo אצל Windows כך שיופיע כאפשרות \"פתח באמצעות\" — או כברירת המחדל — עבור סוגי הקבצים שהוא מבין.",
 
     "help.editingTitle": "עריכה",
     "help.editingIntro": "עריכה סטנדרטית, בתוספת כמה תוספות מעבר לגזירה, העתקה, הדבקה, ביטול וחזרה.",
@@ -7062,7 +7062,7 @@ export const TRANSLATIONS = {
     "help.spellCheckPoint2": "הפעילו אותה מתוך תצוגה ▸ בדיקת איות.",
 
     "help.languageTitle": "שפת הממשק",
-    "help.languageIntro": "שפת התפריטים ותיבות הדו-שיח של JustCode עצמו — בלתי תלויה בתוכן או בשפת התכנות של קובץ כלשהו.",
+    "help.languageIntro": "שפת התפריטים ותיבות הדו-שיח של Codilo עצמו — בלתי תלויה בתוכן או בשפת התכנות של קובץ כלשהו.",
     "help.languagePoint1":
       "תצוגה ▸ שפה… מפרטת כל תרגום תחת שמו שלו ולא שמו האנגלי, כי \"German\" לא עוזר למי שקורא רק עברית.",
     "help.languagePoint2": "אנגלית מובנית; כל שפה אחרת מורדת בעת הבחירה הראשונה שלה.",
@@ -7283,13 +7283,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "टैब दाएँ ले जाएँ",
     "tabs.moveToStart": "टैब को शुरुआत में ले जाएँ",
     "help.shortcuts": "शॉर्टकट",
-    "help.about": "JustCode के बारे में",
+    "help.about": "Codilo के बारे में",
     "help.newVersion": "नया संस्करण…",
-    "update.upToDate": "JustCode {version} ही नवीनतम संस्करण है।",
-    "update.available": "JustCode {latest} आ गया है। आप {current} चला रहे हैं। इसे अभी डाउनलोड करें?",
+    "update.upToDate": "Codilo {version} ही नवीनतम संस्करण है।",
+    "update.available": "Codilo {latest} आ गया है। आप {current} चला रहे हैं। इसे अभी डाउनलोड करें?",
     "update.download": "डाउनलोड",
     "update.downloading": "{name} डाउनलोड हो रहा है…",
-    "update.installQuestion": "{name} डाउनलोड हो गया है। इसे अभी इंस्टॉल करें? इंस्टॉलर इसे बदल सके, इसके लिए JustCode बंद हो जाएगा।",
+    "update.installQuestion": "{name} डाउनलोड हो गया है। इसे अभी इंस्टॉल करें? इंस्टॉलर इसे बदल सके, इसके लिए Codilo बंद हो जाएगा।",
     "update.install": "इंस्टॉल करें",
     "update.reveal": "फ़ाइल दिखाएँ",
     "update.noAsset": "रिलीज़ {version} में इस सिस्टम के लिए इंस्टॉलर नहीं है।",
@@ -7376,8 +7376,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "सभी चुनें",
     "assoc.unselectAll": "सभी अचयनित करें",
     "assoc.apply": "लागू करें",
-    "assoc.intro": "चुनें कि कौन-से फ़ाइल प्रकार JustCode में खुलें।",
-    "assoc.defaultsNote": "चिह्नित प्रकार JustCode में खुलेंगे। जिन प्रकारों को कोई दूसरा प्रोग्राम पहले से संभालता है, उन्हें अलग से दर्शाया गया है और बिना चिह्न के छोड़ दिया गया है। यदि Windows ने किसी प्रकार के लिए आपकी अपनी पसंद दर्ज कर रखी है, तो वह पसंद बनी रहती है और JustCode केवल \"इसके साथ खोलें\" सूची में जोड़ा जाता है।",
+    "assoc.intro": "चुनें कि कौन-से फ़ाइल प्रकार Codilo में खुलें।",
+    "assoc.defaultsNote": "चिह्नित प्रकार Codilo में खुलेंगे। जिन प्रकारों को कोई दूसरा प्रोग्राम पहले से संभालता है, उन्हें अलग से दर्शाया गया है और बिना चिह्न के छोड़ दिया गया है। यदि Windows ने किसी प्रकार के लिए आपकी अपनी पसंद दर्ज कर रखी है, तो वह पसंद बनी रहती है और Codilo केवल \"इसके साथ खोलें\" सूची में जोड़ा जाता है।",
     "assoc.currently": "— वर्तमान में {owner}",
     "assoc.applied": "{n} फ़ाइल प्रकार संबद्ध किए गए",
     "assoc.someFailed": "कुछ फ़ाइल प्रकार पंजीकृत नहीं किए जा सके:",
@@ -7385,7 +7385,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "क्या अभी Windows की डिफ़ॉल्ट ऐप सेटिंग्स खोलें?",
     "assoc.openSettingsOk": "सेटिंग्स खोलें",
     "modal.shortcutsTitle": "कीबोर्ड शॉर्टकट",
-    "modal.aboutTitle": "JustCode के बारे में",
+    "modal.aboutTitle": "Codilo के बारे में",
     "modal.languageTitle": "भाषा",
     "modal.close": "बंद करें (Escape)",
     "about.tagline": "एक छोटा, तेज़ कोड संपादक।",
@@ -7541,19 +7541,19 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "अवलोकन",
     "help.overviewIntro":
-      "JustCode, HTML, CSS, JavaScript और सामान्य टेक्स्ट या कोड के लिए एक छोटा, तेज़ संपादक है — यह तेज़ी से खुलने और रास्ते से हटकर रहने के लिए बनाया गया है, न कि पूर्ण IDE की जगह लेने के लिए।",
+      "Codilo, HTML, CSS, JavaScript और सामान्य टेक्स्ट या कोड के लिए एक छोटा, तेज़ संपादक है — यह तेज़ी से खुलने और रास्ते से हटकर रहने के लिए बनाया गया है, न कि पूर्ण IDE की जगह लेने के लिए।",
     "help.overviewPoint1": "फ़ाइलें एक ही विंडो में टैब के रूप में खुलती हैं; पहले सेट करने के लिए कोई प्रोजेक्ट या वर्कस्पेस नहीं है।",
     "help.overviewPoint2": "पूरी कीबोर्ड शॉर्टकट संदर्भ सूची के लिए किसी भी समय F1 दबाएँ।",
 
     "help.filesTitle": "फ़ाइलें",
-    "help.filesIntro": "फ़ाइलें टैब के रूप में खुलती हैं; JustCode में प्रोजेक्ट या वर्कस्पेस जैसी कोई अवधारणा नहीं है।",
+    "help.filesIntro": "फ़ाइलें टैब के रूप में खुलती हैं; Codilo में प्रोजेक्ट या वर्कस्पेस जैसी कोई अवधारणा नहीं है।",
     "help.filesPoint1":
       "नई फ़ाइल (Ctrl+N) कई भाषाओं के लिए आरंभिक टेम्पलेट, या एक खाली दस्तावेज़ प्रस्तुत करती है; खोलें… (Ctrl+O) एक साथ कई फ़ाइलें स्वीकार करता है।",
     "help.filesPoint2":
       "सहेजें (Ctrl+S) और इस रूप में सहेजें (Ctrl+Shift+S) सीधे डिस्क पर लिखते हैं; सभी सहेजें (Ctrl+Alt+S) एक बार में हर बदली गई टैब को कवर करता है।",
     "help.filesPoint3": "फ़ाइल ▸ हाल की फ़ाइलें पुनः आरंभ के बीच पिछली 15 फ़ाइलें याद रखता है।",
     "help.filesPoint4":
-      "फ़ाइल ▸ फ़ाइल एसोसिएशन… JustCode को Windows के साथ पंजीकृत करता है ताकि यह समझी जाने वाली फ़ाइल प्रकारों के लिए \"इसके साथ खोलें\" विकल्प — या डिफ़ॉल्ट — के रूप में दिखाई दे।",
+      "फ़ाइल ▸ फ़ाइल एसोसिएशन… Codilo को Windows के साथ पंजीकृत करता है ताकि यह समझी जाने वाली फ़ाइल प्रकारों के लिए \"इसके साथ खोलें\" विकल्प — या डिफ़ॉल्ट — के रूप में दिखाई दे।",
 
     "help.editingTitle": "संपादन",
     "help.editingIntro": "कट, कॉपी, पेस्ट, पूर्ववत करें और फिर से करें के अलावा मानक संपादन, साथ ही कुछ अतिरिक्त सुविधाएँ।",
@@ -7617,7 +7617,7 @@ export const TRANSLATIONS = {
     "help.spellCheckPoint2": "इसे देखें ▸ वर्तनी जाँच से टॉगल करें।",
 
     "help.languageTitle": "इंटरफ़ेस भाषा",
-    "help.languageIntro": "JustCode के अपने मेनू और डायलॉग की भाषा — किसी भी फ़ाइल की सामग्री या प्रोग्रामिंग भाषा से स्वतंत्र।",
+    "help.languageIntro": "Codilo के अपने मेनू और डायलॉग की भाषा — किसी भी फ़ाइल की सामग्री या प्रोग्रामिंग भाषा से स्वतंत्र।",
     "help.languagePoint1":
       "देखें ▸ भाषा… हर अनुवाद को उसके अंग्रेज़ी नाम के बजाय उसके अपने नाम से सूचीबद्ध करता है, क्योंकि \"German\" उस व्यक्ति की मदद नहीं करता जो केवल हिंदी पढ़ता है।",
     "help.languagePoint2": "अंग्रेज़ी अंतर्निहित है; कोई भी अन्य भाषा पहली बार चुने जाने पर डाउनलोड होती है।",
@@ -7838,13 +7838,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Lap mozgatása jobbra",
     "tabs.moveToStart": "Lap mozgatása az elejére",
     "help.shortcuts": "Gyorsbillentyűk",
-    "help.about": "A JustCode névjegye",
+    "help.about": "A Codilo névjegye",
     "help.newVersion": "Új verzió…",
-    "update.upToDate": "A JustCode {version} a legújabb verzió.",
-    "update.available": "Megjelent a JustCode {latest}. Ön a(z) {current} verziót használja. Letölti most?",
+    "update.upToDate": "A Codilo {version} a legújabb verzió.",
+    "update.available": "Megjelent a Codilo {latest}. Ön a(z) {current} verziót használja. Letölti most?",
     "update.download": "Letöltés",
     "update.downloading": "{name} letöltése…",
-    "update.installQuestion": "A(z) {name} letöltődött. Telepíti most? A JustCode bezárul, hogy a telepítő lecserélhesse.",
+    "update.installQuestion": "A(z) {name} letöltődött. Telepíti most? A Codilo bezárul, hogy a telepítő lecserélhesse.",
     "update.install": "Telepítés",
     "update.reveal": "Fájl megjelenítése",
     "update.noAsset": "A(z) {version} kiadáshoz nincs telepítő ehhez a rendszerhez.",
@@ -7931,8 +7931,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Összes kijelölése",
     "assoc.unselectAll": "Kijelölés megszüntetése",
     "assoc.apply": "Alkalmaz",
-    "assoc.intro": "Válassza ki, mely fájltípusok nyíljanak meg a JustCode alkalmazásban.",
-    "assoc.defaultsNote": "A bejelölt típusok a JustCode-ban nyílnak meg. A más program által már kezelt típusok külön jelölve vannak, és bejelöletlenek maradnak. Ha a Windows rögzítette a saját választását egy típushoz, az a választás megmarad, és a JustCode csak felkerül a „Megnyitás ezzel” listára.",
+    "assoc.intro": "Válassza ki, mely fájltípusok nyíljanak meg a Codilo alkalmazásban.",
+    "assoc.defaultsNote": "A bejelölt típusok a Codilo-ban nyílnak meg. A más program által már kezelt típusok külön jelölve vannak, és bejelöletlenek maradnak. Ha a Windows rögzítette a saját választását egy típushoz, az a választás megmarad, és a Codilo csak felkerül a „Megnyitás ezzel” listára.",
     "assoc.currently": "— jelenleg {owner}",
     "assoc.applied": "{n} fájltípus társítva",
     "assoc.someFailed": "Egyes fájltípusokat nem sikerült regisztrálni:",
@@ -7940,7 +7940,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Megnyitja most a Windows alapértelmezett alkalmazások beállításait?",
     "assoc.openSettingsOk": "Beállítások megnyitása",
     "modal.shortcutsTitle": "Billentyűparancsok",
-    "modal.aboutTitle": "A JustCode névjegye",
+    "modal.aboutTitle": "A Codilo névjegye",
     "modal.languageTitle": "Nyelv",
     "modal.close": "Bezárás (Escape)",
     "about.tagline": "Kicsi, gyors kódszerkesztő.",
@@ -8096,20 +8096,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Áttekintés",
     "help.overviewIntro":
-      "A JustCode egy kis, gyors szerkesztő HTML, CSS, JavaScript és általános szöveg vagy kód számára — arra tervezve, hogy gyorsan nyíljon meg és ne legyen útban, nem pedig arra, hogy egy teljes IDE-t helyettesítsen.",
+      "A Codilo egy kis, gyors szerkesztő HTML, CSS, JavaScript és általános szöveg vagy kód számára — arra tervezve, hogy gyorsan nyíljon meg és ne legyen útban, nem pedig arra, hogy egy teljes IDE-t helyettesítsen.",
     "help.overviewPoint1":
       "A fájlok lapokként nyílnak meg egyetlen ablakban; nincs előzetesen beállítandó projekt vagy munkaterület.",
     "help.overviewPoint2": "Bármikor nyomj F1-et a teljes billentyűparancs-referenciáért.",
 
     "help.filesTitle": "Fájlok",
-    "help.filesIntro": "A fájlok lapokként nyílnak meg; a JustCode nem ismeri a projekt vagy munkaterület fogalmát.",
+    "help.filesIntro": "A fájlok lapokként nyílnak meg; a Codilo nem ismeri a projekt vagy munkaterület fogalmát.",
     "help.filesPoint1":
       "Az Új fájl (Ctrl+N) sok nyelvhez kínál kezdősablonokat, vagy üres dokumentumot; a Megnyitás… (Ctrl+O) egyszerre több fájlt is elfogad.",
     "help.filesPoint2":
       "A Mentés (Ctrl+S) és a Mentés másként (Ctrl+Shift+S) közvetlenül a lemezre ír; a Mindent ment (Ctrl+Alt+S) egyszerre lefedi az összes módosított lapot.",
     "help.filesPoint3": "A Fájl ▸ Legutóbbi fájlok az utolsó 15 fájlt jegyzi meg az újraindítások között.",
     "help.filesPoint4":
-      "A Fájl ▸ Fájltársítások… regisztrálja a JustCode-ot a Windowsnál, hogy \"Megnyitás ezzel\" opcióként — vagy alapértelmezettként — jelenjen meg az általa ismert fájltípusokhoz.",
+      "A Fájl ▸ Fájltársítások… regisztrálja a Codilo-ot a Windowsnál, hogy \"Megnyitás ezzel\" opcióként — vagy alapértelmezettként — jelenjen meg az általa ismert fájltípusokhoz.",
 
     "help.editingTitle": "Szerkesztés",
     "help.editingIntro": "Standard szerkesztés, plusz néhány extra a kivágás, másolás, beillesztés, visszavonás és ismétlés mellett.",
@@ -8176,7 +8176,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Felület nyelve",
     "help.languageIntro":
-      "A JustCode saját menüinek és párbeszédpaneljeinek nyelve — függetlenül bármely fájl tartalmától vagy programozási nyelvétől.",
+      "A Codilo saját menüinek és párbeszédpaneljeinek nyelve — függetlenül bármely fájl tartalmától vagy programozási nyelvétől.",
     "help.languagePoint1":
       "A Nézet ▸ Nyelv… minden fordítást a saját nevén sorol fel, nem az angol nevén, mivel a \"German\" nem segít annak, aki csak magyarul olvas.",
     "help.languagePoint2": "Az angol beépített; minden más nyelv az első kiválasztáskor töltődik le.",
@@ -8397,13 +8397,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Pindahkan tab ke kanan",
     "tabs.moveToStart": "Pindahkan tab ke awal",
     "help.shortcuts": "Pintasan",
-    "help.about": "Tentang JustCode",
+    "help.about": "Tentang Codilo",
     "help.newVersion": "Versi Baru…",
-    "update.upToDate": "JustCode {version} adalah versi terbaru.",
-    "update.available": "JustCode {latest} telah rilis. Anda menjalankan {current}. Unduh sekarang?",
+    "update.upToDate": "Codilo {version} adalah versi terbaru.",
+    "update.available": "Codilo {latest} telah rilis. Anda menjalankan {current}. Unduh sekarang?",
     "update.download": "Unduh",
     "update.downloading": "Mengunduh {name}…",
-    "update.installQuestion": "{name} telah diunduh. Pasang sekarang? JustCode akan ditutup agar pemasang dapat menggantinya.",
+    "update.installQuestion": "{name} telah diunduh. Pasang sekarang? Codilo akan ditutup agar pemasang dapat menggantinya.",
     "update.install": "Pasang",
     "update.reveal": "Tampilkan Berkas",
     "update.noAsset": "Rilis {version} tidak memiliki pemasang untuk sistem ini.",
@@ -8490,8 +8490,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Pilih Semua",
     "assoc.unselectAll": "Batalkan Semua Pilihan",
     "assoc.apply": "Terapkan",
-    "assoc.intro": "Pilih jenis file yang dibuka di JustCode.",
-    "assoc.defaultsNote": "Tipe yang dicentang akan dibuka di JustCode. Tipe yang sudah ditangani program lain ditandai dan dibiarkan tidak tercentang. Jika Windows telah mencatat pilihan Anda sendiri untuk suatu tipe, pilihan tersebut tetap dipertahankan dan JustCode hanya ditambahkan ke daftar \"Buka dengan\".",
+    "assoc.intro": "Pilih jenis file yang dibuka di Codilo.",
+    "assoc.defaultsNote": "Tipe yang dicentang akan dibuka di Codilo. Tipe yang sudah ditangani program lain ditandai dan dibiarkan tidak tercentang. Jika Windows telah mencatat pilihan Anda sendiri untuk suatu tipe, pilihan tersebut tetap dipertahankan dan Codilo hanya ditambahkan ke daftar \"Buka dengan\".",
     "assoc.currently": "— saat ini {owner}",
     "assoc.applied": "{n} jenis file dikaitkan",
     "assoc.someFailed": "Beberapa jenis file tidak dapat didaftarkan:",
@@ -8499,7 +8499,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Buka pengaturan aplikasi default Windows sekarang?",
     "assoc.openSettingsOk": "Buka Pengaturan",
     "modal.shortcutsTitle": "Pintasan papan ketik",
-    "modal.aboutTitle": "Tentang JustCode",
+    "modal.aboutTitle": "Tentang Codilo",
     "modal.languageTitle": "Bahasa",
     "modal.close": "Tutup (Escape)",
     "about.tagline": "Editor kode yang kecil dan cepat.",
@@ -8655,20 +8655,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Ringkasan",
     "help.overviewIntro":
-      "JustCode adalah editor kecil dan cepat untuk HTML, CSS, JavaScript, dan teks atau kode umum — dibuat agar cepat dibuka dan tidak mengganggu, bukan untuk menggantikan IDE lengkap.",
+      "Codilo adalah editor kecil dan cepat untuk HTML, CSS, JavaScript, dan teks atau kode umum — dibuat agar cepat dibuka dan tidak mengganggu, bukan untuk menggantikan IDE lengkap.",
     "help.overviewPoint1":
       "File terbuka sebagai tab dalam satu jendela; tidak ada proyek atau ruang kerja yang perlu disiapkan terlebih dahulu.",
     "help.overviewPoint2": "Tekan F1 kapan saja untuk referensi pintasan keyboard lengkap.",
 
     "help.filesTitle": "File",
-    "help.filesIntro": "File terbuka sebagai tab; JustCode tidak memiliki konsep proyek atau ruang kerja.",
+    "help.filesIntro": "File terbuka sebagai tab; Codilo tidak memiliki konsep proyek atau ruang kerja.",
     "help.filesPoint1":
       "Berkas Baru (Ctrl+N) menawarkan templat awal untuk banyak bahasa, atau dokumen kosong; Buka… (Ctrl+O) menerima beberapa file sekaligus.",
     "help.filesPoint2":
       "Simpan (Ctrl+S) dan Simpan Sebagai (Ctrl+Shift+S) menulis langsung ke disk; Simpan Semua (Ctrl+Alt+S) mencakup semua tab yang berubah sekaligus.",
     "help.filesPoint3": "Berkas ▸ File Terbaru mengingat 15 file terakhir di antara mulai ulang.",
     "help.filesPoint4":
-      "Berkas ▸ Asosiasi File… mendaftarkan JustCode ke Windows sehingga muncul sebagai opsi \"Buka dengan\" — atau default — untuk jenis file yang dipahaminya.",
+      "Berkas ▸ Asosiasi File… mendaftarkan Codilo ke Windows sehingga muncul sebagai opsi \"Buka dengan\" — atau default — untuk jenis file yang dipahaminya.",
 
     "help.editingTitle": "Pengeditan",
     "help.editingIntro": "Pengeditan standar, ditambah beberapa fitur ekstra selain potong, salin, tempel, urungkan, dan ulangi.",
@@ -8734,7 +8734,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Bahasa Antarmuka",
     "help.languageIntro":
-      "Bahasa menu dan dialog JustCode sendiri — tidak tergantung pada konten atau bahasa pemrograman file mana pun.",
+      "Bahasa menu dan dialog Codilo sendiri — tidak tergantung pada konten atau bahasa pemrograman file mana pun.",
     "help.languagePoint1":
       "Tampilan ▸ Bahasa… mencantumkan setiap terjemahan dengan namanya sendiri, bukan nama Inggrisnya, karena \"German\" tidak membantu seseorang yang hanya membaca bahasa Indonesia.",
     "help.languagePoint2": "Bahasa Inggris sudah bawaan; bahasa lain akan diunduh saat pertama kali dipilih.",
@@ -8955,13 +8955,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Sposta scheda a destra",
     "tabs.moveToStart": "Sposta scheda all'inizio",
     "help.shortcuts": "Scorciatoie",
-    "help.about": "Informazioni su JustCode",
+    "help.about": "Informazioni su Codilo",
     "help.newVersion": "Nuova versione…",
-    "update.upToDate": "JustCode {version} è la versione più recente.",
-    "update.available": "È uscito JustCode {latest}. Stai usando {current}. Scaricarlo ora?",
+    "update.upToDate": "Codilo {version} è la versione più recente.",
+    "update.available": "È uscito Codilo {latest}. Stai usando {current}. Scaricarlo ora?",
     "update.download": "Scarica",
     "update.downloading": "Download di {name}…",
-    "update.installQuestion": "{name} è stato scaricato. Installarlo ora? JustCode si chiuderà per permettere al programma di installazione di sostituirlo.",
+    "update.installQuestion": "{name} è stato scaricato. Installarlo ora? Codilo si chiuderà per permettere al programma di installazione di sostituirlo.",
     "update.install": "Installa",
     "update.reveal": "Mostra file",
     "update.noAsset": "La versione {version} non ha un programma di installazione per questo sistema.",
@@ -9048,8 +9048,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Seleziona tutto",
     "assoc.unselectAll": "Deseleziona tutto",
     "assoc.apply": "Applica",
-    "assoc.intro": "Scegli quali tipi di file aprire in JustCode.",
-    "assoc.defaultsNote": "I tipi selezionati verranno aperti in JustCode. I tipi già gestiti da un altro programma sono contrassegnati e restano deselezionati. Se Windows ha registrato una tua scelta per un tipo, tale scelta viene mantenuta e JustCode viene solo aggiunto all'elenco \"Apri con\".",
+    "assoc.intro": "Scegli quali tipi di file aprire in Codilo.",
+    "assoc.defaultsNote": "I tipi selezionati verranno aperti in Codilo. I tipi già gestiti da un altro programma sono contrassegnati e restano deselezionati. Se Windows ha registrato una tua scelta per un tipo, tale scelta viene mantenuta e Codilo viene solo aggiunto all'elenco \"Apri con\".",
     "assoc.currently": "— attualmente {owner}",
     "assoc.applied": "{n} tipi di file associati",
     "assoc.someFailed": "Impossibile registrare alcuni tipi di file:",
@@ -9057,7 +9057,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Aprire ora le impostazioni delle app predefinite di Windows?",
     "assoc.openSettingsOk": "Apri Impostazioni",
     "modal.shortcutsTitle": "Scorciatoie da tastiera",
-    "modal.aboutTitle": "Informazioni su JustCode",
+    "modal.aboutTitle": "Informazioni su Codilo",
     "modal.languageTitle": "Lingua",
     "modal.close": "Chiudi (Esc)",
     "about.tagline": "Un editor di codice piccolo e veloce.",
@@ -9213,20 +9213,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Panoramica",
     "help.overviewIntro":
-      "JustCode è un editor piccolo e veloce per HTML, CSS, JavaScript e testo o codice generico — pensato per aprirsi rapidamente e non intralciare, non per sostituire un IDE completo.",
+      "Codilo è un editor piccolo e veloce per HTML, CSS, JavaScript e testo o codice generico — pensato per aprirsi rapidamente e non intralciare, non per sostituire un IDE completo.",
     "help.overviewPoint1":
       "I file si aprono come schede in un'unica finestra; non esiste un progetto o uno spazio di lavoro da configurare prima.",
     "help.overviewPoint2": "Premi F1 in qualsiasi momento per il riferimento completo delle scorciatoie da tastiera.",
 
     "help.filesTitle": "File",
-    "help.filesIntro": "I file si aprono come schede; JustCode non ha il concetto di progetto o spazio di lavoro.",
+    "help.filesIntro": "I file si aprono come schede; Codilo non ha il concetto di progetto o spazio di lavoro.",
     "help.filesPoint1":
       "Nuovo file (Ctrl+N) offre modelli iniziali per molti linguaggi, o un documento vuoto; Apri… (Ctrl+O) accetta più file contemporaneamente.",
     "help.filesPoint2":
       "Salva (Ctrl+S) e Salva con nome (Ctrl+Maiusc+S) scrivono direttamente su disco; Salva tutto (Ctrl+Alt+S) copre tutte le schede modificate in una volta.",
     "help.filesPoint3": "File ▸ File recenti ricorda gli ultimi 15 file tra i riavvii.",
     "help.filesPoint4":
-      "File ▸ Associazioni file… registra JustCode presso Windows in modo che appaia come opzione \"Apri con\" — o come predefinito — per i tipi di file che comprende.",
+      "File ▸ Associazioni file… registra Codilo presso Windows in modo che appaia come opzione \"Apri con\" — o come predefinito — per i tipi di file che comprende.",
 
     "help.editingTitle": "Modifica",
     "help.editingIntro": "Modifica standard, più alcune funzioni extra oltre taglia, copia, incolla, annulla e ripristina.",
@@ -9293,7 +9293,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Lingua dell'interfaccia",
     "help.languageIntro":
-      "La lingua dei menu e delle finestre di dialogo di JustCode stesso — indipendente dal contenuto o dal linguaggio di programmazione di un file.",
+      "La lingua dei menu e delle finestre di dialogo di Codilo stesso — indipendente dal contenuto o dal linguaggio di programmazione di un file.",
     "help.languagePoint1":
       "Visualizza ▸ Lingua… elenca ogni traduzione con il proprio nome anziché con il nome inglese, perché \"German\" non aiuta chi legge solo l'italiano.",
     "help.languagePoint2": "L'inglese è integrato; ogni altra lingua viene scaricata alla prima selezione.",
@@ -9514,13 +9514,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "タブを右へ移動",
     "tabs.moveToStart": "タブを先頭へ移動",
     "help.shortcuts": "ショートカット",
-    "help.about": "JustCode について",
+    "help.about": "Codilo について",
     "help.newVersion": "新しいバージョン…",
-    "update.upToDate": "JustCode {version} は最新バージョンです。",
-    "update.available": "JustCode {latest} が公開されました。使用中のバージョンは {current} です。今すぐダウンロードしますか？",
+    "update.upToDate": "Codilo {version} は最新バージョンです。",
+    "update.available": "Codilo {latest} が公開されました。使用中のバージョンは {current} です。今すぐダウンロードしますか？",
     "update.download": "ダウンロード",
     "update.downloading": "{name} をダウンロードしています…",
-    "update.installQuestion": "{name} をダウンロードしました。今すぐインストールしますか？インストーラーが置き換えられるよう JustCode は終了します。",
+    "update.installQuestion": "{name} をダウンロードしました。今すぐインストールしますか？インストーラーが置き換えられるよう Codilo は終了します。",
     "update.install": "インストール",
     "update.reveal": "ファイルを表示",
     "update.noAsset": "リリース {version} にはこのシステム向けのインストーラーがありません。",
@@ -9607,8 +9607,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "すべて選択",
     "assoc.unselectAll": "すべて選択解除",
     "assoc.apply": "適用",
-    "assoc.intro": "JustCodeで開くファイルの種類を選択します。",
-    "assoc.defaultsNote": "チェックした種類は JustCode で開きます。他のプログラムが既に処理している種類には印が付き、チェックされないままになります。その種類についてご自身の選択が Windows に記録されている場合、その選択は維持され、JustCode は「プログラムから開く」の一覧に追加されるだけです。",
+    "assoc.intro": "Codiloで開くファイルの種類を選択します。",
+    "assoc.defaultsNote": "チェックした種類は Codilo で開きます。他のプログラムが既に処理している種類には印が付き、チェックされないままになります。その種類についてご自身の選択が Windows に記録されている場合、その選択は維持され、Codilo は「プログラムから開く」の一覧に追加されるだけです。",
     "assoc.currently": "— 現在 {owner}",
     "assoc.applied": "{n} 個のファイルの種類を関連付けました",
     "assoc.someFailed": "登録できなかったファイルの種類があります:",
@@ -9616,7 +9616,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Windows の既定のアプリの設定を今すぐ開きますか?",
     "assoc.openSettingsOk": "設定を開く",
     "modal.shortcutsTitle": "キーボードショートカット",
-    "modal.aboutTitle": "JustCode について",
+    "modal.aboutTitle": "Codilo について",
     "modal.languageTitle": "言語",
     "modal.close": "閉じる（Escape）",
     "about.tagline": "小さくて高速なコードエディター。",
@@ -9772,19 +9772,19 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "概要",
     "help.overviewIntro":
-      "JustCode は HTML、CSS、JavaScript、および一般的なテキストやコード向けの小型で高速なエディターです — 完全な IDE の代替ではなく、素早く開いて邪魔にならないことを目指して作られています。",
+      "Codilo は HTML、CSS、JavaScript、および一般的なテキストやコード向けの小型で高速なエディターです — 完全な IDE の代替ではなく、素早く開いて邪魔にならないことを目指して作られています。",
     "help.overviewPoint1": "ファイルは1つのウィンドウ内にタブとして開きます。事前に設定するプロジェクトやワークスペースはありません。",
     "help.overviewPoint2": "いつでも F1 を押すと、キーボードショートカットの完全な一覧が表示されます。",
 
     "help.filesTitle": "ファイル",
-    "help.filesIntro": "ファイルはタブとして開きます。JustCode にはプロジェクトやワークスペースという概念はありません。",
+    "help.filesIntro": "ファイルはタブとして開きます。Codilo にはプロジェクトやワークスペースという概念はありません。",
     "help.filesPoint1":
       "新規ファイル（Ctrl+N）では多くの言語向けの開始用テンプレート、または空の文書を選べます。開く…（Ctrl+O）は一度に複数のファイルを受け付けます。",
     "help.filesPoint2":
       "保存（Ctrl+S）と名前を付けて保存（Ctrl+Shift+S）はディスクに直接書き込みます。すべて保存（Ctrl+Alt+S）は変更されたすべてのタブを一度に処理します。",
     "help.filesPoint3": "ファイル ▸ 最近使ったファイルは、再起動をまたいで直近15件のファイルを記憶します。",
     "help.filesPoint4":
-      "ファイル ▸ ファイルの関連付け…を使うと、JustCode が理解できるファイル形式について、Windows の「プログラムから開く」の選択肢 — または既定のプログラム — として表示されるように登録できます。",
+      "ファイル ▸ ファイルの関連付け…を使うと、Codilo が理解できるファイル形式について、Windows の「プログラムから開く」の選択肢 — または既定のプログラム — として表示されるように登録できます。",
 
     "help.editingTitle": "編集",
     "help.editingIntro": "切り取り、コピー、貼り付け、元に戻す、やり直しに加えて、いくつかの追加機能を備えた標準的な編集機能です。",
@@ -9849,7 +9849,7 @@ export const TRANSLATIONS = {
     "help.spellCheckPoint2": "表示 ▸ スペルチェックで切り替えます。",
 
     "help.languageTitle": "インターフェース言語",
-    "help.languageIntro": "JustCode 自体のメニューやダイアログの言語です — ファイルの内容やプログラミング言語とは無関係です。",
+    "help.languageIntro": "Codilo 自体のメニューやダイアログの言語です — ファイルの内容やプログラミング言語とは無関係です。",
     "help.languagePoint1":
       "表示 ▸ 言語…では、各翻訳を英語名ではなくその言語自身の名前で一覧表示します。「German」と表示しても、日本語しか読めない人の助けにはならないためです。",
     "help.languagePoint2": "英語は組み込みです。それ以外の言語は、最初に選択したときにダウンロードされます。",
@@ -10070,13 +10070,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "탭 오른쪽으로 이동",
     "tabs.moveToStart": "탭을 맨 앞으로 이동",
     "help.shortcuts": "단축키",
-    "help.about": "JustCode 정보",
+    "help.about": "Codilo 정보",
     "help.newVersion": "새 버전…",
-    "update.upToDate": "JustCode {version}이 최신 버전입니다.",
-    "update.available": "JustCode {latest}이 나왔습니다. 현재 {current}을 사용 중입니다. 지금 다운로드할까요?",
+    "update.upToDate": "Codilo {version}이 최신 버전입니다.",
+    "update.available": "Codilo {latest}이 나왔습니다. 현재 {current}을 사용 중입니다. 지금 다운로드할까요?",
     "update.download": "다운로드",
     "update.downloading": "{name} 다운로드 중…",
-    "update.installQuestion": "{name} 다운로드가 끝났습니다. 지금 설치할까요? 설치 프로그램이 교체할 수 있도록 JustCode가 종료됩니다.",
+    "update.installQuestion": "{name} 다운로드가 끝났습니다. 지금 설치할까요? 설치 프로그램이 교체할 수 있도록 Codilo가 종료됩니다.",
     "update.install": "설치",
     "update.reveal": "파일 보기",
     "update.noAsset": "{version} 릴리스에는 이 시스템용 설치 프로그램이 없습니다.",
@@ -10163,8 +10163,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "모두 선택",
     "assoc.unselectAll": "모두 선택 해제",
     "assoc.apply": "적용",
-    "assoc.intro": "JustCode에서 열 파일 형식을 선택하세요.",
-    "assoc.defaultsNote": "선택한 형식은 JustCode에서 열립니다. 다른 프로그램이 이미 처리하는 형식은 따로 표시되며 선택되지 않은 상태로 유지됩니다. 해당 형식에 대한 사용자의 선택이 Windows에 기록되어 있으면 그 선택은 그대로 유지되고 JustCode는 \"연결 프로그램\" 목록에 추가되기만 합니다.",
+    "assoc.intro": "Codilo에서 열 파일 형식을 선택하세요.",
+    "assoc.defaultsNote": "선택한 형식은 Codilo에서 열립니다. 다른 프로그램이 이미 처리하는 형식은 따로 표시되며 선택되지 않은 상태로 유지됩니다. 해당 형식에 대한 사용자의 선택이 Windows에 기록되어 있으면 그 선택은 그대로 유지되고 Codilo는 \"연결 프로그램\" 목록에 추가되기만 합니다.",
     "assoc.currently": "— 현재 {owner}",
     "assoc.applied": "{n}개 파일 형식이 연결되었습니다",
     "assoc.someFailed": "일부 파일 형식을 등록할 수 없습니다:",
@@ -10172,7 +10172,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "지금 Windows 기본 앱 설정을 여시겠습니까?",
     "assoc.openSettingsOk": "설정 열기",
     "modal.shortcutsTitle": "키보드 단축키",
-    "modal.aboutTitle": "JustCode 정보",
+    "modal.aboutTitle": "Codilo 정보",
     "modal.languageTitle": "언어",
     "modal.close": "닫기(Escape)",
     "about.tagline": "작고 빠른 코드 편집기.",
@@ -10328,19 +10328,19 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "개요",
     "help.overviewIntro":
-      "JustCode는 HTML, CSS, JavaScript 및 일반 텍스트나 코드를 위한 작고 빠른 편집기입니다 — 완전한 IDE를 대체하기 위해서가 아니라 빠르게 열리고 방해되지 않도록 만들어졌습니다.",
+      "Codilo는 HTML, CSS, JavaScript 및 일반 텍스트나 코드를 위한 작고 빠른 편집기입니다 — 완전한 IDE를 대체하기 위해서가 아니라 빠르게 열리고 방해되지 않도록 만들어졌습니다.",
     "help.overviewPoint1": "파일은 하나의 창에서 탭으로 열립니다. 먼저 설정해야 할 프로젝트나 작업 영역은 없습니다.",
     "help.overviewPoint2": "언제든지 F1을 눌러 전체 키보드 단축키 참조를 확인할 수 있습니다.",
 
     "help.filesTitle": "파일",
-    "help.filesIntro": "파일은 탭으로 열립니다. JustCode에는 프로젝트나 작업 영역이라는 개념이 없습니다.",
+    "help.filesIntro": "파일은 탭으로 열립니다. Codilo에는 프로젝트나 작업 영역이라는 개념이 없습니다.",
     "help.filesPoint1":
       "새 파일(Ctrl+N)은 여러 언어를 위한 시작 템플릿이나 빈 문서를 제공합니다. 열기…(Ctrl+O)는 한 번에 여러 파일을 받을 수 있습니다.",
     "help.filesPoint2":
       "저장(Ctrl+S)과 다른 이름으로 저장(Ctrl+Shift+S)은 디스크에 바로 씁니다. 모두 저장(Ctrl+Alt+S)은 변경된 모든 탭을 한 번에 처리합니다.",
     "help.filesPoint3": "파일 ▸ 최근 파일은 재시작 후에도 최근 15개 파일을 기억합니다.",
     "help.filesPoint4":
-      "파일 ▸ 파일 연결…은 JustCode가 이해하는 파일 형식에 대해 Windows에서 \"연결 프로그램\" 옵션 — 또는 기본 프로그램 — 으로 나타나도록 등록합니다.",
+      "파일 ▸ 파일 연결…은 Codilo가 이해하는 파일 형식에 대해 Windows에서 \"연결 프로그램\" 옵션 — 또는 기본 프로그램 — 으로 나타나도록 등록합니다.",
 
     "help.editingTitle": "편집",
     "help.editingIntro": "잘라내기, 복사, 붙여넣기, 실행 취소, 다시 실행 외에 몇 가지 추가 기능을 갖춘 표준 편집 기능입니다.",
@@ -10405,7 +10405,7 @@ export const TRANSLATIONS = {
     "help.spellCheckPoint2": "보기 ▸ 맞춤법 검사에서 전환합니다.",
 
     "help.languageTitle": "인터페이스 언어",
-    "help.languageIntro": "JustCode 자체 메뉴와 대화 상자의 언어입니다 — 파일의 내용이나 프로그래밍 언어와는 무관합니다.",
+    "help.languageIntro": "Codilo 자체 메뉴와 대화 상자의 언어입니다 — 파일의 내용이나 프로그래밍 언어와는 무관합니다.",
     "help.languagePoint1":
       "보기 ▸ 언어…는 각 번역을 영어 이름이 아닌 해당 언어 고유의 이름으로 나열합니다. \"German\"이라고 표시해도 한국어만 읽는 사람에게는 도움이 되지 않기 때문입니다.",
     "help.languagePoint2": "영어는 기본 내장되어 있습니다. 다른 언어는 처음 선택할 때 다운로드됩니다.",
@@ -10626,13 +10626,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Alih tab ke kanan",
     "tabs.moveToStart": "Alih tab ke permulaan",
     "help.shortcuts": "Pintasan",
-    "help.about": "Perihal JustCode",
+    "help.about": "Perihal Codilo",
     "help.newVersion": "Versi Baharu…",
-    "update.upToDate": "JustCode {version} ialah versi terbaharu.",
-    "update.available": "JustCode {latest} telah keluar. Anda menggunakan {current}. Muat turun sekarang?",
+    "update.upToDate": "Codilo {version} ialah versi terbaharu.",
+    "update.available": "Codilo {latest} telah keluar. Anda menggunakan {current}. Muat turun sekarang?",
     "update.download": "Muat turun",
     "update.downloading": "Memuat turun {name}…",
-    "update.installQuestion": "{name} telah dimuat turun. Pasang sekarang? JustCode akan ditutup supaya pemasang boleh menggantikannya.",
+    "update.installQuestion": "{name} telah dimuat turun. Pasang sekarang? Codilo akan ditutup supaya pemasang boleh menggantikannya.",
     "update.install": "Pasang",
     "update.reveal": "Tunjuk Fail",
     "update.noAsset": "Keluaran {version} tiada pemasang untuk sistem ini.",
@@ -10719,8 +10719,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Pilih Semua",
     "assoc.unselectAll": "Nyahpilih Semua",
     "assoc.apply": "Guna",
-    "assoc.intro": "Pilih jenis fail yang dibuka dalam JustCode.",
-    "assoc.defaultsNote": "Jenis yang dipilih akan dibuka dalam JustCode. Jenis yang sudah dikendalikan oleh program lain ditandai dan dibiarkan tidak dipilih. Jika Windows telah merekodkan pilihan anda sendiri bagi sesuatu jenis, pilihan itu kekal dan JustCode hanya ditambahkan pada senarai \"Buka dengan\".",
+    "assoc.intro": "Pilih jenis fail yang dibuka dalam Codilo.",
+    "assoc.defaultsNote": "Jenis yang dipilih akan dibuka dalam Codilo. Jenis yang sudah dikendalikan oleh program lain ditandai dan dibiarkan tidak dipilih. Jika Windows telah merekodkan pilihan anda sendiri bagi sesuatu jenis, pilihan itu kekal dan Codilo hanya ditambahkan pada senarai \"Buka dengan\".",
     "assoc.currently": "— kini {owner}",
     "assoc.applied": "{n} jenis fail dikaitkan",
     "assoc.someFailed": "Sesetengah jenis fail tidak dapat didaftarkan:",
@@ -10728,7 +10728,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Buka tetapan apl lalai Windows sekarang?",
     "assoc.openSettingsOk": "Buka Tetapan",
     "modal.shortcutsTitle": "Pintasan papan kekunci",
-    "modal.aboutTitle": "Perihal JustCode",
+    "modal.aboutTitle": "Perihal Codilo",
     "modal.languageTitle": "Bahasa",
     "modal.close": "Tutup (Escape)",
     "about.tagline": "Editor kod yang kecil dan pantas.",
@@ -10884,19 +10884,19 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Gambaran Keseluruhan",
     "help.overviewIntro":
-      "JustCode ialah editor kecil dan pantas untuk HTML, CSS, JavaScript serta teks atau kod am — dibina untuk dibuka dengan cepat dan tidak menghalang, bukan untuk menggantikan IDE yang lengkap.",
+      "Codilo ialah editor kecil dan pantas untuk HTML, CSS, JavaScript serta teks atau kod am — dibina untuk dibuka dengan cepat dan tidak menghalang, bukan untuk menggantikan IDE yang lengkap.",
     "help.overviewPoint1": "Fail dibuka sebagai tab dalam satu tetingkap; tiada projek atau ruang kerja yang perlu disediakan terlebih dahulu.",
     "help.overviewPoint2": "Tekan F1 pada bila-bila masa untuk rujukan pintasan papan kekunci yang lengkap.",
 
     "help.filesTitle": "Fail",
-    "help.filesIntro": "Fail dibuka sebagai tab; JustCode tiada konsep projek atau ruang kerja.",
+    "help.filesIntro": "Fail dibuka sebagai tab; Codilo tiada konsep projek atau ruang kerja.",
     "help.filesPoint1":
       "Fail Baharu (Ctrl+N) menawarkan templat permulaan untuk banyak bahasa, atau dokumen kosong; Buka… (Ctrl+O) menerima beberapa fail sekali gus.",
     "help.filesPoint2":
       "Simpan (Ctrl+S) dan Simpan Sebagai (Ctrl+Shift+S) menulis terus ke cakera; Simpan Semua (Ctrl+Alt+S) meliputi semua tab yang berubah sekali gus.",
     "help.filesPoint3": "Fail ▸ Fail Terkini mengingati 15 fail terakhir merentasi permulaan semula.",
     "help.filesPoint4":
-      "Fail ▸ Perkaitan Fail… mendaftarkan JustCode dengan Windows supaya ia muncul sebagai pilihan \"Buka dengan\" — atau lalai — untuk jenis fail yang difahaminya.",
+      "Fail ▸ Perkaitan Fail… mendaftarkan Codilo dengan Windows supaya ia muncul sebagai pilihan \"Buka dengan\" — atau lalai — untuk jenis fail yang difahaminya.",
 
     "help.editingTitle": "Penyuntingan",
     "help.editingIntro": "Penyuntingan standard, ditambah beberapa fungsi tambahan selain potong, salin, tampal, buat asal dan buat semula.",
@@ -10961,7 +10961,7 @@ export const TRANSLATIONS = {
     "help.spellCheckPoint2": "Togolkannya melalui Papar ▸ Semakan Ejaan.",
 
     "help.languageTitle": "Bahasa Antara Muka",
-    "help.languageIntro": "Bahasa menu dan dialog JustCode sendiri — tidak bergantung pada kandungan atau bahasa pengaturcaraan mana-mana fail.",
+    "help.languageIntro": "Bahasa menu dan dialog Codilo sendiri — tidak bergantung pada kandungan atau bahasa pengaturcaraan mana-mana fail.",
     "help.languagePoint1":
       "Papar ▸ Bahasa… menyenaraikan setiap terjemahan mengikut namanya sendiri dan bukannya nama Inggerisnya, kerana \"German\" tidak membantu sesiapa yang hanya membaca bahasa Melayu.",
     "help.languagePoint2": "Bahasa Inggeris terbina dalam; mana-mana bahasa lain dimuat turun apabila dipilih buat kali pertama.",
@@ -11182,13 +11182,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Flytt fane til høyre",
     "tabs.moveToStart": "Flytt fane først",
     "help.shortcuts": "Snarveier",
-    "help.about": "Om JustCode",
+    "help.about": "Om Codilo",
     "help.newVersion": "Ny versjon…",
-    "update.upToDate": "JustCode {version} er den nyeste versjonen.",
-    "update.available": "JustCode {latest} er ute. Du kjører {current}. Vil du laste den ned nå?",
+    "update.upToDate": "Codilo {version} er den nyeste versjonen.",
+    "update.available": "Codilo {latest} er ute. Du kjører {current}. Vil du laste den ned nå?",
     "update.download": "Last ned",
     "update.downloading": "Laster ned {name}…",
-    "update.installQuestion": "{name} er lastet ned. Vil du installere den nå? JustCode lukkes slik at installasjonsprogrammet kan erstatte den.",
+    "update.installQuestion": "{name} er lastet ned. Vil du installere den nå? Codilo lukkes slik at installasjonsprogrammet kan erstatte den.",
     "update.install": "Installer",
     "update.reveal": "Vis fil",
     "update.noAsset": "Utgivelse {version} har ingen installasjon for dette systemet.",
@@ -11275,8 +11275,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Merk alle",
     "assoc.unselectAll": "Fjern merking av alle",
     "assoc.apply": "Bruk",
-    "assoc.intro": "Velg hvilke filtyper som skal åpnes i JustCode.",
-    "assoc.defaultsNote": "Avkryssede typer åpnes i JustCode. Typer som allerede håndteres av et annet program, er uthevet og forblir uten avkrysning. Hvis Windows har lagret ditt eget valg for en type, beholdes det valget, og JustCode legges bare til i listen «Åpne med».",
+    "assoc.intro": "Velg hvilke filtyper som skal åpnes i Codilo.",
+    "assoc.defaultsNote": "Avkryssede typer åpnes i Codilo. Typer som allerede håndteres av et annet program, er uthevet og forblir uten avkrysning. Hvis Windows har lagret ditt eget valg for en type, beholdes det valget, og Codilo legges bare til i listen «Åpne med».",
     "assoc.currently": "— for øyeblikket {owner}",
     "assoc.applied": "{n} filtype(r) tilknyttet",
     "assoc.someFailed": "Enkelte filtyper kunne ikke registreres:",
@@ -11284,7 +11284,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Vil du åpne Windows-innstillingene for standardapper nå?",
     "assoc.openSettingsOk": "Åpne Innstillinger",
     "modal.shortcutsTitle": "Hurtigtaster",
-    "modal.aboutTitle": "Om JustCode",
+    "modal.aboutTitle": "Om Codilo",
     "modal.languageTitle": "Språk",
     "modal.close": "Lukk (Escape)",
     "about.tagline": "En liten, rask kodeeditor.",
@@ -11440,20 +11440,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Oversikt",
     "help.overviewIntro":
-      "JustCode er en liten, rask editor for HTML, CSS, JavaScript og generell tekst eller kode — bygget for å åpne raskt og holde seg unna veien, ikke for å erstatte et fullverdig IDE.",
+      "Codilo er en liten, rask editor for HTML, CSS, JavaScript og generell tekst eller kode — bygget for å åpne raskt og holde seg unna veien, ikke for å erstatte et fullverdig IDE.",
     "help.overviewPoint1":
       "Filer åpnes som faner i ett vindu; det finnes ikke noe prosjekt eller arbeidsområde som må settes opp først.",
     "help.overviewPoint2": "Trykk F1 når som helst for den fullstendige oversikten over tastatursnarveier.",
 
     "help.filesTitle": "Filer",
-    "help.filesIntro": "Filer åpnes som faner; JustCode har ikke noe prosjekt- eller arbeidsområdebegrep.",
+    "help.filesIntro": "Filer åpnes som faner; Codilo har ikke noe prosjekt- eller arbeidsområdebegrep.",
     "help.filesPoint1":
       "Ny fil (Ctrl+N) tilbyr startmaler for mange språk, eller et tomt dokument; Åpne… (Ctrl+O) godtar flere filer på én gang.",
     "help.filesPoint2":
       "Lagre (Ctrl+S) og Lagre som (Ctrl+Shift+S) skriver direkte til disk; Lagre alle (Ctrl+Alt+S) dekker alle endrede faner på én gang.",
     "help.filesPoint3": "Fil ▸ Nylige filer husker de siste 15 filene på tvers av omstarter.",
     "help.filesPoint4":
-      "Fil ▸ Filtilknytninger… registrerer JustCode hos Windows slik at det vises som et \"Åpne med\"-alternativ — eller standarden — for filtypene det forstår.",
+      "Fil ▸ Filtilknytninger… registrerer Codilo hos Windows slik at det vises som et \"Åpne med\"-alternativ — eller standarden — for filtypene det forstår.",
 
     "help.editingTitle": "Redigering",
     "help.editingIntro": "Standardredigering pluss noen ekstrafunksjoner utover klipp ut, kopier, lim inn, angre og gjør om.",
@@ -11520,7 +11520,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Grensesnittspråk",
     "help.languageIntro":
-      "Språket til JustCodes egne menyer og dialogbokser — uavhengig av innholdet eller programmeringsspråket i en fil.",
+      "Språket til Codilos egne menyer og dialogbokser — uavhengig av innholdet eller programmeringsspråket i en fil.",
     "help.languagePoint1":
       "Vis ▸ Språk… viser hver oversettelse under sitt eget navn i stedet for det engelske navnet, siden \"German\" ikke hjelper noen som bare leser norsk.",
     "help.languagePoint2": "Engelsk er innebygd; alle andre språk lastes ned første gang de velges.",
@@ -11741,13 +11741,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "جابه‌جایی زبانه به راست",
     "tabs.moveToStart": "انتقال زبانه به ابتدا",
     "help.shortcuts": "میان‌برها",
-    "help.about": "دربارهٔ JustCode",
+    "help.about": "دربارهٔ Codilo",
     "help.newVersion": "نسخهٔ جدید…",
-    "update.upToDate": "JustCode {version} تازه‌ترین نسخه است.",
-    "update.available": "JustCode {latest} منتشر شد. شما {current} را اجرا می‌کنید. اکنون دانلود شود؟",
+    "update.upToDate": "Codilo {version} تازه‌ترین نسخه است.",
+    "update.available": "Codilo {latest} منتشر شد. شما {current} را اجرا می‌کنید. اکنون دانلود شود؟",
     "update.download": "دانلود",
     "update.downloading": "در حال دانلود {name}…",
-    "update.installQuestion": "{name} دانلود شد. اکنون نصب شود؟ JustCode بسته می‌شود تا نصب‌کننده بتواند آن را جایگزین کند.",
+    "update.installQuestion": "{name} دانلود شد. اکنون نصب شود؟ Codilo بسته می‌شود تا نصب‌کننده بتواند آن را جایگزین کند.",
     "update.install": "نصب",
     "update.reveal": "نمایش پرونده",
     "update.noAsset": "نسخهٔ {version} نصب‌کننده‌ای برای این سیستم ندارد.",
@@ -11834,8 +11834,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "انتخاب همه",
     "assoc.unselectAll": "لغو انتخاب همه",
     "assoc.apply": "اعمال",
-    "assoc.intro": "انتخاب کنید چه نوع پرونده‌هایی در JustCode باز شوند.",
-    "assoc.defaultsNote": "نوع‌های علامت‌زده در JustCode باز می‌شوند. نوع‌هایی که برنامه دیگری از قبل آن‌ها را مدیریت می‌کند مشخص شده‌اند و بدون علامت می‌مانند. اگر Windows انتخاب خودتان را برای یک نوع ثبت کرده باشد، آن انتخاب حفظ می‌شود و JustCode فقط به فهرست «باز کردن با» افزوده می‌شود.",
+    "assoc.intro": "انتخاب کنید چه نوع پرونده‌هایی در Codilo باز شوند.",
+    "assoc.defaultsNote": "نوع‌های علامت‌زده در Codilo باز می‌شوند. نوع‌هایی که برنامه دیگری از قبل آن‌ها را مدیریت می‌کند مشخص شده‌اند و بدون علامت می‌مانند. اگر Windows انتخاب خودتان را برای یک نوع ثبت کرده باشد، آن انتخاب حفظ می‌شود و Codilo فقط به فهرست «باز کردن با» افزوده می‌شود.",
     "assoc.currently": "— در حال حاضر {owner}",
     "assoc.applied": "{n} نوع فایل مرتبط شد",
     "assoc.someFailed": "برخی از نوع فایل‌ها ثبت نشدند:",
@@ -11843,7 +11843,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "اکنون تنظیمات برنامه‌های پیش‌فرض Windows باز شود؟",
     "assoc.openSettingsOk": "باز کردن تنظیمات",
     "modal.shortcutsTitle": "میان‌برهای صفحه‌کلید",
-    "modal.aboutTitle": "دربارهٔ JustCode",
+    "modal.aboutTitle": "دربارهٔ Codilo",
     "modal.languageTitle": "زبان",
     "modal.close": "بستن (Escape)",
     "about.tagline": "ویرایشگر کد کوچک و سریع.",
@@ -11999,12 +11999,12 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "نمای کلی",
     "help.overviewIntro":
-      "JustCode یک ویرایشگر کوچک و سریع برای HTML، CSS، JavaScript و متن یا کد عمومی است — طراحی‌شده برای باز شدن سریع و بی‌دردسر بودن، نه جایگزینی یک IDE کامل.",
+      "Codilo یک ویرایشگر کوچک و سریع برای HTML، CSS، JavaScript و متن یا کد عمومی است — طراحی‌شده برای باز شدن سریع و بی‌دردسر بودن، نه جایگزینی یک IDE کامل.",
     "help.overviewPoint1": "فایل‌ها به‌صورت زبانه در یک پنجره باز می‌شوند؛ هیچ پروژه یا فضای کاری‌ای برای تنظیم اولیه وجود ندارد.",
     "help.overviewPoint2": "هر زمان F1 را فشار دهید تا مرجع کامل میان‌برهای صفحه‌کلید نمایش داده شود.",
 
     "help.filesTitle": "فایل‌ها",
-    "help.filesIntro": "فایل‌ها به‌صورت زبانه باز می‌شوند؛ JustCode مفهوم پروژه یا فضای کاری ندارد.",
+    "help.filesIntro": "فایل‌ها به‌صورت زبانه باز می‌شوند؛ Codilo مفهوم پروژه یا فضای کاری ندارد.",
     "help.filesPoint1":
       "فایل جدید (Ctrl+N) قالب‌های آغازین برای بسیاری از زبان‌ها یا یک سند خالی ارائه می‌دهد؛ باز کردن… (Ctrl+O) چند فایل را همزمان می‌پذیرد.",
     "help.filesPoint2":
@@ -12078,7 +12078,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "زبان رابط کاربری",
     "help.languageIntro":
-      "زبان منوها و کادرهای گفت‌وگوی خود JustCode — مستقل از محتوا یا زبان برنامه‌نویسی هر فایل.",
+      "زبان منوها و کادرهای گفت‌وگوی خود Codilo — مستقل از محتوا یا زبان برنامه‌نویسی هر فایل.",
     "help.languagePoint1":
       "نمایش ▸ زبان… هر ترجمه را با نام خودش فهرست می‌کند، نه نام انگلیسی آن، چون \"German\" به کسی که فقط فارسی می‌خواند کمکی نمی‌کند.",
     "help.languagePoint2": "زبان انگلیسی از پیش نصب شده است؛ هر زبان دیگری در اولین انتخاب دانلود می‌شود.",
@@ -12299,13 +12299,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Przenieś kartę w prawo",
     "tabs.moveToStart": "Przenieś kartę na początek",
     "help.shortcuts": "Skróty",
-    "help.about": "O programie JustCode",
+    "help.about": "O programie Codilo",
     "help.newVersion": "Nowa wersja…",
-    "update.upToDate": "JustCode {version} to najnowsza wersja.",
-    "update.available": "Ukazał się JustCode {latest}. Używasz wersji {current}. Pobrać ją teraz?",
+    "update.upToDate": "Codilo {version} to najnowsza wersja.",
+    "update.available": "Ukazał się Codilo {latest}. Używasz wersji {current}. Pobrać ją teraz?",
     "update.download": "Pobierz",
     "update.downloading": "Pobieranie {name}…",
-    "update.installQuestion": "Pobrano {name}. Zainstalować teraz? JustCode zostanie zamknięty, aby instalator mógł go zastąpić.",
+    "update.installQuestion": "Pobrano {name}. Zainstalować teraz? Codilo zostanie zamknięty, aby instalator mógł go zastąpić.",
     "update.install": "Zainstaluj",
     "update.reveal": "Pokaż plik",
     "update.noAsset": "Wydanie {version} nie ma instalatora dla tego systemu.",
@@ -12392,8 +12392,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Zaznacz wszystko",
     "assoc.unselectAll": "Odznacz wszystko",
     "assoc.apply": "Zastosuj",
-    "assoc.intro": "Wybierz typy plików otwierane w JustCode.",
-    "assoc.defaultsNote": "Zaznaczone typy będą otwierane w JustCode. Typy obsługiwane już przez inny program są wyróżnione i pozostają niezaznaczone. Jeśli system Windows zapisał Twój własny wybór dla danego typu, wybór ten zostaje zachowany, a JustCode jest tylko dodawany do listy „Otwórz za pomocą”.",
+    "assoc.intro": "Wybierz typy plików otwierane w Codilo.",
+    "assoc.defaultsNote": "Zaznaczone typy będą otwierane w Codilo. Typy obsługiwane już przez inny program są wyróżnione i pozostają niezaznaczone. Jeśli system Windows zapisał Twój własny wybór dla danego typu, wybór ten zostaje zachowany, a Codilo jest tylko dodawany do listy „Otwórz za pomocą”.",
     "assoc.currently": "— obecnie {owner}",
     "assoc.applied": "Skojarzono typy plików: {n}",
     "assoc.someFailed": "Nie można zarejestrować niektórych typów plików:",
@@ -12401,7 +12401,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Otworzyć teraz ustawienia domyślnych aplikacji systemu Windows?",
     "assoc.openSettingsOk": "Otwórz Ustawienia",
     "modal.shortcutsTitle": "Skróty klawiszowe",
-    "modal.aboutTitle": "O programie JustCode",
+    "modal.aboutTitle": "O programie Codilo",
     "modal.languageTitle": "Język",
     "modal.close": "Zamknij (Escape)",
     "about.tagline": "Mały, szybki edytor kodu.",
@@ -12557,20 +12557,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Przegląd",
     "help.overviewIntro":
-      "JustCode to mały, szybki edytor dla HTML, CSS, JavaScript oraz ogólnego tekstu lub kodu — zbudowany, aby szybko się otwierać i nie przeszkadzać, a nie zastępować pełnego IDE.",
+      "Codilo to mały, szybki edytor dla HTML, CSS, JavaScript oraz ogólnego tekstu lub kodu — zbudowany, aby szybko się otwierać i nie przeszkadzać, a nie zastępować pełnego IDE.",
     "help.overviewPoint1":
       "Pliki otwierają się jako karty w jednym oknie; nie ma projektu ani obszaru roboczego do wcześniejszego skonfigurowania.",
     "help.overviewPoint2": "Naciśnij F1 w dowolnym momencie, aby zobaczyć pełną listę skrótów klawiszowych.",
 
     "help.filesTitle": "Pliki",
-    "help.filesIntro": "Pliki otwierają się jako karty; JustCode nie ma pojęcia projektu ani obszaru roboczego.",
+    "help.filesIntro": "Pliki otwierają się jako karty; Codilo nie ma pojęcia projektu ani obszaru roboczego.",
     "help.filesPoint1":
       "Nowy plik (Ctrl+N) oferuje szablony startowe dla wielu języków lub pusty dokument; Otwórz… (Ctrl+O) akceptuje kilka plików naraz.",
     "help.filesPoint2":
       "Zapisz (Ctrl+S) i Zapisz jako (Ctrl+Shift+S) zapisują bezpośrednio na dysku; Zapisz wszystko (Ctrl+Alt+S) obejmuje wszystkie zmienione karty naraz.",
     "help.filesPoint3": "Plik ▸ Ostatnie pliki zapamiętuje ostatnich 15 plików między ponownymi uruchomieniami.",
     "help.filesPoint4":
-      "Plik ▸ Powiązania plików… rejestruje JustCode w systemie Windows, dzięki czemu pojawia się jako opcja \"Otwórz za pomocą\" — lub domyślna — dla obsługiwanych typów plików.",
+      "Plik ▸ Powiązania plików… rejestruje Codilo w systemie Windows, dzięki czemu pojawia się jako opcja \"Otwórz za pomocą\" — lub domyślna — dla obsługiwanych typów plików.",
 
     "help.editingTitle": "Edycja",
     "help.editingIntro": "Standardowa edycja, plus kilka dodatkowych funkcji poza wycinaniem, kopiowaniem, wklejaniem, cofaniem i ponawianiem.",
@@ -12637,7 +12637,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Język interfejsu",
     "help.languageIntro":
-      "Język własnych menu i okien dialogowych JustCode — niezależny od zawartości ani języka programowania jakiegokolwiek pliku.",
+      "Język własnych menu i okien dialogowych Codilo — niezależny od zawartości ani języka programowania jakiegokolwiek pliku.",
     "help.languagePoint1":
       "Widok ▸ Język… wymienia każde tłumaczenie pod jego własną nazwą, a nie angielską, ponieważ \"German\" nie pomaga nikomu, kto czyta tylko po polsku.",
     "help.languagePoint2": "Angielski jest wbudowany; każdy inny język jest pobierany przy pierwszym wyborze.",
@@ -12858,13 +12858,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Mover separador para a direita",
     "tabs.moveToStart": "Mover separador para o início",
     "help.shortcuts": "Atalhos",
-    "help.about": "Sobre o JustCode",
+    "help.about": "Sobre o Codilo",
     "help.newVersion": "Nova versão…",
-    "update.upToDate": "O JustCode {version} é a versão mais recente.",
-    "update.available": "Saiu o JustCode {latest}. Está a usar a {current}. Transferir agora?",
+    "update.upToDate": "O Codilo {version} é a versão mais recente.",
+    "update.available": "Saiu o Codilo {latest}. Está a usar a {current}. Transferir agora?",
     "update.download": "Transferir",
     "update.downloading": "A transferir {name}…",
-    "update.installQuestion": "{name} foi transferido. Instalar agora? O JustCode fecha para que o instalador o possa substituir.",
+    "update.installQuestion": "{name} foi transferido. Instalar agora? O Codilo fecha para que o instalador o possa substituir.",
     "update.install": "Instalar",
     "update.reveal": "Mostrar ficheiro",
     "update.noAsset": "A versão {version} não tem instalador para este sistema.",
@@ -12951,8 +12951,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Selecionar tudo",
     "assoc.unselectAll": "Desselecionar tudo",
     "assoc.apply": "Aplicar",
-    "assoc.intro": "Escolha que tipos de ficheiro abrem no JustCode.",
-    "assoc.defaultsNote": "Os tipos assinalados serão abertos no JustCode. Os tipos já geridos por outro programa são identificados e ficam por assinalar. Se o Windows tiver registado a sua própria escolha para um tipo, essa escolha mantém-se e o JustCode é apenas adicionado à lista \"Abrir com\".",
+    "assoc.intro": "Escolha que tipos de ficheiro abrem no Codilo.",
+    "assoc.defaultsNote": "Os tipos assinalados serão abertos no Codilo. Os tipos já geridos por outro programa são identificados e ficam por assinalar. Se o Windows tiver registado a sua própria escolha para um tipo, essa escolha mantém-se e o Codilo é apenas adicionado à lista \"Abrir com\".",
     "assoc.currently": "— atualmente {owner}",
     "assoc.applied": "{n} tipo(s) de ficheiro associado(s)",
     "assoc.someFailed": "Não foi possível registar alguns tipos de ficheiro:",
@@ -12960,7 +12960,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Abrir agora as definições de aplicações predefinidas do Windows?",
     "assoc.openSettingsOk": "Abrir Definições",
     "modal.shortcutsTitle": "Atalhos de teclado",
-    "modal.aboutTitle": "Sobre o JustCode",
+    "modal.aboutTitle": "Sobre o Codilo",
     "modal.languageTitle": "Idioma",
     "modal.close": "Fechar (Esc)",
     "about.tagline": "Um editor de código pequeno e rápido.",
@@ -13116,20 +13116,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Visão geral",
     "help.overviewIntro":
-      "O JustCode é um editor pequeno e rápido para HTML, CSS, JavaScript e texto ou código em geral — feito para abrir rapidamente e não atrapalhar, não para substituir uma IDE completa.",
+      "O Codilo é um editor pequeno e rápido para HTML, CSS, JavaScript e texto ou código em geral — feito para abrir rapidamente e não atrapalhar, não para substituir uma IDE completa.",
     "help.overviewPoint1":
       "Os arquivos abrem como abas em uma única janela; não há projeto ou espaço de trabalho para configurar antes.",
     "help.overviewPoint2": "Pressione F1 a qualquer momento para a referência completa de atalhos de teclado.",
 
     "help.filesTitle": "Arquivos",
-    "help.filesIntro": "Os arquivos abrem como abas; o JustCode não tem conceito de projeto ou espaço de trabalho.",
+    "help.filesIntro": "Os arquivos abrem como abas; o Codilo não tem conceito de projeto ou espaço de trabalho.",
     "help.filesPoint1":
       "Novo arquivo (Ctrl+N) oferece modelos iniciais para várias linguagens, ou um documento em branco; Abrir… (Ctrl+O) aceita vários arquivos de uma vez.",
     "help.filesPoint2":
       "Salvar (Ctrl+S) e Salvar como (Ctrl+Shift+S) gravam diretamente no disco; Salvar tudo (Ctrl+Alt+S) cobre todas as abas alteradas de uma vez.",
     "help.filesPoint3": "Arquivo ▸ Arquivos recentes lembra os últimos 15 arquivos entre reinicializações.",
     "help.filesPoint4":
-      "Arquivo ▸ Associações de arquivo… registra o JustCode no Windows para que apareça como opção \"Abrir com\" — ou como padrão — para os tipos de arquivo que ele entende.",
+      "Arquivo ▸ Associações de arquivo… registra o Codilo no Windows para que apareça como opção \"Abrir com\" — ou como padrão — para os tipos de arquivo que ele entende.",
 
     "help.editingTitle": "Edição",
     "help.editingIntro": "Edição padrão, além de alguns extras além de recortar, copiar, colar, desfazer e refazer.",
@@ -13196,7 +13196,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Idioma da interface",
     "help.languageIntro":
-      "O idioma dos próprios menus e caixas de diálogo do JustCode — independente do conteúdo ou da linguagem de programação de qualquer arquivo.",
+      "O idioma dos próprios menus e caixas de diálogo do Codilo — independente do conteúdo ou da linguagem de programação de qualquer arquivo.",
     "help.languagePoint1":
       "Exibir ▸ Idioma… lista cada tradução pelo seu próprio nome em vez do nome em inglês, já que \"German\" não ajuda quem só lê português.",
     "help.languagePoint2": "O inglês vem embutido; qualquer outro idioma é baixado na primeira vez que é selecionado.",
@@ -13417,13 +13417,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Mutare filă dreapta",
     "tabs.moveToStart": "Mutare filă la început",
     "help.shortcuts": "Scurtături",
-    "help.about": "Despre JustCode",
+    "help.about": "Despre Codilo",
     "help.newVersion": "Versiune nouă…",
-    "update.upToDate": "JustCode {version} este cea mai nouă versiune.",
-    "update.available": "A apărut JustCode {latest}. Folosiți {current}. O descărcați acum?",
+    "update.upToDate": "Codilo {version} este cea mai nouă versiune.",
+    "update.available": "A apărut Codilo {latest}. Folosiți {current}. O descărcați acum?",
     "update.download": "Descarcă",
     "update.downloading": "Se descarcă {name}…",
-    "update.installQuestion": "{name} a fost descărcat. Îl instalați acum? JustCode se va închide pentru ca programul de instalare să îl poată înlocui.",
+    "update.installQuestion": "{name} a fost descărcat. Îl instalați acum? Codilo se va închide pentru ca programul de instalare să îl poată înlocui.",
     "update.install": "Instalează",
     "update.reveal": "Arată fișierul",
     "update.noAsset": "Versiunea {version} nu are program de instalare pentru acest sistem.",
@@ -13510,8 +13510,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Selectare totală",
     "assoc.unselectAll": "Deselectare totală",
     "assoc.apply": "Aplicare",
-    "assoc.intro": "Alegeți tipurile de fișiere care se deschid în JustCode.",
-    "assoc.defaultsNote": "Tipurile bifate se vor deschide în JustCode. Tipurile gestionate deja de alt program sunt evidențiate și rămân nebifate. Dacă Windows a înregistrat propria dvs. alegere pentru un tip, aceasta se păstrează, iar JustCode este doar adăugat în lista „Deschidere cu”.",
+    "assoc.intro": "Alegeți tipurile de fișiere care se deschid în Codilo.",
+    "assoc.defaultsNote": "Tipurile bifate se vor deschide în Codilo. Tipurile gestionate deja de alt program sunt evidențiate și rămân nebifate. Dacă Windows a înregistrat propria dvs. alegere pentru un tip, aceasta se păstrează, iar Codilo este doar adăugat în lista „Deschidere cu”.",
     "assoc.currently": "— momentan {owner}",
     "assoc.applied": "{n} tip(uri) de fișier asociate",
     "assoc.someFailed": "Unele tipuri de fișiere nu au putut fi înregistrate:",
@@ -13519,7 +13519,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Deschideți acum setările Windows pentru aplicații implicite?",
     "assoc.openSettingsOk": "Deschide Setări",
     "modal.shortcutsTitle": "Scurtături de tastatură",
-    "modal.aboutTitle": "Despre JustCode",
+    "modal.aboutTitle": "Despre Codilo",
     "modal.languageTitle": "Limbă",
     "modal.close": "Închide (Escape)",
     "about.tagline": "Un editor de cod mic și rapid.",
@@ -13675,20 +13675,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Prezentare generală",
     "help.overviewIntro":
-      "JustCode este un editor mic și rapid pentru HTML, CSS, JavaScript și text sau cod general — construit pentru a se deschide rapid și a nu deranja, nu pentru a înlocui un IDE complet.",
+      "Codilo este un editor mic și rapid pentru HTML, CSS, JavaScript și text sau cod general — construit pentru a se deschide rapid și a nu deranja, nu pentru a înlocui un IDE complet.",
     "help.overviewPoint1":
       "Fișierele se deschid ca file într-o singură fereastră; nu există un proiect sau spațiu de lucru care trebuie configurat mai întâi.",
     "help.overviewPoint2": "Apasă F1 oricând pentru referința completă a scurtăturilor de tastatură.",
 
     "help.filesTitle": "Fișiere",
-    "help.filesIntro": "Fișierele se deschid ca file; JustCode nu are un concept de proiect sau spațiu de lucru.",
+    "help.filesIntro": "Fișierele se deschid ca file; Codilo nu are un concept de proiect sau spațiu de lucru.",
     "help.filesPoint1":
       "Fișier nou (Ctrl+N) oferă șabloane de pornire pentru multe limbaje, sau un document gol; Deschide… (Ctrl+O) acceptă mai multe fișiere odată.",
     "help.filesPoint2":
       "Salvare (Ctrl+S) și Salvare ca (Ctrl+Shift+S) scriu direct pe disc; Salvează tot (Ctrl+Alt+S) acoperă odată toate filele modificate.",
     "help.filesPoint3": "Fișier ▸ Fișiere recente reține ultimele 15 fișiere între repornirile aplicației.",
     "help.filesPoint4":
-      "Fișier ▸ Asocieri de fișiere… înregistrează JustCode la Windows astfel încât să apară ca opțiune \"Deschide cu\" — sau ca implicit — pentru tipurile de fișiere pe care le înțelege.",
+      "Fișier ▸ Asocieri de fișiere… înregistrează Codilo la Windows astfel încât să apară ca opțiune \"Deschide cu\" — sau ca implicit — pentru tipurile de fișiere pe care le înțelege.",
 
     "help.editingTitle": "Editare",
     "help.editingIntro": "Editare standard, plus câteva extra dincolo de tăiere, copiere, lipire, anulare și refacere.",
@@ -13755,7 +13755,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Limba interfeței",
     "help.languageIntro":
-      "Limba meniurilor și a dialogurilor proprii ale JustCode — independentă de conținutul sau limbajul de programare al oricărui fișier.",
+      "Limba meniurilor și a dialogurilor proprii ale Codilo — independentă de conținutul sau limbajul de programare al oricărui fișier.",
     "help.languagePoint1":
       "Vizualizare ▸ Limbă… listează fiecare traducere sub numele ei propriu, nu sub numele englezesc, deoarece \"German\" nu ajută pe cineva care citește doar română.",
     "help.languagePoint2": "Engleza este integrată; orice altă limbă se descarcă la prima selectare.",
@@ -13976,13 +13976,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Переместить вкладку вправо",
     "tabs.moveToStart": "Переместить вкладку в начало",
     "help.shortcuts": "Горячие клавиши",
-    "help.about": "О программе JustCode",
+    "help.about": "О программе Codilo",
     "help.newVersion": "Новая версия…",
-    "update.upToDate": "JustCode {version} — самая новая версия.",
-    "update.available": "Вышел JustCode {latest}. У вас {current}. Скачать сейчас?",
+    "update.upToDate": "Codilo {version} — самая новая версия.",
+    "update.available": "Вышел Codilo {latest}. У вас {current}. Скачать сейчас?",
     "update.download": "Скачать",
     "update.downloading": "Загрузка {name}…",
-    "update.installQuestion": "Файл {name} загружен. Установить сейчас? JustCode закроется, чтобы установщик мог его заменить.",
+    "update.installQuestion": "Файл {name} загружен. Установить сейчас? Codilo закроется, чтобы установщик мог его заменить.",
     "update.install": "Установить",
     "update.reveal": "Показать файл",
     "update.noAsset": "В выпуске {version} нет установщика для этой системы.",
@@ -14069,8 +14069,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Выбрать все",
     "assoc.unselectAll": "Снять выбор",
     "assoc.apply": "Применить",
-    "assoc.intro": "Выберите, какие типы файлов открывать в JustCode.",
-    "assoc.defaultsNote": "Отмеченные типы будут открываться в JustCode. Типы, которые уже обрабатывает другая программа, выделены и остаются без флажка. Если Windows запомнил ваш собственный выбор для типа, этот выбор сохраняется, а JustCode лишь добавляется в список «Открыть с помощью».",
+    "assoc.intro": "Выберите, какие типы файлов открывать в Codilo.",
+    "assoc.defaultsNote": "Отмеченные типы будут открываться в Codilo. Типы, которые уже обрабатывает другая программа, выделены и остаются без флажка. Если Windows запомнил ваш собственный выбор для типа, этот выбор сохраняется, а Codilo лишь добавляется в список «Открыть с помощью».",
     "assoc.currently": "— сейчас {owner}",
     "assoc.applied": "Сопоставлено типов файлов: {n}",
     "assoc.someFailed": "Не удалось зарегистрировать некоторые типы файлов:",
@@ -14078,7 +14078,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Открыть параметры приложений по умолчанию Windows?",
     "assoc.openSettingsOk": "Открыть параметры",
     "modal.shortcutsTitle": "Сочетания клавиш",
-    "modal.aboutTitle": "О программе JustCode",
+    "modal.aboutTitle": "О программе Codilo",
     "modal.languageTitle": "Язык",
     "modal.close": "Закрыть (Escape)",
     "about.tagline": "Маленький быстрый редактор кода.",
@@ -14234,20 +14234,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Обзор",
     "help.overviewIntro":
-      "JustCode — небольшой, быстрый редактор для HTML, CSS, JavaScript и обычного текста или кода — созданный, чтобы быстро открываться и не мешать, а не заменять полноценную среду разработки.",
+      "Codilo — небольшой, быстрый редактор для HTML, CSS, JavaScript и обычного текста или кода — созданный, чтобы быстро открываться и не мешать, а не заменять полноценную среду разработки.",
     "help.overviewPoint1":
       "Файлы открываются как вкладки в одном окне; нет проекта или рабочей области, которую нужно сначала настроить.",
     "help.overviewPoint2": "Нажмите F1 в любой момент для полного списка сочетаний клавиш.",
 
     "help.filesTitle": "Файлы",
-    "help.filesIntro": "Файлы открываются как вкладки; в JustCode нет понятия проекта или рабочей области.",
+    "help.filesIntro": "Файлы открываются как вкладки; в Codilo нет понятия проекта или рабочей области.",
     "help.filesPoint1":
       "Новый файл (Ctrl+N) предлагает начальные шаблоны для многих языков или пустой документ; Открыть… (Ctrl+O) принимает несколько файлов одновременно.",
     "help.filesPoint2":
       "Сохранить (Ctrl+S) и Сохранить как (Ctrl+Shift+S) записывают прямо на диск; Сохранить всё (Ctrl+Alt+S) охватывает все изменённые вкладки за раз.",
     "help.filesPoint3": "Файл ▸ Недавние файлы запоминает последние 15 файлов между перезапусками.",
     "help.filesPoint4":
-      "Файл ▸ Ассоциации файлов… регистрирует JustCode в Windows, чтобы он появлялся как вариант \"Открыть с помощью\" — или как приложение по умолчанию — для понимаемых им типов файлов.",
+      "Файл ▸ Ассоциации файлов… регистрирует Codilo в Windows, чтобы он появлялся как вариант \"Открыть с помощью\" — или как приложение по умолчанию — для понимаемых им типов файлов.",
 
     "help.editingTitle": "Редактирование",
     "help.editingIntro": "Стандартное редактирование плюс несколько дополнительных функций помимо вырезания, копирования, вставки, отмены и повтора.",
@@ -14314,7 +14314,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Язык интерфейса",
     "help.languageIntro":
-      "Язык собственных меню и диалогов JustCode — независимый от содержимого или языка программирования любого файла.",
+      "Язык собственных меню и диалогов Codilo — независимый от содержимого или языка программирования любого файла.",
     "help.languagePoint1":
       "Вид ▸ Язык… перечисляет каждый перевод под его собственным названием, а не английским, поскольку \"German\" не поможет тому, кто читает только по-русски.",
     "help.languagePoint2": "Английский встроен; любой другой язык загружается при первом выборе.",
@@ -14535,13 +14535,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Помери картицу десно",
     "tabs.moveToStart": "Помери картицу на почетак",
     "help.shortcuts": "Пречице",
-    "help.about": "О програму JustCode",
+    "help.about": "О програму Codilo",
     "help.newVersion": "Нова верзија…",
-    "update.upToDate": "JustCode {version} је најновија верзија.",
-    "update.available": "Изашао је JustCode {latest}. Користите {current}. Преузети га сада?",
+    "update.upToDate": "Codilo {version} је најновија верзија.",
+    "update.available": "Изашао је Codilo {latest}. Користите {current}. Преузети га сада?",
     "update.download": "Преузми",
     "update.downloading": "Преузимање {name}…",
-    "update.installQuestion": "{name} је преузет. Инсталирати га сада? JustCode ће се затворити да би инсталациони програм могао да га замени.",
+    "update.installQuestion": "{name} је преузет. Инсталирати га сада? Codilo ће се затворити да би инсталациони програм могао да га замени.",
     "update.install": "Инсталирај",
     "update.reveal": "Прикажи датотеку",
     "update.noAsset": "Издање {version} нема инсталациони програм за овај систем.",
@@ -14628,8 +14628,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Изабери све",
     "assoc.unselectAll": "Поништи избор",
     "assoc.apply": "Примени",
-    "assoc.intro": "Изаберите које типове датотека отвара JustCode.",
-    "assoc.defaultsNote": "Означени типови ће се отварати у програму JustCode. Типови којима већ управља други програм посебно су истакнути и остају без ознаке. Ако је Windows забележио ваш сопствени избор за неки тип, тај избор остаје, а JustCode се само додаје на листу „Отвори помоћу“.",
+    "assoc.intro": "Изаберите које типове датотека отвара Codilo.",
+    "assoc.defaultsNote": "Означени типови ће се отварати у програму Codilo. Типови којима већ управља други програм посебно су истакнути и остају без ознаке. Ако је Windows забележио ваш сопствени избор за неки тип, тај избор остаје, а Codilo се само додаје на листу „Отвори помоћу“.",
     "assoc.currently": "— тренутно {owner}",
     "assoc.applied": "Придружено типова датотека: {n}",
     "assoc.someFailed": "Неки типови датотека нису могли да се региструју:",
@@ -14637,7 +14637,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Отворити сада Windows подешавања подразумеваних апликација?",
     "assoc.openSettingsOk": "Отвори подешавања",
     "modal.shortcutsTitle": "Пречице на тастатури",
-    "modal.aboutTitle": "О програму JustCode",
+    "modal.aboutTitle": "О програму Codilo",
     "modal.languageTitle": "Језик",
     "modal.close": "Затвори (Escape)",
     "about.tagline": "Мали и брзи уређивач кода.",
@@ -14793,20 +14793,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Преглед",
     "help.overviewIntro":
-      "JustCode је мали, брзи уређивач за HTML, CSS, JavaScript и општи текст или код — направљен да се брзо отвара и не смета, а не да замени потпуно окружење за развој.",
+      "Codilo је мали, брзи уређивач за HTML, CSS, JavaScript и општи текст или код — направљен да се брзо отвара и не смета, а не да замени потпуно окружење за развој.",
     "help.overviewPoint1":
       "Датотеке се отварају као картице у једном прозору; не постоји пројекат или радни простор који треба прво поставити.",
     "help.overviewPoint2": "Притисните F1 у било ком тренутку за потпуни преглед пречица на тастатури.",
 
     "help.filesTitle": "Датотеке",
-    "help.filesIntro": "Датотеке се отварају као картице; JustCode нема концепт пројекта или радног простора.",
+    "help.filesIntro": "Датотеке се отварају као картице; Codilo нема концепт пројекта или радног простора.",
     "help.filesPoint1":
       "Нова датотека (Ctrl+N) нуди почетне шаблоне за многе језике, или празан документ; Отвори… (Ctrl+O) прихвата више датотека одједном.",
     "help.filesPoint2":
       "Сачувај (Ctrl+S) и Сачувај као (Ctrl+Shift+S) пишу директно на диск; Сачувај све (Ctrl+Alt+S) обухвата све измењене картице одједном.",
     "help.filesPoint3": "Датотека ▸ Недавне датотеке памти последњих 15 датотека између поновних покретања.",
     "help.filesPoint4":
-      "Датотека ▸ Повезивања датотека… региструје JustCode код Windows-а тако да се појављује као опција \"Отвори помоћу\" — или подразумевана — за типове датотека које разуме.",
+      "Датотека ▸ Повезивања датотека… региструје Codilo код Windows-а тако да се појављује као опција \"Отвори помоћу\" — или подразумевана — за типове датотека које разуме.",
 
     "help.editingTitle": "Уређивање",
     "help.editingIntro": "Стандардно уређивање, плус неколико додатака уз исецање, копирање, лепљење, опозив и понављање.",
@@ -14873,7 +14873,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Језик интерфејса",
     "help.languageIntro":
-      "Језик сопствених менија и дијалога JustCode-а — независан од садржаја или програмског језика било које датотеке.",
+      "Језик сопствених менија и дијалога Codilo-а — независан од садржаја или програмског језика било које датотеке.",
     "help.languagePoint1":
       "Приказ ▸ Језик… наводи сваки превод под његовим сопственим именом, а не енглеским именом, јер \"German\" не помаже некоме ко чита само српски.",
     "help.languagePoint2": "Енглески је уграђен; сваки други језик се преузима приликом првог избора.",
@@ -15094,13 +15094,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Presunúť kartu doprava",
     "tabs.moveToStart": "Presunúť kartu na začiatok",
     "help.shortcuts": "Skratky",
-    "help.about": "O aplikácii JustCode",
+    "help.about": "O aplikácii Codilo",
     "help.newVersion": "Nová verzia…",
-    "update.upToDate": "JustCode {version} je najnovšia verzia.",
-    "update.available": "Vyšiel JustCode {latest}. Používate {current}. Stiahnuť ho teraz?",
+    "update.upToDate": "Codilo {version} je najnovšia verzia.",
+    "update.available": "Vyšiel Codilo {latest}. Používate {current}. Stiahnuť ho teraz?",
     "update.download": "Stiahnuť",
     "update.downloading": "Sťahovanie {name}…",
-    "update.installQuestion": "{name} bol stiahnutý. Nainštalovať ho teraz? JustCode sa zavrie, aby ho inštalátor mohol nahradiť.",
+    "update.installQuestion": "{name} bol stiahnutý. Nainštalovať ho teraz? Codilo sa zavrie, aby ho inštalátor mohol nahradiť.",
     "update.install": "Nainštalovať",
     "update.reveal": "Zobraziť súbor",
     "update.noAsset": "Vydanie {version} nemá inštalátor pre tento systém.",
@@ -15187,8 +15187,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Vybrať všetko",
     "assoc.unselectAll": "Zrušiť výber",
     "assoc.apply": "Použiť",
-    "assoc.intro": "Vyberte, ktoré typy súborov sa budú otvárať v JustCode.",
-    "assoc.defaultsNote": "Začiarknuté typy sa budú otvárať v JustCode. Typy, ktoré už spracúva iný program, sú zvýraznené a zostávajú nezačiarknuté. Ak systém Windows zaznamenal vašu vlastnú voľbu pre daný typ, táto voľba zostane zachovaná a JustCode sa iba pridá do zoznamu „Otvoriť v programe“.",
+    "assoc.intro": "Vyberte, ktoré typy súborov sa budú otvárať v Codilo.",
+    "assoc.defaultsNote": "Začiarknuté typy sa budú otvárať v Codilo. Typy, ktoré už spracúva iný program, sú zvýraznené a zostávajú nezačiarknuté. Ak systém Windows zaznamenal vašu vlastnú voľbu pre daný typ, táto voľba zostane zachovaná a Codilo sa iba pridá do zoznamu „Otvoriť v programe“.",
     "assoc.currently": "— momentálne {owner}",
     "assoc.applied": "Priradené typy súborov: {n}",
     "assoc.someFailed": "Niektoré typy súborov sa nepodarilo zaregistrovať:",
@@ -15196,7 +15196,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Otvoriť teraz nastavenia predvolených aplikácií Windows?",
     "assoc.openSettingsOk": "Otvoriť Nastavenia",
     "modal.shortcutsTitle": "Klávesové skratky",
-    "modal.aboutTitle": "O aplikácii JustCode",
+    "modal.aboutTitle": "O aplikácii Codilo",
     "modal.languageTitle": "Jazyk",
     "modal.close": "Zavrieť (Escape)",
     "about.tagline": "Malý a rýchly editor kódu.",
@@ -15352,20 +15352,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Prehľad",
     "help.overviewIntro":
-      "JustCode je malý, rýchly editor pre HTML, CSS, JavaScript a všeobecný text alebo kód — vytvorený tak, aby sa rýchlo otváral a neprekážal, nie aby nahradil úplné IDE.",
+      "Codilo je malý, rýchly editor pre HTML, CSS, JavaScript a všeobecný text alebo kód — vytvorený tak, aby sa rýchlo otváral a neprekážal, nie aby nahradil úplné IDE.",
     "help.overviewPoint1":
       "Súbory sa otvárajú ako karty v jednom okne; neexistuje projekt ani pracovný priestor, ktorý by bolo treba najprv nastaviť.",
     "help.overviewPoint2": "Kedykoľvek stlačte F1 pre úplný prehľad klávesových skratiek.",
 
     "help.filesTitle": "Súbory",
-    "help.filesIntro": "Súbory sa otvárajú ako karty; JustCode nepozná koncept projektu ani pracovného priestoru.",
+    "help.filesIntro": "Súbory sa otvárajú ako karty; Codilo nepozná koncept projektu ani pracovného priestoru.",
     "help.filesPoint1":
       "Nový súbor (Ctrl+N) ponúka počiatočné šablóny pre mnohé jazyky, alebo prázdny dokument; Otvoriť… (Ctrl+O) prijíma viacero súborov naraz.",
     "help.filesPoint2":
       "Uložiť (Ctrl+S) a Uložiť ako (Ctrl+Shift+S) zapisujú priamo na disk; Uložiť všetko (Ctrl+Alt+S) pokryje všetky zmenené karty naraz.",
     "help.filesPoint3": "Súbor ▸ Nedávne súbory si pamätá posledných 15 súborov medzi reštartmi.",
     "help.filesPoint4":
-      "Súbor ▸ Priradenia súborov… zaregistruje JustCode vo Windows, takže sa objaví ako voľba \"Otvoriť pomocou\" — alebo ako predvolená — pre typy súborov, ktorým rozumie.",
+      "Súbor ▸ Priradenia súborov… zaregistruje Codilo vo Windows, takže sa objaví ako voľba \"Otvoriť pomocou\" — alebo ako predvolená — pre typy súborov, ktorým rozumie.",
 
     "help.editingTitle": "Úpravy",
     "help.editingIntro": "Štandardné úpravy plus niekoľko funkcií navyše okrem vystrihnutia, kopírovania, vloženia, späť a znova.",
@@ -15432,7 +15432,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Jazyk rozhrania",
     "help.languageIntro":
-      "Jazyk vlastných ponúk a dialógov JustCode — nezávislý od obsahu alebo programovacieho jazyka akéhokoľvek súboru.",
+      "Jazyk vlastných ponúk a dialógov Codilo — nezávislý od obsahu alebo programovacieho jazyka akéhokoľvek súboru.",
     "help.languagePoint1":
       "Zobraziť ▸ Jazyk… uvádza každý preklad pod jeho vlastným názvom, nie anglickým, pretože \"German\" nepomôže niekomu, kto číta iba po slovensky.",
     "help.languagePoint2": "Angličtina je vstavaná; každý iný jazyk sa stiahne pri prvom výbere.",
@@ -15653,13 +15653,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Mover pestaña a la derecha",
     "tabs.moveToStart": "Mover pestaña al principio",
     "help.shortcuts": "Atajos",
-    "help.about": "Acerca de JustCode",
+    "help.about": "Acerca de Codilo",
     "help.newVersion": "Nueva versión…",
-    "update.upToDate": "JustCode {version} es la versión más reciente.",
-    "update.available": "Ya está disponible JustCode {latest}. Usas la {current}. ¿Descargarla ahora?",
+    "update.upToDate": "Codilo {version} es la versión más reciente.",
+    "update.available": "Ya está disponible Codilo {latest}. Usas la {current}. ¿Descargarla ahora?",
     "update.download": "Descargar",
     "update.downloading": "Descargando {name}…",
-    "update.installQuestion": "{name} se ha descargado. ¿Instalarlo ahora? JustCode se cerrará para que el instalador pueda reemplazarlo.",
+    "update.installQuestion": "{name} se ha descargado. ¿Instalarlo ahora? Codilo se cerrará para que el instalador pueda reemplazarlo.",
     "update.install": "Instalar",
     "update.reveal": "Mostrar archivo",
     "update.noAsset": "La versión {version} no tiene instalador para este sistema.",
@@ -15746,8 +15746,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Seleccionar todo",
     "assoc.unselectAll": "Deseleccionar todo",
     "assoc.apply": "Aplicar",
-    "assoc.intro": "Elija qué tipos de archivo se abren en JustCode.",
-    "assoc.defaultsNote": "Los tipos marcados se abrirán en JustCode. Los tipos que ya gestiona otro programa aparecen señalados y sin marcar. Si Windows ha registrado tu propia elección para un tipo, esa elección se mantiene y JustCode solo se añade a la lista «Abrir con».",
+    "assoc.intro": "Elija qué tipos de archivo se abren en Codilo.",
+    "assoc.defaultsNote": "Los tipos marcados se abrirán en Codilo. Los tipos que ya gestiona otro programa aparecen señalados y sin marcar. Si Windows ha registrado tu propia elección para un tipo, esa elección se mantiene y Codilo solo se añade a la lista «Abrir con».",
     "assoc.currently": "— actualmente {owner}",
     "assoc.applied": "{n} tipo(s) de archivo asociado(s)",
     "assoc.someFailed": "No se pudieron registrar algunos tipos de archivo:",
@@ -15755,7 +15755,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "¿Abrir ahora la configuración de aplicaciones predeterminadas de Windows?",
     "assoc.openSettingsOk": "Abrir Configuración",
     "modal.shortcutsTitle": "Atajos de teclado",
-    "modal.aboutTitle": "Acerca de JustCode",
+    "modal.aboutTitle": "Acerca de Codilo",
     "modal.languageTitle": "Idioma",
     "modal.close": "Cerrar (Escape)",
     "about.tagline": "Un editor de código pequeño y rápido.",
@@ -15911,20 +15911,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Resumen",
     "help.overviewIntro":
-      "JustCode es un editor pequeño y rápido para HTML, CSS, JavaScript y texto o código en general — creado para abrirse rápido y no estorbar, no para sustituir un IDE completo.",
+      "Codilo es un editor pequeño y rápido para HTML, CSS, JavaScript y texto o código en general — creado para abrirse rápido y no estorbar, no para sustituir un IDE completo.",
     "help.overviewPoint1":
       "Los archivos se abren como pestañas en una sola ventana; no hay proyecto ni espacio de trabajo que configurar antes.",
     "help.overviewPoint2": "Pulsa F1 en cualquier momento para ver la referencia completa de atajos de teclado.",
 
     "help.filesTitle": "Archivos",
-    "help.filesIntro": "Los archivos se abren como pestañas; JustCode no tiene concepto de proyecto ni espacio de trabajo.",
+    "help.filesIntro": "Los archivos se abren como pestañas; Codilo no tiene concepto de proyecto ni espacio de trabajo.",
     "help.filesPoint1":
       "Nuevo archivo (Ctrl+N) ofrece plantillas iniciales para muchos lenguajes, o un documento en blanco; Abrir… (Ctrl+O) acepta varios archivos a la vez.",
     "help.filesPoint2":
       "Guardar (Ctrl+S) y Guardar como (Ctrl+Shift+S) escriben directamente en el disco; Guardar todo (Ctrl+Alt+S) cubre todas las pestañas modificadas de una vez.",
     "help.filesPoint3": "Archivo ▸ Archivos recientes recuerda los últimos 15 archivos entre reinicios.",
     "help.filesPoint4":
-      "Archivo ▸ Asociaciones de archivo… registra JustCode ante Windows para que aparezca como opción \"Abrir con\" — o predeterminada — para los tipos de archivo que entiende.",
+      "Archivo ▸ Asociaciones de archivo… registra Codilo ante Windows para que aparezca como opción \"Abrir con\" — o predeterminada — para los tipos de archivo que entiende.",
 
     "help.editingTitle": "Edición",
     "help.editingIntro": "Edición estándar, además de algunas funciones extra más allá de cortar, copiar, pegar, deshacer y rehacer.",
@@ -15991,7 +15991,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Idioma de la interfaz",
     "help.languageIntro":
-      "El idioma de los propios menús y diálogos de JustCode — independiente del contenido o del lenguaje de programación de cualquier archivo.",
+      "El idioma de los propios menús y diálogos de Codilo — independiente del contenido o del lenguaje de programación de cualquier archivo.",
     "help.languagePoint1":
       "Ver ▸ Idioma… enumera cada traducción con su propio nombre en lugar de su nombre en inglés, ya que \"German\" no ayuda a quien solo lee español.",
     "help.languagePoint2": "El inglés viene incorporado; cualquier otro idioma se descarga la primera vez que se selecciona.",
@@ -16212,13 +16212,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Flytta flik höger",
     "tabs.moveToStart": "Flytta flik först",
     "help.shortcuts": "Genvägar",
-    "help.about": "Om JustCode",
+    "help.about": "Om Codilo",
     "help.newVersion": "Ny version…",
-    "update.upToDate": "JustCode {version} är den senaste versionen.",
-    "update.available": "JustCode {latest} har släppts. Du kör {current}. Vill du hämta den nu?",
+    "update.upToDate": "Codilo {version} är den senaste versionen.",
+    "update.available": "Codilo {latest} har släppts. Du kör {current}. Vill du hämta den nu?",
     "update.download": "Hämta",
     "update.downloading": "Hämtar {name}…",
-    "update.installQuestion": "{name} har hämtats. Vill du installera den nu? JustCode stängs så att installationsprogrammet kan ersätta det.",
+    "update.installQuestion": "{name} har hämtats. Vill du installera den nu? Codilo stängs så att installationsprogrammet kan ersätta det.",
     "update.install": "Installera",
     "update.reveal": "Visa fil",
     "update.noAsset": "Version {version} har inget installationsprogram för det här systemet.",
@@ -16305,8 +16305,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Markera alla",
     "assoc.unselectAll": "Avmarkera alla",
     "assoc.apply": "Använd",
-    "assoc.intro": "Välj vilka filtyper som ska öppnas i JustCode.",
-    "assoc.defaultsNote": "Markerade typer öppnas i JustCode. Typer som redan hanteras av ett annat program är utmärkta och lämnas omarkerade. Om Windows har sparat ditt eget val för en typ behålls det valet och JustCode läggs bara till i listan ”Öppna med”.",
+    "assoc.intro": "Välj vilka filtyper som ska öppnas i Codilo.",
+    "assoc.defaultsNote": "Markerade typer öppnas i Codilo. Typer som redan hanteras av ett annat program är utmärkta och lämnas omarkerade. Om Windows har sparat ditt eget val för en typ behålls det valet och Codilo läggs bara till i listan ”Öppna med”.",
     "assoc.currently": "— för närvarande {owner}",
     "assoc.applied": "{n} filtyp(er) associerade",
     "assoc.someFailed": "Vissa filtyper kunde inte registreras:",
@@ -16314,7 +16314,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Vill du öppna Windows-inställningarna för standardappar nu?",
     "assoc.openSettingsOk": "Öppna Inställningar",
     "modal.shortcutsTitle": "Kortkommandon",
-    "modal.aboutTitle": "Om JustCode",
+    "modal.aboutTitle": "Om Codilo",
     "modal.languageTitle": "Språk",
     "modal.close": "Stäng (Escape)",
     "about.tagline": "En liten, snabb kodredigerare.",
@@ -16470,20 +16470,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Översikt",
     "help.overviewIntro":
-      "JustCode är en liten, snabb editor för HTML, CSS, JavaScript och allmän text eller kod — byggd för att öppnas snabbt och inte vara i vägen, inte för att ersätta en fullständig IDE.",
+      "Codilo är en liten, snabb editor för HTML, CSS, JavaScript och allmän text eller kod — byggd för att öppnas snabbt och inte vara i vägen, inte för att ersätta en fullständig IDE.",
     "help.overviewPoint1":
       "Filer öppnas som flikar i ett fönster; det finns inget projekt eller arbetsyta som måste ställas in först.",
     "help.overviewPoint2": "Tryck på F1 när som helst för den fullständiga referensen över tangentbordsgenvägar.",
 
     "help.filesTitle": "Filer",
-    "help.filesIntro": "Filer öppnas som flikar; JustCode har inget projekt- eller arbetsytekoncept.",
+    "help.filesIntro": "Filer öppnas som flikar; Codilo har inget projekt- eller arbetsytekoncept.",
     "help.filesPoint1":
       "Ny fil (Ctrl+N) erbjuder startmallar för många språk, eller ett tomt dokument; Öppna… (Ctrl+O) tar emot flera filer samtidigt.",
     "help.filesPoint2":
       "Spara (Ctrl+S) och Spara som (Ctrl+Shift+S) skriver direkt till disk; Spara alla (Ctrl+Alt+S) täcker alla ändrade flikar på en gång.",
     "help.filesPoint3": "Arkiv ▸ Senaste filer kommer ihåg de senaste 15 filerna mellan omstarter.",
     "help.filesPoint4":
-      "Arkiv ▸ Filassociationer… registrerar JustCode hos Windows så att det visas som ett \"Öppna med\"-alternativ — eller standardvalet — för de filtyper det förstår.",
+      "Arkiv ▸ Filassociationer… registrerar Codilo hos Windows så att det visas som ett \"Öppna med\"-alternativ — eller standardvalet — för de filtyper det förstår.",
 
     "help.editingTitle": "Redigering",
     "help.editingIntro": "Standardredigering plus några extra funktioner utöver klipp ut, kopiera, klistra in, ångra och gör om.",
@@ -16550,7 +16550,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Gränssnittsspråk",
     "help.languageIntro":
-      "Språket för JustCodes egna menyer och dialogrutor — oberoende av innehållet eller programmeringsspråket i en fil.",
+      "Språket för Codilos egna menyer och dialogrutor — oberoende av innehållet eller programmeringsspråket i en fil.",
     "help.languagePoint1":
       "Visa ▸ Språk… listar varje översättning under sitt eget namn i stället för det engelska namnet, eftersom \"German\" inte hjälper någon som bara läser svenska.",
     "help.languagePoint2": "Engelska är inbyggt; alla andra språk laddas ner första gången de väljs.",
@@ -16771,13 +16771,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "ย้ายแท็บไปขวา",
     "tabs.moveToStart": "ย้ายแท็บไปที่จุดเริ่มต้น",
     "help.shortcuts": "ทางลัด",
-    "help.about": "เกี่ยวกับ JustCode",
+    "help.about": "เกี่ยวกับ Codilo",
     "help.newVersion": "เวอร์ชันใหม่…",
-    "update.upToDate": "JustCode {version} เป็นเวอร์ชันล่าสุดแล้ว",
-    "update.available": "JustCode {latest} ออกแล้ว คุณกำลังใช้ {current} ดาวน์โหลดตอนนี้หรือไม่?",
+    "update.upToDate": "Codilo {version} เป็นเวอร์ชันล่าสุดแล้ว",
+    "update.available": "Codilo {latest} ออกแล้ว คุณกำลังใช้ {current} ดาวน์โหลดตอนนี้หรือไม่?",
     "update.download": "ดาวน์โหลด",
     "update.downloading": "กำลังดาวน์โหลด {name}…",
-    "update.installQuestion": "ดาวน์โหลด {name} เสร็จแล้ว ติดตั้งตอนนี้หรือไม่? JustCode จะปิดเพื่อให้ตัวติดตั้งแทนที่ได้",
+    "update.installQuestion": "ดาวน์โหลด {name} เสร็จแล้ว ติดตั้งตอนนี้หรือไม่? Codilo จะปิดเพื่อให้ตัวติดตั้งแทนที่ได้",
     "update.install": "ติดตั้ง",
     "update.reveal": "แสดงไฟล์",
     "update.noAsset": "รุ่น {version} ไม่มีตัวติดตั้งสำหรับระบบนี้",
@@ -16864,8 +16864,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "เลือกทั้งหมด",
     "assoc.unselectAll": "ยกเลิกเลือกทั้งหมด",
     "assoc.apply": "ใช้",
-    "assoc.intro": "เลือกชนิดไฟล์ที่จะเปิดด้วย JustCode",
-    "assoc.defaultsNote": "ชนิดไฟล์ที่ทำเครื่องหมายไว้จะเปิดด้วย JustCode ชนิดที่มีโปรแกรมอื่นจัดการอยู่แล้วจะถูกระบุไว้และไม่ทำเครื่องหมายให้ หาก Windows บันทึกตัวเลือกของคุณเองสำหรับชนิดใดไว้ ตัวเลือกนั้นจะยังคงอยู่ และ JustCode จะถูกเพิ่มลงในรายการ \"เปิดด้วย\" เท่านั้น",
+    "assoc.intro": "เลือกชนิดไฟล์ที่จะเปิดด้วย Codilo",
+    "assoc.defaultsNote": "ชนิดไฟล์ที่ทำเครื่องหมายไว้จะเปิดด้วย Codilo ชนิดที่มีโปรแกรมอื่นจัดการอยู่แล้วจะถูกระบุไว้และไม่ทำเครื่องหมายให้ หาก Windows บันทึกตัวเลือกของคุณเองสำหรับชนิดใดไว้ ตัวเลือกนั้นจะยังคงอยู่ และ Codilo จะถูกเพิ่มลงในรายการ \"เปิดด้วย\" เท่านั้น",
     "assoc.currently": "— ปัจจุบันคือ {owner}",
     "assoc.applied": "เชื่อมโยงชนิดไฟล์แล้ว {n} รายการ",
     "assoc.someFailed": "ไม่สามารถลงทะเบียนชนิดไฟล์บางรายการ:",
@@ -16873,7 +16873,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "เปิดการตั้งค่าแอปเริ่มต้นของ Windows ตอนนี้ไหม",
     "assoc.openSettingsOk": "เปิดการตั้งค่า",
     "modal.shortcutsTitle": "แป้นพิมพ์ลัด",
-    "modal.aboutTitle": "เกี่ยวกับ JustCode",
+    "modal.aboutTitle": "เกี่ยวกับ Codilo",
     "modal.languageTitle": "ภาษา",
     "modal.close": "ปิด (Escape)",
     "about.tagline": "โปรแกรมแก้ไขโค้ดที่เล็กและเร็ว",
@@ -17029,19 +17029,19 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "ภาพรวม",
     "help.overviewIntro":
-      "JustCode เป็นตัวแก้ไขขนาดเล็กและรวดเร็วสำหรับ HTML, CSS, JavaScript และข้อความหรือโค้ดทั่วไป — สร้างมาเพื่อเปิดเร็วและไม่กีดขวาง ไม่ใช่เพื่อแทนที่ IDE แบบเต็มรูปแบบ",
+      "Codilo เป็นตัวแก้ไขขนาดเล็กและรวดเร็วสำหรับ HTML, CSS, JavaScript และข้อความหรือโค้ดทั่วไป — สร้างมาเพื่อเปิดเร็วและไม่กีดขวาง ไม่ใช่เพื่อแทนที่ IDE แบบเต็มรูปแบบ",
     "help.overviewPoint1": "ไฟล์จะเปิดเป็นแท็บในหน้าต่างเดียว ไม่มีโปรเจกต์หรือพื้นที่ทำงานที่ต้องตั้งค่าก่อน",
     "help.overviewPoint2": "กด F1 ได้ทุกเมื่อเพื่อดูรายการปุ่มลัดคีย์บอร์ดแบบเต็ม",
 
     "help.filesTitle": "ไฟล์",
-    "help.filesIntro": "ไฟล์จะเปิดเป็นแท็บ JustCode ไม่มีแนวคิดเรื่องโปรเจกต์หรือพื้นที่ทำงาน",
+    "help.filesIntro": "ไฟล์จะเปิดเป็นแท็บ Codilo ไม่มีแนวคิดเรื่องโปรเจกต์หรือพื้นที่ทำงาน",
     "help.filesPoint1":
       "ไฟล์ใหม่ (Ctrl+N) มีเทมเพลตเริ่มต้นสำหรับหลายภาษา หรือเอกสารเปล่า; เปิด… (Ctrl+O) รับได้หลายไฟล์พร้อมกัน",
     "help.filesPoint2":
       "บันทึก (Ctrl+S) และบันทึกเป็น (Ctrl+Shift+S) เขียนลงดิสก์โดยตรง; บันทึกทั้งหมด (Ctrl+Alt+S) ครอบคลุมทุกแท็บที่เปลี่ยนแปลงในครั้งเดียว",
     "help.filesPoint3": "ไฟล์ ▸ ไฟล์ล่าสุด จดจำ 15 ไฟล์ล่าสุดข้ามการเริ่มระบบใหม่",
     "help.filesPoint4":
-      "ไฟล์ ▸ การเชื่อมโยงไฟล์… ลงทะเบียน JustCode กับ Windows เพื่อให้ปรากฏเป็นตัวเลือก \"เปิดด้วย\" — หรือเป็นค่าเริ่มต้น — สำหรับประเภทไฟล์ที่รองรับ",
+      "ไฟล์ ▸ การเชื่อมโยงไฟล์… ลงทะเบียน Codilo กับ Windows เพื่อให้ปรากฏเป็นตัวเลือก \"เปิดด้วย\" — หรือเป็นค่าเริ่มต้น — สำหรับประเภทไฟล์ที่รองรับ",
 
     "help.editingTitle": "การแก้ไข",
     "help.editingIntro": "การแก้ไขมาตรฐาน บวกกับฟีเจอร์เสริมเล็กน้อยนอกเหนือจากตัด คัดลอก วาง เลิกทำ และทำซ้ำ",
@@ -17106,7 +17106,7 @@ export const TRANSLATIONS = {
     "help.spellCheckPoint2": "สลับได้จากมุมมอง ▸ ตรวจการสะกด",
 
     "help.languageTitle": "ภาษาของอินเทอร์เฟซ",
-    "help.languageIntro": "ภาษาของเมนูและกล่องโต้ตอบของ JustCode เอง — ไม่ขึ้นกับเนื้อหาหรือภาษาโปรแกรมของไฟล์ใด ๆ",
+    "help.languageIntro": "ภาษาของเมนูและกล่องโต้ตอบของ Codilo เอง — ไม่ขึ้นกับเนื้อหาหรือภาษาโปรแกรมของไฟล์ใด ๆ",
     "help.languagePoint1":
       "มุมมอง ▸ ภาษา… แสดงรายการคำแปลแต่ละภาษาด้วยชื่อของตัวเอง ไม่ใช่ชื่อภาษาอังกฤษ เพราะ \"German\" ไม่ช่วยผู้ที่อ่านได้แต่ภาษาไทยเท่านั้น",
     "help.languagePoint2": "ภาษาอังกฤษมีอยู่ในตัว; ภาษาอื่น ๆ จะดาวน์โหลดเมื่อเลือกใช้ครั้งแรก",
@@ -17327,13 +17327,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Sekmeyi sağa taşı",
     "tabs.moveToStart": "Sekmeyi başa taşı",
     "help.shortcuts": "Kısayollar",
-    "help.about": "JustCode hakkında",
+    "help.about": "Codilo hakkında",
     "help.newVersion": "Yeni Sürüm…",
-    "update.upToDate": "JustCode {version} en yeni sürümdür.",
-    "update.available": "JustCode {latest} çıktı. Siz {current} sürümünü kullanıyorsunuz. Şimdi indirilsin mi?",
+    "update.upToDate": "Codilo {version} en yeni sürümdür.",
+    "update.available": "Codilo {latest} çıktı. Siz {current} sürümünü kullanıyorsunuz. Şimdi indirilsin mi?",
     "update.download": "İndir",
     "update.downloading": "{name} indiriliyor…",
-    "update.installQuestion": "{name} indirildi. Şimdi kurulsun mu? Kurulum programının değiştirebilmesi için JustCode kapanacak.",
+    "update.installQuestion": "{name} indirildi. Şimdi kurulsun mu? Kurulum programının değiştirebilmesi için Codilo kapanacak.",
     "update.install": "Kur",
     "update.reveal": "Dosyayı Göster",
     "update.noAsset": "{version} sürümünde bu sistem için kurulum dosyası yok.",
@@ -17420,8 +17420,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Tümünü Seç",
     "assoc.unselectAll": "Tüm Seçimi Kaldır",
     "assoc.apply": "Uygula",
-    "assoc.intro": "Hangi dosya türlerinin JustCode ile açılacağını seçin.",
-    "assoc.defaultsNote": "İşaretlenen türler JustCode ile açılır. Başka bir programın halihazırda işlediği türler ayrıca belirtilir ve işaretlenmeden bırakılır. Windows bir tür için kendi seçiminizi kaydetmişse bu seçim korunur ve JustCode yalnızca \"Birlikte aç\" listesine eklenir.",
+    "assoc.intro": "Hangi dosya türlerinin Codilo ile açılacağını seçin.",
+    "assoc.defaultsNote": "İşaretlenen türler Codilo ile açılır. Başka bir programın halihazırda işlediği türler ayrıca belirtilir ve işaretlenmeden bırakılır. Windows bir tür için kendi seçiminizi kaydetmişse bu seçim korunur ve Codilo yalnızca \"Birlikte aç\" listesine eklenir.",
     "assoc.currently": "— şu anda {owner}",
     "assoc.applied": "{n} dosya türü ilişkilendirildi",
     "assoc.someFailed": "Bazı dosya türleri kaydedilemedi:",
@@ -17429,7 +17429,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Windows varsayılan uygulama ayarları şimdi açılsın mı?",
     "assoc.openSettingsOk": "Ayarları aç",
     "modal.shortcutsTitle": "Klavye kısayolları",
-    "modal.aboutTitle": "JustCode hakkında",
+    "modal.aboutTitle": "Codilo hakkında",
     "modal.languageTitle": "Dil",
     "modal.close": "Kapat (Escape)",
     "about.tagline": "Küçük ve hızlı bir kod düzenleyici.",
@@ -17585,19 +17585,19 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Genel Bakış",
     "help.overviewIntro":
-      "JustCode; HTML, CSS, JavaScript ve genel metin veya kod için küçük, hızlı bir düzenleyicidir — tam bir IDE'nin yerini almak için değil, hızlı açılıp yolunuza çıkmamak için tasarlanmıştır.",
+      "Codilo; HTML, CSS, JavaScript ve genel metin veya kod için küçük, hızlı bir düzenleyicidir — tam bir IDE'nin yerini almak için değil, hızlı açılıp yolunuza çıkmamak için tasarlanmıştır.",
     "help.overviewPoint1": "Dosyalar tek bir pencerede sekme olarak açılır; önce kurulması gereken bir proje veya çalışma alanı yoktur.",
     "help.overviewPoint2": "Tam klavye kısayolu referansı için istediğiniz zaman F1'e basın.",
 
     "help.filesTitle": "Dosyalar",
-    "help.filesIntro": "Dosyalar sekme olarak açılır; JustCode'da proje veya çalışma alanı kavramı yoktur.",
+    "help.filesIntro": "Dosyalar sekme olarak açılır; Codilo'da proje veya çalışma alanı kavramı yoktur.",
     "help.filesPoint1":
       "Yeni Dosya (Ctrl+N) birçok dil için başlangıç şablonları veya boş bir belge sunar; Aç… (Ctrl+O) aynı anda birden fazla dosyayı kabul eder.",
     "help.filesPoint2":
       "Kaydet (Ctrl+S) ve Farklı Kaydet (Ctrl+Shift+S) doğrudan diske yazar; Tümünü Kaydet (Ctrl+Alt+S) değişen tüm sekmeleri tek seferde kapsar.",
     "help.filesPoint3": "Dosya ▸ Son Dosyalar yeniden başlatmalar arasında son 15 dosyayı hatırlar.",
     "help.filesPoint4":
-      "Dosya ▸ Dosya İlişkilendirmeleri… JustCode'u Windows'a kaydederek anladığı dosya türleri için bir \"Birlikte Aç\" seçeneği — veya varsayılan — olarak görünmesini sağlar.",
+      "Dosya ▸ Dosya İlişkilendirmeleri… Codilo'u Windows'a kaydederek anladığı dosya türleri için bir \"Birlikte Aç\" seçeneği — veya varsayılan — olarak görünmesini sağlar.",
 
     "help.editingTitle": "Düzenleme",
     "help.editingIntro": "Kes, kopyala, yapıştır, geri al ve yinele dışında birkaç ekstra özellikle standart düzenleme.",
@@ -17664,7 +17664,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Arayüz Dili",
     "help.languageIntro":
-      "JustCode'un kendi menülerinin ve iletişim kutularının dili — herhangi bir dosyanın içeriğinden veya programlama dilinden bağımsızdır.",
+      "Codilo'un kendi menülerinin ve iletişim kutularının dili — herhangi bir dosyanın içeriğinden veya programlama dilinden bağımsızdır.",
     "help.languagePoint1":
       "Görünüm ▸ Dil… her çeviriyi İngilizce adı yerine kendi adıyla listeler, çünkü \"German\" sadece Türkçe okuyan birine yardımcı olmaz.",
     "help.languagePoint2": "İngilizce yerleşiktir; diğer tüm diller ilk seçildiğinde indirilir.",
@@ -17885,13 +17885,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Перемістити вкладку праворуч",
     "tabs.moveToStart": "Перемістити вкладку на початок",
     "help.shortcuts": "Комбінації клавіш",
-    "help.about": "Про JustCode",
+    "help.about": "Про Codilo",
     "help.newVersion": "Нова версія…",
-    "update.upToDate": "JustCode {version} — найновіша версія.",
-    "update.available": "Вийшов JustCode {latest}. У вас {current}. Завантажити зараз?",
+    "update.upToDate": "Codilo {version} — найновіша версія.",
+    "update.available": "Вийшов Codilo {latest}. У вас {current}. Завантажити зараз?",
     "update.download": "Завантажити",
     "update.downloading": "Завантаження {name}…",
-    "update.installQuestion": "Файл {name} завантажено. Встановити зараз? JustCode закриється, щоб установник міг його замінити.",
+    "update.installQuestion": "Файл {name} завантажено. Встановити зараз? Codilo закриється, щоб установник міг його замінити.",
     "update.install": "Встановити",
     "update.reveal": "Показати файл",
     "update.noAsset": "У випуску {version} немає установника для цієї системи.",
@@ -17978,8 +17978,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Вибрати все",
     "assoc.unselectAll": "Зняти вибір",
     "assoc.apply": "Застосувати",
-    "assoc.intro": "Виберіть, які типи файлів відкривати в JustCode.",
-    "assoc.defaultsNote": "Позначені типи відкриватимуться в JustCode. Типи, які вже обробляє інша програма, виділено й залишено без прапорця. Якщо Windows зберіг ваш власний вибір для типу, цей вибір залишається, а JustCode лише додається до списку «Відкрити за допомогою».",
+    "assoc.intro": "Виберіть, які типи файлів відкривати в Codilo.",
+    "assoc.defaultsNote": "Позначені типи відкриватимуться в Codilo. Типи, які вже обробляє інша програма, виділено й залишено без прапорця. Якщо Windows зберіг ваш власний вибір для типу, цей вибір залишається, а Codilo лише додається до списку «Відкрити за допомогою».",
     "assoc.currently": "— зараз {owner}",
     "assoc.applied": "Зіставлено типів файлів: {n}",
     "assoc.someFailed": "Не вдалося зареєструвати деякі типи файлів:",
@@ -17987,7 +17987,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Відкрити параметри застосунків за замовчуванням Windows?",
     "assoc.openSettingsOk": "Відкрити параметри",
     "modal.shortcutsTitle": "Комбінації клавіш",
-    "modal.aboutTitle": "Про JustCode",
+    "modal.aboutTitle": "Про Codilo",
     "modal.languageTitle": "Мова",
     "modal.close": "Закрити (Escape)",
     "about.tagline": "Маленький швидкий редактор коду.",
@@ -18143,20 +18143,20 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Огляд",
     "help.overviewIntro":
-      "JustCode — це невеликий, швидкий редактор для HTML, CSS, JavaScript і звичайного тексту чи коду — створений, щоб швидко відкриватися й не заважати, а не замінювати повноцінне середовище розробки.",
+      "Codilo — це невеликий, швидкий редактор для HTML, CSS, JavaScript і звичайного тексту чи коду — створений, щоб швидко відкриватися й не заважати, а не замінювати повноцінне середовище розробки.",
     "help.overviewPoint1":
       "Файли відкриваються як вкладки в одному вікні; немає проєкту чи робочого простору, який потрібно спершу налаштувати.",
     "help.overviewPoint2": "Натисніть F1 будь-коли, щоб побачити повний перелік комбінацій клавіш.",
 
     "help.filesTitle": "Файли",
-    "help.filesIntro": "Файли відкриваються як вкладки; JustCode не має поняття проєкту чи робочого простору.",
+    "help.filesIntro": "Файли відкриваються як вкладки; Codilo не має поняття проєкту чи робочого простору.",
     "help.filesPoint1":
       "Новий файл (Ctrl+N) пропонує початкові шаблони для багатьох мов або порожній документ; Відкрити… (Ctrl+O) приймає кілька файлів одночасно.",
     "help.filesPoint2":
       "Зберегти (Ctrl+S) і Зберегти як (Ctrl+Shift+S) записують безпосередньо на диск; Зберегти все (Ctrl+Alt+S) охоплює всі змінені вкладки за раз.",
     "help.filesPoint3": "Файл ▸ Останні файли запам'ятовує останні 15 файлів між перезапусками.",
     "help.filesPoint4":
-      "Файл ▸ Асоціації файлів… реєструє JustCode у Windows, щоб він з'являвся як варіант \"Відкрити за допомогою\" — або типовий — для типів файлів, які він розуміє.",
+      "Файл ▸ Асоціації файлів… реєструє Codilo у Windows, щоб він з'являвся як варіант \"Відкрити за допомогою\" — або типовий — для типів файлів, які він розуміє.",
 
     "help.editingTitle": "Редагування",
     "help.editingIntro": "Стандартне редагування плюс кілька додаткових функцій крім вирізання, копіювання, вставлення, скасування та повтору.",
@@ -18223,7 +18223,7 @@ export const TRANSLATIONS = {
 
     "help.languageTitle": "Мова інтерфейсу",
     "help.languageIntro":
-      "Мова власних меню та діалогових вікон JustCode — незалежна від вмісту чи мови програмування будь-якого файлу.",
+      "Мова власних меню та діалогових вікон Codilo — незалежна від вмісту чи мови програмування будь-якого файлу.",
     "help.languagePoint1":
       "Вигляд ▸ Мова… перелічує кожен переклад під його власною назвою, а не англійською, оскільки \"German\" не допоможе тому, хто читає лише українською.",
     "help.languagePoint2": "Англійська вбудована; будь-яка інша мова завантажується під час першого вибору.",
@@ -18444,13 +18444,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "ٹیب دائیں منتقل کریں",
     "tabs.moveToStart": "ٹیب کو شروع میں منتقل کریں",
     "help.shortcuts": "شارٹ کٹس",
-    "help.about": "JustCode کے بارے میں",
+    "help.about": "Codilo کے بارے میں",
     "help.newVersion": "نیا ورژن…",
-    "update.upToDate": "JustCode {version} تازہ ترین ورژن ہے۔",
-    "update.available": "JustCode {latest} آ گیا ہے۔ آپ {current} چلا رہے ہیں۔ اسے ابھی ڈاؤن لوڈ کریں؟",
+    "update.upToDate": "Codilo {version} تازہ ترین ورژن ہے۔",
+    "update.available": "Codilo {latest} آ گیا ہے۔ آپ {current} چلا رہے ہیں۔ اسے ابھی ڈاؤن لوڈ کریں؟",
     "update.download": "ڈاؤن لوڈ",
     "update.downloading": "{name} ڈاؤن لوڈ ہو رہا ہے…",
-    "update.installQuestion": "{name} ڈاؤن لوڈ ہو گیا ہے۔ اسے ابھی انسٹال کریں؟ JustCode بند ہو جائے گا تاکہ انسٹالر اسے بدل سکے۔",
+    "update.installQuestion": "{name} ڈاؤن لوڈ ہو گیا ہے۔ اسے ابھی انسٹال کریں؟ Codilo بند ہو جائے گا تاکہ انسٹالر اسے بدل سکے۔",
     "update.install": "انسٹال کریں",
     "update.reveal": "فائل دکھائیں",
     "update.noAsset": "ریلیز {version} میں اس سسٹم کے لیے انسٹالر نہیں ہے۔",
@@ -18537,8 +18537,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "سب منتخب کریں",
     "assoc.unselectAll": "سب غیر منتخب کریں",
     "assoc.apply": "لاگو کریں",
-    "assoc.intro": "منتخب کریں کہ کون سی فائل اقسام JustCode میں کھلیں۔",
-    "assoc.defaultsNote": "نشان زد اقسام JustCode میں کھلیں گی۔ جن اقسام کو پہلے سے کوئی دوسرا پروگرام سنبھال رہا ہے، انہیں الگ سے ظاہر کیا گیا ہے اور بغیر نشان کے چھوڑ دیا گیا ہے۔ اگر Windows نے کسی قسم کے لیے آپ کا اپنا انتخاب محفوظ کر رکھا ہے تو وہ انتخاب برقرار رہے گا اور JustCode صرف \"اس سے کھولیں\" کی فہرست میں شامل ہو جائے گا۔",
+    "assoc.intro": "منتخب کریں کہ کون سی فائل اقسام Codilo میں کھلیں۔",
+    "assoc.defaultsNote": "نشان زد اقسام Codilo میں کھلیں گی۔ جن اقسام کو پہلے سے کوئی دوسرا پروگرام سنبھال رہا ہے، انہیں الگ سے ظاہر کیا گیا ہے اور بغیر نشان کے چھوڑ دیا گیا ہے۔ اگر Windows نے کسی قسم کے لیے آپ کا اپنا انتخاب محفوظ کر رکھا ہے تو وہ انتخاب برقرار رہے گا اور Codilo صرف \"اس سے کھولیں\" کی فہرست میں شامل ہو جائے گا۔",
     "assoc.currently": "— فی الحال {owner}",
     "assoc.applied": "{n} فائل اقسام منسلک کر دی گئیں",
     "assoc.someFailed": "کچھ فائل اقسام رجسٹر نہیں ہو سکیں:",
@@ -18546,7 +18546,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "کیا ابھی Windows کی ڈیفالٹ ایپ ترتیبات کھولیں؟",
     "assoc.openSettingsOk": "ترتیبات کھولیں",
     "modal.shortcutsTitle": "کی بورڈ شارٹ کٹس",
-    "modal.aboutTitle": "JustCode کے بارے میں",
+    "modal.aboutTitle": "Codilo کے بارے میں",
     "modal.languageTitle": "زبان",
     "modal.close": "بند کریں (Escape)",
     "about.tagline": "ایک چھوٹا، تیز کوڈ ایڈیٹر۔",
@@ -18702,19 +18702,19 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "جائزہ",
     "help.overviewIntro":
-      "JustCode ایک چھوٹا، تیز ایڈیٹر ہے HTML، CSS، JavaScript اور عمومی متن یا کوڈ کے لیے — یہ تیزی سے کھلنے اور راستے میں حائل نہ ہونے کے لیے بنایا گیا ہے، نہ کہ ایک مکمل IDE کی جگہ لینے کے لیے۔",
+      "Codilo ایک چھوٹا، تیز ایڈیٹر ہے HTML، CSS، JavaScript اور عمومی متن یا کوڈ کے لیے — یہ تیزی سے کھلنے اور راستے میں حائل نہ ہونے کے لیے بنایا گیا ہے، نہ کہ ایک مکمل IDE کی جگہ لینے کے لیے۔",
     "help.overviewPoint1": "فائلیں ایک ہی ونڈو میں ٹیبز کے طور پر کھلتی ہیں؛ کوئی پروجیکٹ یا ورک اسپیس نہیں جسے پہلے ترتیب دینا پڑے۔",
     "help.overviewPoint2": "مکمل کی بورڈ شارٹ کٹ حوالہ دیکھنے کے لیے کسی بھی وقت F1 دبائیں۔",
 
     "help.filesTitle": "فائلیں",
-    "help.filesIntro": "فائلیں ٹیبز کے طور پر کھلتی ہیں؛ JustCode میں پروجیکٹ یا ورک اسپیس کا کوئی تصور نہیں۔",
+    "help.filesIntro": "فائلیں ٹیبز کے طور پر کھلتی ہیں؛ Codilo میں پروجیکٹ یا ورک اسپیس کا کوئی تصور نہیں۔",
     "help.filesPoint1":
       "نئی فائل (Ctrl+N) بہت سی زبانوں کے لیے ابتدائی سانچے، یا ایک خالی دستاویز پیش کرتی ہے؛ کھولیں… (Ctrl+O) بیک وقت کئی فائلیں قبول کرتا ہے۔",
     "help.filesPoint2":
       "محفوظ کریں (Ctrl+S) اور بطور محفوظ کریں (Ctrl+Shift+S) براہ راست ڈسک پر لکھتے ہیں؛ سب محفوظ کریں (Ctrl+Alt+S) تمام تبدیل شدہ ٹیبز کو ایک ساتھ محیط کرتا ہے۔",
     "help.filesPoint3": "فائل ▸ حالیہ فائلیں دوبارہ آغاز کے دوران آخری 15 فائلیں یاد رکھتی ہے۔",
     "help.filesPoint4":
-      "فائل ▸ فائل ایسوسی ایشنز… JustCode کو Windows کے ساتھ رجسٹر کرتا ہے تاکہ یہ ان فائل اقسام کے لیے \"اس کے ساتھ کھولیں\" آپشن — یا ڈیفالٹ — کے طور پر ظاہر ہو جنہیں یہ سمجھتا ہے۔",
+      "فائل ▸ فائل ایسوسی ایشنز… Codilo کو Windows کے ساتھ رجسٹر کرتا ہے تاکہ یہ ان فائل اقسام کے لیے \"اس کے ساتھ کھولیں\" آپشن — یا ڈیفالٹ — کے طور پر ظاہر ہو جنہیں یہ سمجھتا ہے۔",
 
     "help.editingTitle": "ترمیم",
     "help.editingIntro": "معیاری ترمیم، کاٹنے، کاپی کرنے، چسپاں کرنے، واپس لینے اور دوبارہ کرنے کے علاوہ چند اضافی خصوصیات کے ساتھ۔",
@@ -18780,7 +18780,7 @@ export const TRANSLATIONS = {
     "help.spellCheckPoint2": "اسے ملاحظہ ▸ ہجے کی جانچ سے تبدیل کریں۔",
 
     "help.languageTitle": "انٹرفیس زبان",
-    "help.languageIntro": "JustCode کے اپنے مینوز اور ڈائیلاگز کی زبان — کسی بھی فائل کے مواد یا پروگرامنگ زبان سے آزاد۔",
+    "help.languageIntro": "Codilo کے اپنے مینوز اور ڈائیلاگز کی زبان — کسی بھی فائل کے مواد یا پروگرامنگ زبان سے آزاد۔",
     "help.languagePoint1":
       "ملاحظہ ▸ زبان… ہر ترجمے کو اس کے اپنے نام کے تحت درج کرتا ہے، اس کے انگریزی نام کے تحت نہیں، کیونکہ \"German\" کسی ایسے شخص کی مدد نہیں کرتا جو صرف اردو پڑھتا ہے۔",
     "help.languagePoint2": "انگریزی پہلے سے شامل ہے؛ کوئی بھی دوسری زبان پہلی بار منتخب ہونے پر ڈاؤن لوڈ ہوتی ہے۔",
@@ -19001,13 +19001,13 @@ export const TRANSLATIONS = {
     "tabs.moveRight": "Chuyển thẻ sang phải",
     "tabs.moveToStart": "Chuyển thẻ về đầu",
     "help.shortcuts": "Phím tắt",
-    "help.about": "Giới thiệu JustCode",
+    "help.about": "Giới thiệu Codilo",
     "help.newVersion": "Phiên bản mới…",
-    "update.upToDate": "JustCode {version} là phiên bản mới nhất.",
-    "update.available": "JustCode {latest} đã ra mắt. Bạn đang dùng {current}. Tải xuống ngay?",
+    "update.upToDate": "Codilo {version} là phiên bản mới nhất.",
+    "update.available": "Codilo {latest} đã ra mắt. Bạn đang dùng {current}. Tải xuống ngay?",
     "update.download": "Tải xuống",
     "update.downloading": "Đang tải {name}…",
-    "update.installQuestion": "Đã tải xong {name}. Cài đặt ngay? JustCode sẽ đóng để trình cài đặt có thể thay thế nó.",
+    "update.installQuestion": "Đã tải xong {name}. Cài đặt ngay? Codilo sẽ đóng để trình cài đặt có thể thay thế nó.",
     "update.install": "Cài đặt",
     "update.reveal": "Hiện tệp",
     "update.noAsset": "Bản phát hành {version} không có trình cài đặt cho hệ thống này.",
@@ -19094,8 +19094,8 @@ export const TRANSLATIONS = {
     "assoc.selectAll": "Chọn tất cả",
     "assoc.unselectAll": "Bỏ chọn tất cả",
     "assoc.apply": "Áp dụng",
-    "assoc.intro": "Chọn loại tệp sẽ mở bằng JustCode.",
-    "assoc.defaultsNote": "Các loại được chọn sẽ mở bằng JustCode. Những loại đã được chương trình khác xử lý sẽ được đánh dấu riêng và để trống ô chọn. Nếu Windows đã ghi nhận lựa chọn của riêng bạn cho một loại, lựa chọn đó vẫn được giữ nguyên và JustCode chỉ được thêm vào danh sách \"Mở bằng\".",
+    "assoc.intro": "Chọn loại tệp sẽ mở bằng Codilo.",
+    "assoc.defaultsNote": "Các loại được chọn sẽ mở bằng Codilo. Những loại đã được chương trình khác xử lý sẽ được đánh dấu riêng và để trống ô chọn. Nếu Windows đã ghi nhận lựa chọn của riêng bạn cho một loại, lựa chọn đó vẫn được giữ nguyên và Codilo chỉ được thêm vào danh sách \"Mở bằng\".",
     "assoc.currently": "— hiện tại là {owner}",
     "assoc.applied": "Đã liên kết {n} loại tệp",
     "assoc.someFailed": "Không thể đăng ký một số loại tệp:",
@@ -19103,7 +19103,7 @@ export const TRANSLATIONS = {
     "assoc.openSettings": "Mở cài đặt ứng dụng mặc định của Windows ngay bây giờ?",
     "assoc.openSettingsOk": "Mở Cài đặt",
     "modal.shortcutsTitle": "Phím tắt bàn phím",
-    "modal.aboutTitle": "Giới thiệu JustCode",
+    "modal.aboutTitle": "Giới thiệu Codilo",
     "modal.languageTitle": "Ngôn ngữ",
     "modal.close": "Đóng (Escape)",
     "about.tagline": "Trình soạn thảo mã nhỏ gọn và nhanh.",
@@ -19259,19 +19259,19 @@ export const TRANSLATIONS = {
 
     "help.overviewTitle": "Tổng quan",
     "help.overviewIntro":
-      "JustCode là một trình soạn thảo nhỏ, nhanh cho HTML, CSS, JavaScript và văn bản hoặc mã nói chung — được tạo ra để mở nhanh và không gây vướng víu, không phải để thay thế một IDE đầy đủ.",
+      "Codilo là một trình soạn thảo nhỏ, nhanh cho HTML, CSS, JavaScript và văn bản hoặc mã nói chung — được tạo ra để mở nhanh và không gây vướng víu, không phải để thay thế một IDE đầy đủ.",
     "help.overviewPoint1": "Tệp mở dưới dạng thẻ trong một cửa sổ; không có dự án hay không gian làm việc nào cần thiết lập trước.",
     "help.overviewPoint2": "Nhấn F1 bất cứ lúc nào để xem đầy đủ danh sách phím tắt.",
 
     "help.filesTitle": "Tệp",
-    "help.filesIntro": "Tệp mở dưới dạng thẻ; JustCode không có khái niệm dự án hay không gian làm việc.",
+    "help.filesIntro": "Tệp mở dưới dạng thẻ; Codilo không có khái niệm dự án hay không gian làm việc.",
     "help.filesPoint1":
       "Tệp mới (Ctrl+N) cung cấp mẫu khởi đầu cho nhiều ngôn ngữ, hoặc tài liệu trống; Mở… (Ctrl+O) chấp nhận nhiều tệp cùng lúc.",
     "help.filesPoint2":
       "Lưu (Ctrl+S) và Lưu dưới dạng (Ctrl+Shift+S) ghi trực tiếp vào ổ đĩa; Lưu tất cả (Ctrl+Alt+S) bao phủ mọi thẻ đã thay đổi cùng một lúc.",
     "help.filesPoint3": "Tệp ▸ Tệp gần đây ghi nhớ 15 tệp gần nhất qua các lần khởi động lại.",
     "help.filesPoint4":
-      "Tệp ▸ Liên kết tệp… đăng ký JustCode với Windows để nó xuất hiện như một tùy chọn \"Mở bằng\" — hoặc mặc định — cho các loại tệp mà nó hiểu.",
+      "Tệp ▸ Liên kết tệp… đăng ký Codilo với Windows để nó xuất hiện như một tùy chọn \"Mở bằng\" — hoặc mặc định — cho các loại tệp mà nó hiểu.",
 
     "help.editingTitle": "Chỉnh sửa",
     "help.editingIntro": "Chỉnh sửa tiêu chuẩn, cộng thêm một vài tính năng bổ sung ngoài cắt, sao chép, dán, hoàn tác và làm lại.",
@@ -19335,7 +19335,7 @@ export const TRANSLATIONS = {
     "help.spellCheckPoint2": "Bật/tắt từ Xem ▸ Kiểm tra chính tả.",
 
     "help.languageTitle": "Ngôn ngữ giao diện",
-    "help.languageIntro": "Ngôn ngữ của các menu và hộp thoại riêng của JustCode — độc lập với nội dung hoặc ngôn ngữ lập trình của bất kỳ tệp nào.",
+    "help.languageIntro": "Ngôn ngữ của các menu và hộp thoại riêng của Codilo — độc lập với nội dung hoặc ngôn ngữ lập trình của bất kỳ tệp nào.",
     "help.languagePoint1":
       "Xem ▸ Ngôn ngữ… liệt kê mỗi bản dịch bằng tên riêng của nó thay vì tên tiếng Anh, vì \"German\" không giúp ích gì cho người chỉ đọc được tiếng Việt.",
     "help.languagePoint2": "Tiếng Anh được tích hợp sẵn; mọi ngôn ngữ khác sẽ được tải xuống khi được chọn lần đầu.",

@@ -4,7 +4,7 @@
 // own, so closing the editor cannot stop a loop and reopening cannot lose one —
 // re-attaching is just reading the file again.
 //
-// JustCode must build, start and work with `crates/` deleted, so every path
+// Codilo must build, start and work with `crates/` deleted, so every path
 // through here treats a missing harness as an ordinary answer rather than an
 // error: the panel says the harness is not installed and gets out of the way.
 

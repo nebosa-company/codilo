@@ -33,7 +33,7 @@ fn write_text_file(path: String, contents: String) -> Result<(), String> {
 
     let temp = {
         let mut name = path.file_name().unwrap_or_default().to_os_string();
-        name.push(".justcode-tmp");
+        name.push(".codilo-tmp");
         path.with_file_name(name)
     };
     fs::write(&temp, contents).map_err(|e| format!("{e}"))?;
@@ -77,7 +77,7 @@ fn safe_stem(name: &str) -> String {
 #[tauri::command(async)]
 fn write_preview(name: String, html: String) -> Result<String, String> {
     let mut dir = std::env::temp_dir();
-    dir.push("justcode-preview");
+    dir.push("codilo-preview");
     fs::create_dir_all(&dir).map_err(|e| format!("{e}"))?;
     // A hash of the full name keeps distinct documents from colliding on the
     // same file and keeps the stem clear of Windows reserved names (con, nul…),
@@ -488,10 +488,10 @@ fn reveal_in_file_manager(app: tauri::AppHandle, path: String) -> Result<(), Str
 /// different repositories would refuse every download after a check that
 /// succeeded, which `the_prefix_matches_the_url_the_front_end_asks_for` exists
 /// to catch.
-const RELEASE_PREFIX: &str = "https://github.com/nebosa-company/justcode/releases/download/";
+const RELEASE_PREFIX: &str = "https://github.com/nebosa-company/codilo/releases/download/";
 
 /// Where a downloaded asset is allowed to land: the temp folder, under the
-/// asset's own last path segment. An asset called `../../justcode.exe` would
+/// asset's own last path segment. An asset called `../../codilo.exe` would
 /// otherwise be written wherever the name pointed.
 fn update_target(file_name: &str) -> Result<PathBuf, String> {
     let name = Path::new(file_name)
@@ -522,12 +522,12 @@ fn numbered(target: &Path, n: u32) -> PathBuf {
 /// Downloads a release asset into the temp folder and returns where it landed.
 ///
 /// The name is reduced to its last path segment before it is joined onto the
-/// temp directory: an asset called `../../justcode.exe` would otherwise write
+/// temp directory: an asset called `../../codilo.exe` would otherwise write
 /// wherever it liked.
 #[tauri::command(async)]
 fn download_update(url: String, file_name: String) -> Result<String, String> {
     if !url.starts_with(RELEASE_PREFIX) {
-        return Err(format!("{url} is not a JustCode release asset"));
+        return Err(format!("{url} is not a Codilo release asset"));
     }
     let target = update_target(&file_name)?;
 
@@ -549,7 +549,7 @@ fn download_update(url: String, file_name: String) -> Result<String, String> {
 
 /// Hands a downloaded installer to the system. Windows runs the setup, macOS
 /// mounts the .dmg, Linux opens the package in whatever installs packages
-/// there — none of which JustCode can do itself, and the Linux one needs a
+/// there — none of which Codilo can do itself, and the Linux one needs a
 /// password this app has no business asking for.
 ///
 /// Only a file this build could have downloaded is accepted, so this cannot be
@@ -1044,18 +1044,18 @@ fn run_script(path: String, kind: String) -> Result<(), String> {
                 // tokenised, so `&` in a file name stays part of the name.
                 //
                 // The *whole* command lives in the variable, not just the path.
-                // With `call "!JUSTCODE_SCRIPT!"` on the command line the argv
+                // With `call "!CODILO_SCRIPT!"` on the command line the argv
                 // quoter escapes the inner quotes to `\"`, which cmd treats as
                 // literal characters — safe, but the script never ran.
                 let mut c = std::process::Command::new("cmd.exe");
-                c.env("JUSTCODE_CMD", format!("call \"{}\"", script.display()));
-                c.args(["/v:on", "/k", "!JUSTCODE_CMD!"]);
+                c.env("CODILO_CMD", format!("call \"{}\"", script.display()));
+                c.args(["/v:on", "/k", "!CODILO_CMD!"]);
                 c
             }
             // .sh has no interpreter on a stock Windows box; say so plainly
             // rather than failing with a confusing "unknown kind".
             "shell" => {
-                return Err("Shell scripts need WSL or Git Bash, which JustCode does not launch".into())
+                return Err("Shell scripts need WSL or Git Bash, which Codilo does not launch".into())
             }
             _ => return Err(format!("Don't know how to run '{kind}' scripts")),
         };
@@ -1156,7 +1156,7 @@ fn files_from_args<I: IntoIterator<Item = String>>(args: I) -> Vec<FileTarget> {
 ///   into `perp rewind --approve`. Anything that needs an approval is not on
 ///   the list at all.
 /// - **Arguments go as argv, never through a shell.** No quoting to get wrong.
-/// - **A missing binary is an ordinary answer.** JustCode must build, start and
+/// - **A missing binary is an ordinary answer.** Codilo must build, start and
 ///   work with `crates/` deleted, so "not installed" comes back as a message
 ///   rather than an error the panel has to special-case.
 /// The panel's writing door, separate from `perp_run` on purpose (`O-17`).
@@ -1264,7 +1264,7 @@ fn perp_invoke(subcommand: &str, args: &[String], root: &str) -> Result<String, 
             String::from_utf8_lossy(&output.stderr).trim()
         )),
         Err(e) if e.kind() == std::io::ErrorKind::NotFound => Err(format!(
-            "not-installed: the Perpetum harness ({program}) was not found.              JustCode works without it; the panel has nothing to show."
+            "not-installed: the Perpetum harness ({program}) was not found.              Codilo works without it; the panel has nothing to show."
         )),
         Err(e) => Err(format!("could not run {program}: {e}")),
     }
@@ -1778,7 +1778,7 @@ struct BootClock(std::time::Instant);
 ///
 /// The minimised branch is about the launcher rather than the user. Windows
 /// lets whatever started this process dictate its first `ShowWindow` call
-/// through `STARTUPINFO`, so a JustCode launched by a script, a task, or a
+/// through `STARTUPINFO`, so a Codilo launched by a script, a task, or a
 /// shortcut set to "run minimized" has the `maximize` above swallowed and lands
 /// as a taskbar button — and `show` leaves it there, because `SW_SHOW` displays
 /// a window in its current state rather than restoring it. The result was an
@@ -1800,7 +1800,7 @@ fn reveal(window: &tauri::WebviewWindow) {
 fn report_ready(app: tauri::AppHandle, clock: tauri::State<BootClock>, detail: String) -> u128 {
     let ms = clock.0.elapsed().as_millis();
     let mut path = std::env::temp_dir();
-    path.push("justcode-boot.txt");
+    path.push("codilo-boot.txt");
     let _ = fs::write(&path, format!("total={ms} {detail}"));
     if let Some(window) = app.get_webview_window("main") {
         reveal(&window);
@@ -1815,7 +1815,7 @@ fn report_ready(app: tauri::AppHandle, clock: tauri::State<BootClock>, detail: S
 //
 // A caveat worth knowing: since Windows 8, the *default* handler for an
 // extension is pinned by a hash-protected `UserChoice` key that applications
-// are not allowed to forge. So registering here makes JustCode the handler for
+// are not allowed to forge. So registering here makes Codilo the handler for
 // extensions the user has never opened before, and always adds it to the
 // "Open with" list — but where Windows has already recorded a choice, that
 // choice stands and the user has to change it from the Explorer dialog.
@@ -1825,9 +1825,9 @@ mod associations {
     use winreg::enums::{HKEY_CURRENT_USER, KEY_READ, KEY_WRITE};
     use winreg::RegKey;
 
-    /// The ProgID JustCode registers an extension under, e.g. `JustCode.pas`.
+    /// The ProgID Codilo registers an extension under, e.g. `Codilo.pas`.
     fn prog_id(extension: &str) -> String {
-        format!("JustCode.{extension}")
+        format!("Codilo.{extension}")
     }
 
     fn exe() -> Result<String, String> {
@@ -1838,7 +1838,7 @@ mod associations {
 
     /// The value the previous owner's ProgID is stashed under, so unticking an
     /// extension can hand it back instead of leaving it blank.
-    const BACKUP: &str = "JustCode.previous";
+    const BACKUP: &str = "Codilo.previous";
 
     /// Normalises an extension to the form every function here expects.
     fn normalise(extension: &str) -> Result<String, String> {
@@ -1894,7 +1894,7 @@ mod associations {
             }
         }
         ext_key.set_value("", &id).map_err(|e| format!("{e}"))?;
-        // Listing the ProgID here is what puts JustCode in "Open with" even
+        // Listing the ProgID here is what puts Codilo in "Open with" even
         // when another application holds the default.
         let (open_with, _) = ext_key
             .create_subkey("OpenWithProgids")
@@ -1988,7 +1988,7 @@ mod associations {
             .collect()
     }
 
-    /// Registers JustCode as an *application*, not just as a handler for
+    /// Registers Codilo as an *application*, not just as a handler for
     /// individual file types.
     ///
     /// Writing `Software\\Classes\\.ext` and a ProgID is enough for a
@@ -1996,14 +1996,14 @@ mod associations {
     /// offer it: the "Open with" list is built from
     /// `Classes\\Applications\\<exe>`, and the Settings ▸ Default apps page from
     /// `RegisteredApplications` pointing at a Capabilities key. Without these
-    /// two, JustCode is missing from every picker — and a file type it has not
+    /// two, Codilo is missing from every picker — and a file type it has not
     /// been made the default for silently opens the chooser instead.
     pub fn register_application(extensions: &[String]) -> Result<(), String> {
         let exe = exe()?;
         let file_name = std::path::Path::new(&exe)
             .file_name()
             .map(|n| n.to_string_lossy().into_owned())
-            .unwrap_or_else(|| "justcode.exe".to_string());
+            .unwrap_or_else(|| "codilo.exe".to_string());
 
         let hkcu = RegKey::predef(HKEY_CURRENT_USER);
         let classes = hkcu
@@ -2014,7 +2014,7 @@ mod associations {
         let (app, _) = classes
             .create_subkey(format!("Applications\\{file_name}"))
             .map_err(|e| format!("{e}"))?;
-        app.set_value("FriendlyAppName", &"JustCode")
+        app.set_value("FriendlyAppName", &"Codilo")
             .map_err(|e| format!("{e}"))?;
         let (icon, _) = app.create_subkey("DefaultIcon").map_err(|e| format!("{e}"))?;
         icon.set_value("", &format!("\"{exe}\",0"))
@@ -2035,9 +2035,9 @@ mod associations {
 
         // What Settings ▸ Default apps reads.
         let (caps, _) = hkcu
-            .create_subkey("Software\\JustCode\\Capabilities")
+            .create_subkey("Software\\Codilo\\Capabilities")
             .map_err(|e| format!("{e}"))?;
-        caps.set_value("ApplicationName", &"JustCode")
+        caps.set_value("ApplicationName", &"Codilo")
             .map_err(|e| format!("{e}"))?;
         caps.set_value("ApplicationDescription", &"A small, fast code editor")
             .map_err(|e| format!("{e}"))?;
@@ -2053,11 +2053,11 @@ mod associations {
             .create_subkey("Software\\RegisteredApplications")
             .map_err(|e| format!("{e}"))?;
         registered
-            .set_value("JustCode", &"Software\\JustCode\\Capabilities")
+            .set_value("Codilo", &"Software\\Codilo\\Capabilities")
             .map_err(|e| format!("{e}"))
     }
 
-    /// Which of `extensions` currently resolve to JustCode.
+    /// Which of `extensions` currently resolve to Codilo.
     pub fn current(extensions: &[String]) -> Vec<String> {
         let Ok(classes) = RegKey::predef(HKEY_CURRENT_USER).open_subkey("Software\\Classes") else {
             return Vec::new();
@@ -2184,18 +2184,18 @@ fn script_command(kind: &str, script: &Path) -> Result<portable_pty::CommandBuil
         "batch" => {
             let mut c = CommandBuilder::new("cmd.exe");
             // The whole command goes in the variable, not just the path, so the
-            // argument left on the command line — `!JUSTCODE_CMD!` — has no
+            // argument left on the command line — `!CODILO_CMD!` — has no
             // spaces and no quotes for the argv quoter to mangle. Passing
-            // `call "!JUSTCODE_SCRIPT!"` here instead gets escaped to
-            // `call \"!JUSTCODE_SCRIPT!\"`, which cmd reads as a literal.
+            // `call "!CODILO_SCRIPT!"` here instead gets escaped to
+            // `call \"!CODILO_SCRIPT!\"`, which cmd reads as a literal.
             // Delayed expansion still substitutes after the line is tokenised,
             // so an `&` in the file name never becomes an operator.
-            c.env("JUSTCODE_CMD", format!("call \"{}\"", script.display()));
-            c.args(["/v:on", "/k", "!JUSTCODE_CMD!"]);
+            c.env("CODILO_CMD", format!("call \"{}\"", script.display()));
+            c.args(["/v:on", "/k", "!CODILO_CMD!"]);
             c
         }
         "shell" => {
-            return Err("Shell scripts need WSL or Git Bash, which JustCode does not launch".into())
+            return Err("Shell scripts need WSL or Git Bash, which Codilo does not launch".into())
         }
         other => return Err(format!("Don't know how to run '{other}' scripts")),
     };
@@ -2433,19 +2433,19 @@ mod association_tests {
     /// for real. Uses a name nothing else could own, and cleans up after itself.
     #[test]
     fn associate_then_disassociate() {
-        let extension = "justcodeselftest";
+        let extension = "codiloselftest";
         let classes = RegKey::predef(HKEY_CURRENT_USER)
             .open_subkey("Software\\Classes")
             .expect("HKCU\\Software\\Classes should be readable");
 
-        associations::associate(extension, "JustCode self test").expect("associate");
+        associations::associate(extension, "Codilo self test").expect("associate");
 
         let prog_id: String = classes
             .open_subkey(format!(".{extension}"))
             .expect("extension key")
             .get_value("")
             .expect("default value");
-        assert_eq!(prog_id, "JustCode.justcodeselftest");
+        assert_eq!(prog_id, "Codilo.codiloselftest");
 
         let command: String = classes
             .open_subkey(format!("{prog_id}\\shell\\open\\command"))
@@ -2482,7 +2482,7 @@ mod association_tests {
     }
 }
 
-/// Reports which extensions JustCode is currently registered for.
+/// Reports which extensions Codilo is currently registered for.
 #[tauri::command(async)]
 fn associated_extensions(extensions: Vec<String>) -> Vec<String> {
     #[cfg(windows)]
@@ -2949,6 +2949,35 @@ fn project_metrics(root: String, languages: Vec<LangSpec>) -> Result<serde_json:
     }))
 }
 
+/// Where WebView2 keeps its profile.
+///
+/// The normal answer is the app's local data directory, which keeps settings
+/// in the user profile and out of the install folder. Some Windows sandboxes
+/// deny that folder to WebView2's child processes, so if it cannot be created
+/// this falls back to a writable folder beside the executable. A portable or
+/// build-output run is self-contained that way; an installed app in Program
+/// Files simply stays on local data.
+fn webview_data_dir(app: &tauri::AppHandle) -> Result<PathBuf, Box<dyn std::error::Error>> {
+    let local = app.path().app_local_data_dir()?;
+    if fs::create_dir_all(&local).is_ok() {
+        return Ok(local);
+    }
+
+    #[cfg(windows)]
+    if let Some(dir) = std::env::current_exe()
+        .ok()
+        .and_then(|exe| exe.parent().map(|parent| parent.join("codilo-data")))
+    {
+        if fs::create_dir_all(&dir).is_ok() {
+            return Ok(dir);
+        }
+    }
+
+    Err(Box::new(std::io::Error::other(
+        "no writable WebView2 data directory",
+    )))
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     let boot_clock = BootClock(std::time::Instant::now());
@@ -2957,6 +2986,22 @@ pub fn run() {
         .manage(Terminals::default())
         .manage(PreviewServer::default())
         .setup(|app| {
+            // The window config has `create: false` so the WebView2 profile can
+            // be chosen before the window is built. Without this, Tauri creates
+            // the window (and its default profile under LocalAppData) before the
+            // setup closure runs.
+            let window_config = app
+                .config()
+                .app
+                .windows
+                .first()
+                .cloned()
+                .ok_or_else(|| std::io::Error::other("no window configuration"))?;
+            let data_dir = webview_data_dir(app.handle())?;
+            tauri::WebviewWindowBuilder::from_config(app.handle(), &window_config)?
+                .data_directory(data_dir)
+                .build()?;
+
             // The window starts hidden so the first thing shown is the painted
             // editor rather than an empty white frame. The frontend reveals it
             // when ready; this is the fallback if that never happens.
@@ -2968,12 +3013,12 @@ pub fn run() {
                 }
             });
 
-            // Puts JustCode in Explorer's "Open with" list — and Settings ▸
+            // Puts Codilo in Explorer's "Open with" list — and Settings ▸
             // Default apps — for every extension it understands, the same way
             // VS Code, Zed and Cursor register themselves on install. This used
             // to happen only the first time a user opened File Associations…
             // and clicked Apply, so a file type nobody had explicitly ticked
-            // never got JustCode as an offered choice, even though nothing
+            // never got Codilo as an offered choice, even though nothing
             // here makes it anyone's default. Cheap and idempotent — a handful
             // of registry writes of the same values on every launch — so no
             // "only do this once" bookkeeping is worth the complexity.
@@ -3094,7 +3139,7 @@ mod terminal_tests {
 
         let mut reader = pty.master.try_clone_reader().expect("reader");
         let mut writer = pty.master.take_writer().expect("writer");
-        writer.write_all(b"echo JUSTCODE_PTY_OK\r\n").expect("write");
+        writer.write_all(b"echo CODILO_PTY_OK\r\n").expect("write");
         writer.flush().expect("flush");
 
         let deadline = Instant::now() + Duration::from_secs(20);
@@ -3106,7 +3151,7 @@ mod terminal_tests {
                 Ok(n) => {
                     seen.push_str(&String::from_utf8_lossy(&buffer[..n]));
                     // Twice: once echoed by the shell, once as the result.
-                    if seen.matches("JUSTCODE_PTY_OK").count() >= 2 {
+                    if seen.matches("CODILO_PTY_OK").count() >= 2 {
                         break;
                     }
                 }
@@ -3117,7 +3162,7 @@ mod terminal_tests {
         let _ = child.wait();
 
         assert!(
-            seen.contains("JUSTCODE_PTY_OK"),
+            seen.contains("CODILO_PTY_OK"),
             "shell should have run the command; saw: {seen:?}"
         );
     }
@@ -3128,15 +3173,15 @@ mod terminal_tests {
     /// if the path is ever handed to a parser instead of being passed through.
     #[test]
     fn run_in_terminal_executes_the_script() {
-        let dir = std::env::temp_dir().join("justcode-run-in-terminal-test");
+        let dir = std::env::temp_dir().join("codilo-run-in-terminal-test");
         let _ = std::fs::create_dir_all(&dir);
         let evidence = dir.join("PWNED");
         let _ = std::fs::remove_dir_all(&evidence);
 
         let (name, body, kind) = if cfg!(windows) {
-            ("ok&md PWNED&rem .cmd", "@echo off\r\necho JUSTCODE_RUN_OK\r\n", "batch")
+            ("ok&md PWNED&rem .cmd", "@echo off\r\necho CODILO_RUN_OK\r\n", "batch")
         } else {
-            ("ok;mkdir PWNED;: .sh", "echo JUSTCODE_RUN_OK\n", "shell")
+            ("ok;mkdir PWNED;: .sh", "echo CODILO_RUN_OK\n", "shell")
         };
         let script = dir.join(name);
         std::fs::write(&script, body).expect("write script");
@@ -3171,7 +3216,7 @@ mod terminal_tests {
 
         let deadline = Instant::now() + Duration::from_secs(20);
         let mut seen = String::new();
-        while Instant::now() < deadline && !seen.contains("JUSTCODE_RUN_OK") {
+        while Instant::now() < deadline && !seen.contains("CODILO_RUN_OK") {
             match rx.recv_timeout(Duration::from_millis(250)) {
                 Ok(chunk) => seen.push_str(&chunk),
                 Err(std::sync::mpsc::RecvTimeoutError::Timeout) => continue,
@@ -3186,7 +3231,7 @@ mod terminal_tests {
 
         assert!(!injected, "the file name was re-parsed as a command");
         assert!(
-            seen.contains("JUSTCODE_RUN_OK"),
+            seen.contains("CODILO_RUN_OK"),
             "the script should have run; saw: {seen:?}"
         );
     }
@@ -3240,14 +3285,14 @@ mod update_tests {
     fn a_download_lands_in_temp_under_its_own_name() {
         let temp = std::env::temp_dir();
         assert_eq!(
-            update_target("JustCode_0.2.6_x64-setup.exe").unwrap(),
-            temp.join("JustCode_0.2.6_x64-setup.exe")
+            update_target("Codilo_0.2.6_x64-setup.exe").unwrap(),
+            temp.join("Codilo_0.2.6_x64-setup.exe")
         );
         // The name is the asset's, not a path it chose: a traversal reduces to
         // its last segment rather than escaping the temp folder.
         assert_eq!(
-            update_target("../../../Startup/justcode.exe").unwrap(),
-            temp.join("justcode.exe")
+            update_target("../../../Startup/codilo.exe").unwrap(),
+            temp.join("codilo.exe")
         );
         assert!(update_target("").is_err());
         assert!(update_target("..").is_err());
@@ -3256,10 +3301,10 @@ mod update_tests {
     #[test]
     fn a_busy_target_falls_back_to_a_name_beside_it() {
         let temp = std::env::temp_dir();
-        let target = temp.join("JustCode_0.4.4_x64-setup.exe");
+        let target = temp.join("Codilo_0.4.4_x64-setup.exe");
         // Still in the temp folder, or `install_update` would refuse to run it.
-        assert_eq!(numbered(&target, 1), temp.join("JustCode_0.4.4_x64-setup-1.exe"));
-        assert_eq!(numbered(&temp.join("justcode"), 2), temp.join("justcode-2"));
+        assert_eq!(numbered(&target, 1), temp.join("Codilo_0.4.4_x64-setup-1.exe"));
+        assert_eq!(numbered(&temp.join("codilo"), 2), temp.join("codilo-2"));
     }
 
     #[test]
@@ -3267,13 +3312,13 @@ mod update_tests {
         // The guard runs before the request, so this needs no network. A URL
         // that merely mentions the project is not one GitHub serves it from.
         for url in [
-            "https://example.com/justcode.exe",
-            "http://github.com/nebosa-company/justcode/releases/download/v1/x.exe",
-            "https://github.com/someone-else/justcode/releases/download/v1/x.exe",
-            "https://evil.example/https://github.com/nebosa-company/justcode/releases/download/v1/x.exe",
+            "https://example.com/codilo.exe",
+            "http://github.com/nebosa-company/codilo/releases/download/v1/x.exe",
+            "https://github.com/someone-else/codilo/releases/download/v1/x.exe",
+            "https://evil.example/https://github.com/nebosa-company/codilo/releases/download/v1/x.exe",
             // The guard names one repository rather than an owner, so another
             // of this owner's repositories is still refused.
-            "https://github.com/nebosa-company/justcode-releases/releases/download/v1/x.exe",
+            "https://github.com/nebosa-company/codilo-releases/releases/download/v1/x.exe",
         ] {
             assert!(
                 download_update(url.to_string(), "x.exe".into()).is_err(),
@@ -3306,21 +3351,21 @@ mod startup_arg_tests {
         FileTarget { path: path.to_string(), line: None, column: None }
     }
 
-    /// Explorer launches the registered command as `justcode.exe "C:\path\x.ps1"`,
+    /// Explorer launches the registered command as `codilo.exe "C:\path\x.ps1"`,
     /// so argv[0] is the executable and the file is argv[1]. The same shape is
     /// forwarded by the single-instance plugin for a second launch.
     #[test]
     fn takes_the_first_argument_as_a_file() {
-        let script = std::env::temp_dir().join("justcode-arg-test.ps1");
+        let script = std::env::temp_dir().join("codilo-arg-test.ps1");
         std::fs::write(&script, "Write-Host 'hi'").expect("write temp script");
         let path = script.to_string_lossy().into_owned();
 
-        let argv = vec![r"C:\Program Files\JustCode\justcode.exe".to_string(), path.clone()];
+        let argv = vec![r"C:\Program Files\Codilo\codilo.exe".to_string(), path.clone()];
         assert_eq!(files_from_args(argv), vec![target(&path)]);
 
         // Flags are ignored, and several files may arrive at once.
         let argv = vec![
-            "justcode.exe".to_string(),
+            "codilo.exe".to_string(),
             "--some-flag".to_string(),
             path.clone(),
             r"C:\does
@@ -3339,7 +3384,7 @@ ot\exist.ps1".to_string(),
     /// all accept on their own command lines.
     #[test]
     fn splits_a_trailing_line_and_column_off_a_real_file() {
-        let script = std::env::temp_dir().join("justcode-lc-test.ps1");
+        let script = std::env::temp_dir().join("codilo-lc-test.ps1");
         std::fs::write(&script, "Write-Host 'hi'").expect("write temp script");
         let path = script.to_string_lossy().into_owned();
 
@@ -3362,7 +3407,7 @@ ot\exist.ps1".to_string(),
     /// a `path:line` separator.
     #[test]
     fn drive_letter_colon_is_not_treated_as_a_line_number() {
-        let script = std::env::temp_dir().join("justcode-drive-test.ps1");
+        let script = std::env::temp_dir().join("codilo-drive-test.ps1");
         std::fs::write(&script, "Write-Host 'hi'").expect("write temp script");
         let path = script.to_string_lossy().into_owned();
 
@@ -3381,7 +3426,7 @@ mod launch_safety_tests {
         use std::os::windows::process::CommandExt;
         const CREATE_NEW_CONSOLE: u32 = 0x0000_0010;
 
-        let dir = std::env::temp_dir().join("justcode-inj-test");
+        let dir = std::env::temp_dir().join("codilo-inj-test");
         let _ = std::fs::create_dir_all(&dir);
         let evidence = dir.join("PWNED");
         let _ = std::fs::remove_dir_all(&evidence);
@@ -3397,8 +3442,8 @@ mod launch_safety_tests {
         // does not open a window. `/k` is kept: it is what makes the argument a
         // command line, which is the thing under test.
         let mut command = std::process::Command::new("cmd.exe");
-        command.env("JUSTCODE_CMD", format!("call \"{}\"", script.display()));
-        command.args(["/v:on", "/k", "!JUSTCODE_CMD!"]);
+        command.env("CODILO_CMD", format!("call \"{}\"", script.display()));
+        command.args(["/v:on", "/k", "!CODILO_CMD!"]);
         command.creation_flags(CREATE_NEW_CONSOLE).current_dir(&dir);
         if let Ok(mut child) = command.spawn() {
             std::thread::sleep(std::time::Duration::from_millis(1500));
@@ -3422,7 +3467,7 @@ mod launch_safety_tests {
     /// pointing at an executable slips through.
     #[test]
     fn browser_check_uses_the_resolved_extension() {
-        let dir = std::env::temp_dir().join("justcode-link-test");
+        let dir = std::env::temp_dir().join("codilo-link-test");
         let _ = std::fs::create_dir_all(&dir);
         let target = dir.join("payload.exe.txt");
         std::fs::write(&target, "x").expect("write target");
@@ -3450,7 +3495,7 @@ mod launch_safety_tests {
     /// Saving must never leave the previous contents truncated.
     #[test]
     fn write_is_atomic_over_an_existing_file() {
-        let dir = std::env::temp_dir().join("justcode-write-test");
+        let dir = std::env::temp_dir().join("codilo-write-test");
         let _ = std::fs::create_dir_all(&dir);
         let file = dir.join("doc.txt");
         std::fs::write(&file, "original").expect("seed");
@@ -3462,7 +3507,7 @@ mod launch_safety_tests {
         let leftovers: Vec<_> = std::fs::read_dir(&dir)
             .unwrap()
             .filter_map(|e| e.ok())
-            .filter(|e| e.file_name().to_string_lossy().contains("justcode-tmp"))
+            .filter(|e| e.file_name().to_string_lossy().contains("codilo-tmp"))
             .collect();
         assert!(leftovers.is_empty(), "temp file left behind");
         let _ = std::fs::remove_dir_all(&dir);
@@ -3536,7 +3581,7 @@ mod harness_root_tests {
     /// `init` was asked to create `.harness` inside a file.
     #[test]
     fn a_file_resolves_to_the_folder_holding_it() {
-        let dir = std::env::temp_dir().join("justcode-directory-of-test");
+        let dir = std::env::temp_dir().join("codilo-directory-of-test");
         std::fs::create_dir_all(&dir).unwrap();
         let file = dir.join("todo.md");
         std::fs::write(&file, "# notes\n").unwrap();
@@ -3559,7 +3604,7 @@ mod harness_root_tests {
     /// rather than guessing at a parent.
     #[test]
     fn a_path_that_does_not_exist_is_passed_through() {
-        let missing = std::env::temp_dir().join("justcode-no-such-dir-here");
+        let missing = std::env::temp_dir().join("codilo-no-such-dir-here");
         assert_eq!(directory_of(&missing.to_string_lossy()), missing);
     }
 }
@@ -3580,7 +3625,7 @@ mod explorer_tests {
     impl Scratch {
         fn new(tag: &str) -> Self {
             let dir = std::env::temp_dir().join(format!(
-                "justcode-explorer-{tag}-{}",
+                "codilo-explorer-{tag}-{}",
                 std::time::SystemTime::now()
                     .duration_since(std::time::UNIX_EPOCH)
                     .unwrap()
@@ -3795,7 +3840,7 @@ mod explorer_tests {
         let scratch = Scratch::new("trash");
         // Unique, so the search below cannot match some older run's leftovers.
         let name = format!(
-            "justcode-trash-probe-{}.txt",
+            "codilo-trash-probe-{}.txt",
             std::time::SystemTime::now()
                 .duration_since(std::time::UNIX_EPOCH)
                 .unwrap()
@@ -3947,7 +3992,7 @@ mod metrics_tests {
     /// merely off.
     #[test]
     fn the_walk_skips_what_git_skips() {
-        let dir = std::env::temp_dir().join("justcode-metrics-walk");
+        let dir = std::env::temp_dir().join("codilo-metrics-walk");
         let _ = fs::remove_dir_all(&dir);
         fs::create_dir_all(dir.join("src")).unwrap();
         fs::create_dir_all(dir.join("node_modules/dep")).unwrap();
@@ -4010,7 +4055,7 @@ code();
     /// than a crash — which is exactly the kind of bug that survives a demo.
     #[test]
     fn many_threads_count_what_one_thread_counts() {
-        let dir = std::env::temp_dir().join("justcode-metrics-parallel");
+        let dir = std::env::temp_dir().join("codilo-metrics-parallel");
         let _ = fs::remove_dir_all(&dir);
         fs::create_dir_all(&dir).unwrap();
 
@@ -4069,7 +4114,7 @@ two(); // trail
     /// `!keep.c`, which looks like a slightly small number rather than a bug.
     #[test]
     fn a_deeper_ignore_file_still_wins() {
-        let dir = std::env::temp_dir().join("justcode-metrics-nested");
+        let dir = std::env::temp_dir().join("codilo-metrics-nested");
         let _ = fs::remove_dir_all(&dir);
         fs::create_dir_all(dir.join("deep/deeper")).unwrap();
 

@@ -364,17 +364,17 @@ test("a version is compared as numbers, not as text", () => {
 test("each platform is offered the installer it can actually run", () => {
   // Asset names as the release workflow publishes them.
   const assets = [
-    { name: "JustCode_0.2.6_amd64.AppImage" },
-    { name: "JustCode_0.2.6_amd64.deb" },
-    { name: "JustCode_0.2.6_universal.dmg" },
-    { name: "JustCode_0.2.6_x64-setup.exe" },
-    { name: "JustCode_0.2.6_x64_en-US.msi" },
+    { name: "Codilo_0.2.6_amd64.AppImage" },
+    { name: "Codilo_0.2.6_amd64.deb" },
+    { name: "Codilo_0.2.6_universal.dmg" },
+    { name: "Codilo_0.2.6_x64-setup.exe" },
+    { name: "Codilo_0.2.6_x64_en-US.msi" },
   ];
   const pick = (ua) => installerFor(assets, ua)?.name;
   // Windows takes the NSIS setup over the .msi sitting next to it.
-  assert.equal(pick("Mozilla/5.0 (Windows NT 10.0; Win64; x64)"), "JustCode_0.2.6_x64-setup.exe");
-  assert.equal(pick("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15)"), "JustCode_0.2.6_universal.dmg");
-  assert.equal(pick("Mozilla/5.0 (X11; Linux x86_64)"), "JustCode_0.2.6_amd64.AppImage");
+  assert.equal(pick("Mozilla/5.0 (Windows NT 10.0; Win64; x64)"), "Codilo_0.2.6_x64-setup.exe");
+  assert.equal(pick("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15)"), "Codilo_0.2.6_universal.dmg");
+  assert.equal(pick("Mozilla/5.0 (X11; Linux x86_64)"), "Codilo_0.2.6_amd64.AppImage");
   assert.equal(pick("Mozilla/5.0 (PlayStation 5)"), undefined, "an unknown platform offers nothing");
 });
 

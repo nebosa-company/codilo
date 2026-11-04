@@ -5,7 +5,7 @@
 ;  1. It writes the open command without quoting the executable path. With a
 ;     space in the path ("Program Files"), Windows tries "D:\Program.exe"
 ;     first — a hijack a non-admin user can usually set up on a second drive.
-;  2. It never registers the application itself, so JustCode does not appear in
+;  2. It never registers the application itself, so Codilo does not appear in
 ;     the "Open with" picker or in Settings > Default apps.
 ;  3. It quotes DisplayIcon and InstallLocation in the uninstall key, so
 ;     Add/Remove Programs cannot load the icon and shows a blank row.
@@ -13,29 +13,29 @@
 ;     executable after an uninstall.
 
 ; Rescues the displaced handler Tauri recorded, ignoring the case where it
-; "displaced" JustCode itself — see the note in tools/sync-associations.mjs.
-!macro JC_PRESERVE_PRIOR_OWNER EXT
-  ReadRegStr $R0 SHELL_CONTEXT "Software\Classes\.${EXT}" "JustCode.${EXT}_backup"
-  ${If} $R0 == "JustCode.${EXT}"
-    DeleteRegValue SHELL_CONTEXT "Software\Classes\.${EXT}" "JustCode.${EXT}_backup"
+; "displaced" Codilo itself — see the note in tools/sync-associations.mjs.
+!macro CODILO_PRESERVE_PRIOR_OWNER EXT
+  ReadRegStr $R0 SHELL_CONTEXT "Software\Classes\.${EXT}" "Codilo.${EXT}_backup"
+  ${If} $R0 == "Codilo.${EXT}"
+    DeleteRegValue SHELL_CONTEXT "Software\Classes\.${EXT}" "Codilo.${EXT}_backup"
   ${ElseIf} $R0 != ""
-    ReadRegStr $R1 SHELL_CONTEXT "Software\Classes\.${EXT}" "JustCode.previous"
+    ReadRegStr $R1 SHELL_CONTEXT "Software\Classes\.${EXT}" "Codilo.previous"
     ${If} $R1 == ""
-      WriteRegStr SHELL_CONTEXT "Software\Classes\.${EXT}" "JustCode.previous" "$R0"
+      WriteRegStr SHELL_CONTEXT "Software\Classes\.${EXT}" "Codilo.previous" "$R0"
     ${EndIf}
   ${EndIf}
 !macroend
 
 ; Undoes everything this installer wrote for one extension, restoring the
-; handler that owned the type before JustCode took it where we recorded one.
-!macro JC_UNREGISTER_EXT EXT
+; handler that owned the type before Codilo took it where we recorded one.
+!macro CODILO_UNREGISTER_EXT EXT
   ReadRegStr $R0 SHELL_CONTEXT "Software\Classes\.${EXT}" ""
-  ${If} $R0 == "JustCode.${EXT}"
-    ReadRegStr $R1 SHELL_CONTEXT "Software\Classes\.${EXT}" "JustCode.previous"
+  ${If} $R0 == "Codilo.${EXT}"
+    ReadRegStr $R1 SHELL_CONTEXT "Software\Classes\.${EXT}" "Codilo.previous"
     ; Fall back to Tauri's own record, unless it names us.
     ${If} $R1 == ""
-      ReadRegStr $R1 SHELL_CONTEXT "Software\Classes\.${EXT}" "JustCode.${EXT}_backup"
-      ${If} $R1 == "JustCode.${EXT}"
+      ReadRegStr $R1 SHELL_CONTEXT "Software\Classes\.${EXT}" "Codilo.${EXT}_backup"
+      ${If} $R1 == "Codilo.${EXT}"
         StrCpy $R1 ""
       ${EndIf}
     ${EndIf}
@@ -45,256 +45,256 @@
       WriteRegStr SHELL_CONTEXT "Software\Classes\.${EXT}" "" "$R1"
     ${EndIf}
   ${EndIf}
-  DeleteRegValue SHELL_CONTEXT "Software\Classes\.${EXT}" "JustCode.previous"
-  DeleteRegValue SHELL_CONTEXT "Software\Classes\.${EXT}" "JustCode.${EXT}_backup"
-  DeleteRegValue SHELL_CONTEXT "Software\Classes\.${EXT}\OpenWithProgids" "JustCode.${EXT}"
-  DeleteRegKey SHELL_CONTEXT "Software\Classes\JustCode.${EXT}"
-  DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.${EXT}\OpenWithProgids" "JustCode.${EXT}"
+  DeleteRegValue SHELL_CONTEXT "Software\Classes\.${EXT}" "Codilo.previous"
+  DeleteRegValue SHELL_CONTEXT "Software\Classes\.${EXT}" "Codilo.${EXT}_backup"
+  DeleteRegValue SHELL_CONTEXT "Software\Classes\.${EXT}\OpenWithProgids" "Codilo.${EXT}"
+  DeleteRegKey SHELL_CONTEXT "Software\Classes\Codilo.${EXT}"
+  DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.${EXT}\OpenWithProgids" "Codilo.${EXT}"
 !macroend
 
 !macro NSIS_HOOK_POSTINSTALL
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.asm\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.asm\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.asm\OpenWithProgids" "JustCode.asm" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.bash\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.bash\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.bash\OpenWithProgids" "JustCode.bash" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.bat\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.bat\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.bat\OpenWithProgids" "JustCode.bat" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.c\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.c\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.c\OpenWithProgids" "JustCode.c" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cc\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cc\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cc\OpenWithProgids" "JustCode.cc" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cjs\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cjs\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cjs\OpenWithProgids" "JustCode.cjs" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cmd\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cmd\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cmd\OpenWithProgids" "JustCode.cmd" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cpp\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cpp\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cpp\OpenWithProgids" "JustCode.cpp" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cs\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cs\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cs\OpenWithProgids" "JustCode.cs" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.css\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.css\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.css\OpenWithProgids" "JustCode.css" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.csv\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.csv\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.csv\OpenWithProgids" "JustCode.csv" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.csx\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.csx\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.csx\OpenWithProgids" "JustCode.csx" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cts\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cts\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cts\OpenWithProgids" "JustCode.cts" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cxx\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.cxx\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cxx\OpenWithProgids" "JustCode.cxx" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.dart\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.dart\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dart\OpenWithProgids" "JustCode.dart" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.dpk\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.dpk\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dpk\OpenWithProgids" "JustCode.dpk" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.dpr\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.dpr\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dpr\OpenWithProgids" "JustCode.dpr" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.dproj\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.dproj\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dproj\OpenWithProgids" "JustCode.dproj" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.e\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.e\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.e\OpenWithProgids" "JustCode.e" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.go\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.go\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.go\OpenWithProgids" "JustCode.go" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.h\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.h\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.h\OpenWithProgids" "JustCode.h" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.hcl\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.hcl\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.hcl\OpenWithProgids" "JustCode.hcl" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.hh\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.hh\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.hh\OpenWithProgids" "JustCode.hh" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.hpp\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.hpp\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.hpp\OpenWithProgids" "JustCode.hpp" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.htm\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.htm\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.htm\OpenWithProgids" "JustCode.htm" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.html\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.html\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.html\OpenWithProgids" "JustCode.html" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.hxx\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.hxx\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.hxx\OpenWithProgids" "JustCode.hxx" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.inc\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.inc\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.inc\OpenWithProgids" "JustCode.inc" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.java\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.java\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.java\OpenWithProgids" "JustCode.java" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.js\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.js\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.js\OpenWithProgids" "JustCode.js" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.json\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.json\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.json\OpenWithProgids" "JustCode.json" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.jsonc\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.jsonc\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.jsonc\OpenWithProgids" "JustCode.jsonc" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.jsx\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.jsx\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.jsx\OpenWithProgids" "JustCode.jsx" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.ksh\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.ksh\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ksh\OpenWithProgids" "JustCode.ksh" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.kt\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.kt\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.kt\OpenWithProgids" "JustCode.kt" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.kts\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.kts\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.kts\OpenWithProgids" "JustCode.kts" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.log\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.log\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.log\OpenWithProgids" "JustCode.log" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.lpr\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.lpr\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.lpr\OpenWithProgids" "JustCode.lpr" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.markdown\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.markdown\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.markdown\OpenWithProgids" "JustCode.markdown" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.md\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.md\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.md\OpenWithProgids" "JustCode.md" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.mdown\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.mdown\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mdown\OpenWithProgids" "JustCode.mdown" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.mjs\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.mjs\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mjs\OpenWithProgids" "JustCode.mjs" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.mkd\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.mkd\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mkd\OpenWithProgids" "JustCode.mkd" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.mts\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.mts\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mts\OpenWithProgids" "JustCode.mts" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.mysql\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.mysql\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mysql\OpenWithProgids" "JustCode.mysql" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.nasm\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.nasm\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.nasm\OpenWithProgids" "JustCode.nasm" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.pas\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.pas\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pas\OpenWithProgids" "JustCode.pas" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.pgsql\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.pgsql\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pgsql\OpenWithProgids" "JustCode.pgsql" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.pp\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.pp\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pp\OpenWithProgids" "JustCode.pp" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.proto\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.proto\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.proto\OpenWithProgids" "JustCode.proto" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.ps1\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.ps1\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ps1\OpenWithProgids" "JustCode.ps1" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.psd1\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.psd1\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.psd1\OpenWithProgids" "JustCode.psd1" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.psm1\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.psm1\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.psm1\OpenWithProgids" "JustCode.psm1" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.psql\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.psql\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.psql\OpenWithProgids" "JustCode.psql" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.py\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.py\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.py\OpenWithProgids" "JustCode.py" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.pyi\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.pyi\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pyi\OpenWithProgids" "JustCode.pyi" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.pyw\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.pyw\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pyw\OpenWithProgids" "JustCode.pyw" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.r\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.r\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.r\OpenWithProgids" "JustCode.r" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.rs\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.rs\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.rs\OpenWithProgids" "JustCode.rs" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.s\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.s\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.s\OpenWithProgids" "JustCode.s" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.sh\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.sh\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.sh\OpenWithProgids" "JustCode.sh" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.sql\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.sql\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.sql\OpenWithProgids" "JustCode.sql" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.sqlite\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.sqlite\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.sqlite\OpenWithProgids" "JustCode.sqlite" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.sqlite3\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.sqlite3\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.sqlite3\OpenWithProgids" "JustCode.sqlite3" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.swift\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.swift\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.swift\OpenWithProgids" "JustCode.swift" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.tf\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.tf\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.tf\OpenWithProgids" "JustCode.tf" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.tfvars\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.tfvars\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.tfvars\OpenWithProgids" "JustCode.tfvars" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.toml\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.toml\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.toml\OpenWithProgids" "JustCode.toml" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.ts\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.ts\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ts\OpenWithProgids" "JustCode.ts" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.tsx\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.tsx\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.tsx\OpenWithProgids" "JustCode.tsx" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.txt\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.txt\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.txt\OpenWithProgids" "JustCode.txt" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.webmanifest\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.webmanifest\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.webmanifest\OpenWithProgids" "JustCode.webmanifest" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.xhtml\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.xhtml\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xhtml\OpenWithProgids" "JustCode.xhtml" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.xml\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.xml\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xml\OpenWithProgids" "JustCode.xml" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.xsd\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.xsd\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xsd\OpenWithProgids" "JustCode.xsd" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.xsl\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.xsl\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xsl\OpenWithProgids" "JustCode.xsl" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.xslt\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.xslt\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xslt\OpenWithProgids" "JustCode.xslt" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.yaml\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.yaml\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.yaml\OpenWithProgids" "JustCode.yaml" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.yml\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.yml\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.yml\OpenWithProgids" "JustCode.yml" ""
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.zsh\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
-  WriteRegStr SHELL_CONTEXT "Software\Classes\JustCode.zsh\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.zsh\OpenWithProgids" "JustCode.zsh" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.asm\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.asm\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.asm\OpenWithProgids" "Codilo.asm" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.bash\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.bash\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.bash\OpenWithProgids" "Codilo.bash" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.bat\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.bat\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.bat\OpenWithProgids" "Codilo.bat" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.c\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.c\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.c\OpenWithProgids" "Codilo.c" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cc\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cc\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cc\OpenWithProgids" "Codilo.cc" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cjs\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cjs\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cjs\OpenWithProgids" "Codilo.cjs" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cmd\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cmd\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cmd\OpenWithProgids" "Codilo.cmd" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cpp\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cpp\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cpp\OpenWithProgids" "Codilo.cpp" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cs\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cs\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cs\OpenWithProgids" "Codilo.cs" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.css\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.css\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.css\OpenWithProgids" "Codilo.css" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.csv\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.csv\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.csv\OpenWithProgids" "Codilo.csv" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.csx\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.csx\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.csx\OpenWithProgids" "Codilo.csx" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cts\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cts\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cts\OpenWithProgids" "Codilo.cts" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cxx\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.cxx\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cxx\OpenWithProgids" "Codilo.cxx" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.dart\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.dart\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dart\OpenWithProgids" "Codilo.dart" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.dpk\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.dpk\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dpk\OpenWithProgids" "Codilo.dpk" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.dpr\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.dpr\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dpr\OpenWithProgids" "Codilo.dpr" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.dproj\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.dproj\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dproj\OpenWithProgids" "Codilo.dproj" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.e\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.e\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.e\OpenWithProgids" "Codilo.e" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.go\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.go\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.go\OpenWithProgids" "Codilo.go" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.h\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.h\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.h\OpenWithProgids" "Codilo.h" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.hcl\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.hcl\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.hcl\OpenWithProgids" "Codilo.hcl" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.hh\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.hh\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.hh\OpenWithProgids" "Codilo.hh" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.hpp\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.hpp\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.hpp\OpenWithProgids" "Codilo.hpp" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.htm\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.htm\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.htm\OpenWithProgids" "Codilo.htm" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.html\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.html\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.html\OpenWithProgids" "Codilo.html" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.hxx\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.hxx\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.hxx\OpenWithProgids" "Codilo.hxx" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.inc\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.inc\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.inc\OpenWithProgids" "Codilo.inc" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.java\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.java\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.java\OpenWithProgids" "Codilo.java" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.js\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.js\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.js\OpenWithProgids" "Codilo.js" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.json\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.json\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.json\OpenWithProgids" "Codilo.json" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.jsonc\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.jsonc\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.jsonc\OpenWithProgids" "Codilo.jsonc" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.jsx\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.jsx\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.jsx\OpenWithProgids" "Codilo.jsx" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.ksh\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.ksh\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ksh\OpenWithProgids" "Codilo.ksh" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.kt\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.kt\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.kt\OpenWithProgids" "Codilo.kt" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.kts\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.kts\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.kts\OpenWithProgids" "Codilo.kts" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.log\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.log\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.log\OpenWithProgids" "Codilo.log" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.lpr\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.lpr\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.lpr\OpenWithProgids" "Codilo.lpr" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.markdown\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.markdown\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.markdown\OpenWithProgids" "Codilo.markdown" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.md\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.md\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.md\OpenWithProgids" "Codilo.md" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.mdown\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.mdown\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mdown\OpenWithProgids" "Codilo.mdown" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.mjs\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.mjs\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mjs\OpenWithProgids" "Codilo.mjs" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.mkd\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.mkd\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mkd\OpenWithProgids" "Codilo.mkd" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.mts\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.mts\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mts\OpenWithProgids" "Codilo.mts" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.mysql\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.mysql\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mysql\OpenWithProgids" "Codilo.mysql" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.nasm\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.nasm\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.nasm\OpenWithProgids" "Codilo.nasm" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.pas\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.pas\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pas\OpenWithProgids" "Codilo.pas" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.pgsql\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.pgsql\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pgsql\OpenWithProgids" "Codilo.pgsql" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.pp\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.pp\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pp\OpenWithProgids" "Codilo.pp" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.proto\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.proto\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.proto\OpenWithProgids" "Codilo.proto" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.ps1\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.ps1\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ps1\OpenWithProgids" "Codilo.ps1" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.psd1\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.psd1\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.psd1\OpenWithProgids" "Codilo.psd1" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.psm1\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.psm1\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.psm1\OpenWithProgids" "Codilo.psm1" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.psql\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.psql\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.psql\OpenWithProgids" "Codilo.psql" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.py\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.py\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.py\OpenWithProgids" "Codilo.py" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.pyi\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.pyi\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pyi\OpenWithProgids" "Codilo.pyi" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.pyw\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.pyw\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pyw\OpenWithProgids" "Codilo.pyw" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.r\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.r\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.r\OpenWithProgids" "Codilo.r" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.rs\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.rs\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.rs\OpenWithProgids" "Codilo.rs" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.s\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.s\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.s\OpenWithProgids" "Codilo.s" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.sh\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.sh\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.sh\OpenWithProgids" "Codilo.sh" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.sql\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.sql\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.sql\OpenWithProgids" "Codilo.sql" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.sqlite\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.sqlite\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.sqlite\OpenWithProgids" "Codilo.sqlite" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.sqlite3\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.sqlite3\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.sqlite3\OpenWithProgids" "Codilo.sqlite3" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.swift\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.swift\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.swift\OpenWithProgids" "Codilo.swift" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.tf\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.tf\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.tf\OpenWithProgids" "Codilo.tf" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.tfvars\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.tfvars\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.tfvars\OpenWithProgids" "Codilo.tfvars" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.toml\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.toml\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.toml\OpenWithProgids" "Codilo.toml" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.ts\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.ts\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ts\OpenWithProgids" "Codilo.ts" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.tsx\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.tsx\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.tsx\OpenWithProgids" "Codilo.tsx" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.txt\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.txt\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.txt\OpenWithProgids" "Codilo.txt" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.webmanifest\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.webmanifest\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.webmanifest\OpenWithProgids" "Codilo.webmanifest" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.xhtml\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.xhtml\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xhtml\OpenWithProgids" "Codilo.xhtml" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.xml\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.xml\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xml\OpenWithProgids" "Codilo.xml" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.xsd\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.xsd\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xsd\OpenWithProgids" "Codilo.xsd" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.xsl\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.xsl\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xsl\OpenWithProgids" "Codilo.xsl" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.xslt\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.xslt\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xslt\OpenWithProgids" "Codilo.xslt" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.yaml\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.yaml\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.yaml\OpenWithProgids" "Codilo.yaml" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.yml\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.yml\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.yml\OpenWithProgids" "Codilo.yml" ""
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.zsh\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Codilo.zsh\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.zsh\OpenWithProgids" "Codilo.zsh" ""
 
-  WriteRegStr SHELL_CONTEXT "Software\Classes\Applications\${MAINBINARYNAME}.exe" "FriendlyAppName" "JustCode"
+  WriteRegStr SHELL_CONTEXT "Software\Classes\Applications\${MAINBINARYNAME}.exe" "FriendlyAppName" "Codilo"
   WriteRegStr SHELL_CONTEXT "Software\Classes\Applications\${MAINBINARYNAME}.exe\DefaultIcon" "" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
   WriteRegStr SHELL_CONTEXT "Software\Classes\Applications\${MAINBINARYNAME}.exe\shell\open\command" "" '"$INSTDIR\${MAINBINARYNAME}.exe" "%1"'
   WriteRegStr SHELL_CONTEXT "Software\Classes\Applications\${MAINBINARYNAME}.exe\SupportedTypes" ".asm" ""
@@ -377,90 +377,90 @@
   WriteRegStr SHELL_CONTEXT "Software\Classes\Applications\${MAINBINARYNAME}.exe\SupportedTypes" ".yaml" ""
   WriteRegStr SHELL_CONTEXT "Software\Classes\Applications\${MAINBINARYNAME}.exe\SupportedTypes" ".yml" ""
   WriteRegStr SHELL_CONTEXT "Software\Classes\Applications\${MAINBINARYNAME}.exe\SupportedTypes" ".zsh" ""
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities" "ApplicationName" "JustCode"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities" "ApplicationDescription" "A small, fast code editor"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities" "ApplicationIcon" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".asm" "JustCode.asm"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".bash" "JustCode.bash"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".bat" "JustCode.bat"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".c" "JustCode.c"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".cc" "JustCode.cc"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".cjs" "JustCode.cjs"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".cmd" "JustCode.cmd"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".cpp" "JustCode.cpp"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".cs" "JustCode.cs"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".css" "JustCode.css"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".csv" "JustCode.csv"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".csx" "JustCode.csx"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".cts" "JustCode.cts"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".cxx" "JustCode.cxx"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".dart" "JustCode.dart"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".dpk" "JustCode.dpk"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".dpr" "JustCode.dpr"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".dproj" "JustCode.dproj"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".e" "JustCode.e"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".go" "JustCode.go"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".h" "JustCode.h"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".hcl" "JustCode.hcl"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".hh" "JustCode.hh"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".hpp" "JustCode.hpp"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".htm" "JustCode.htm"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".html" "JustCode.html"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".hxx" "JustCode.hxx"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".inc" "JustCode.inc"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".java" "JustCode.java"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".js" "JustCode.js"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".json" "JustCode.json"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".jsonc" "JustCode.jsonc"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".jsx" "JustCode.jsx"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".ksh" "JustCode.ksh"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".kt" "JustCode.kt"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".kts" "JustCode.kts"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".log" "JustCode.log"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".lpr" "JustCode.lpr"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".markdown" "JustCode.markdown"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".md" "JustCode.md"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".mdown" "JustCode.mdown"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".mjs" "JustCode.mjs"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".mkd" "JustCode.mkd"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".mts" "JustCode.mts"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".mysql" "JustCode.mysql"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".nasm" "JustCode.nasm"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".pas" "JustCode.pas"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".pgsql" "JustCode.pgsql"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".pp" "JustCode.pp"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".proto" "JustCode.proto"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".ps1" "JustCode.ps1"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".psd1" "JustCode.psd1"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".psm1" "JustCode.psm1"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".psql" "JustCode.psql"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".py" "JustCode.py"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".pyi" "JustCode.pyi"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".pyw" "JustCode.pyw"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".r" "JustCode.r"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".rs" "JustCode.rs"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".s" "JustCode.s"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".sh" "JustCode.sh"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".sql" "JustCode.sql"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".sqlite" "JustCode.sqlite"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".sqlite3" "JustCode.sqlite3"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".swift" "JustCode.swift"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".tf" "JustCode.tf"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".tfvars" "JustCode.tfvars"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".toml" "JustCode.toml"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".ts" "JustCode.ts"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".tsx" "JustCode.tsx"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".txt" "JustCode.txt"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".webmanifest" "JustCode.webmanifest"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".xhtml" "JustCode.xhtml"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".xml" "JustCode.xml"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".xsd" "JustCode.xsd"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".xsl" "JustCode.xsl"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".xslt" "JustCode.xslt"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".yaml" "JustCode.yaml"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".yml" "JustCode.yml"
-  WriteRegStr SHELL_CONTEXT "Software\JustCode\Capabilities\FileAssociations" ".zsh" "JustCode.zsh"
-  WriteRegStr SHELL_CONTEXT "Software\RegisteredApplications" "JustCode" "Software\JustCode\Capabilities"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities" "ApplicationName" "Codilo"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities" "ApplicationDescription" "A small, fast code editor"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities" "ApplicationIcon" '"$INSTDIR\${MAINBINARYNAME}.exe",0'
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".asm" "Codilo.asm"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".bash" "Codilo.bash"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".bat" "Codilo.bat"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".c" "Codilo.c"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".cc" "Codilo.cc"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".cjs" "Codilo.cjs"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".cmd" "Codilo.cmd"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".cpp" "Codilo.cpp"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".cs" "Codilo.cs"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".css" "Codilo.css"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".csv" "Codilo.csv"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".csx" "Codilo.csx"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".cts" "Codilo.cts"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".cxx" "Codilo.cxx"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".dart" "Codilo.dart"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".dpk" "Codilo.dpk"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".dpr" "Codilo.dpr"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".dproj" "Codilo.dproj"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".e" "Codilo.e"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".go" "Codilo.go"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".h" "Codilo.h"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".hcl" "Codilo.hcl"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".hh" "Codilo.hh"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".hpp" "Codilo.hpp"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".htm" "Codilo.htm"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".html" "Codilo.html"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".hxx" "Codilo.hxx"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".inc" "Codilo.inc"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".java" "Codilo.java"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".js" "Codilo.js"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".json" "Codilo.json"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".jsonc" "Codilo.jsonc"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".jsx" "Codilo.jsx"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".ksh" "Codilo.ksh"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".kt" "Codilo.kt"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".kts" "Codilo.kts"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".log" "Codilo.log"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".lpr" "Codilo.lpr"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".markdown" "Codilo.markdown"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".md" "Codilo.md"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".mdown" "Codilo.mdown"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".mjs" "Codilo.mjs"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".mkd" "Codilo.mkd"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".mts" "Codilo.mts"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".mysql" "Codilo.mysql"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".nasm" "Codilo.nasm"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".pas" "Codilo.pas"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".pgsql" "Codilo.pgsql"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".pp" "Codilo.pp"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".proto" "Codilo.proto"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".ps1" "Codilo.ps1"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".psd1" "Codilo.psd1"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".psm1" "Codilo.psm1"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".psql" "Codilo.psql"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".py" "Codilo.py"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".pyi" "Codilo.pyi"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".pyw" "Codilo.pyw"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".r" "Codilo.r"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".rs" "Codilo.rs"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".s" "Codilo.s"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".sh" "Codilo.sh"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".sql" "Codilo.sql"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".sqlite" "Codilo.sqlite"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".sqlite3" "Codilo.sqlite3"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".swift" "Codilo.swift"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".tf" "Codilo.tf"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".tfvars" "Codilo.tfvars"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".toml" "Codilo.toml"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".ts" "Codilo.ts"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".tsx" "Codilo.tsx"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".txt" "Codilo.txt"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".webmanifest" "Codilo.webmanifest"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".xhtml" "Codilo.xhtml"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".xml" "Codilo.xml"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".xsd" "Codilo.xsd"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".xsl" "Codilo.xsl"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".xslt" "Codilo.xslt"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".yaml" "Codilo.yaml"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".yml" "Codilo.yml"
+  WriteRegStr SHELL_CONTEXT "Software\Codilo\Capabilities\FileAssociations" ".zsh" "Codilo.zsh"
+  WriteRegStr SHELL_CONTEXT "Software\RegisteredApplications" "Codilo" "Software\Codilo\Capabilities"
 
   WriteRegStr SHELL_CONTEXT "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCTNAME}" "DisplayIcon" "$INSTDIR\${MAINBINARYNAME}.exe,0"
   WriteRegStr SHELL_CONTEXT "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCTNAME}" "InstallLocation" "$INSTDIR"
@@ -468,86 +468,86 @@
 
   Push $R0
   Push $R1
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "asm"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "bash"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "bat"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "c"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "cc"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "cjs"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "cmd"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "cpp"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "cs"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "css"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "csv"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "csx"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "cts"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "cxx"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "dart"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "dpk"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "dpr"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "dproj"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "e"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "go"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "h"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "hcl"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "hh"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "hpp"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "htm"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "html"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "hxx"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "inc"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "java"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "js"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "json"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "jsonc"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "jsx"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "ksh"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "kt"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "kts"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "log"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "lpr"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "markdown"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "md"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "mdown"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "mjs"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "mkd"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "mts"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "mysql"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "nasm"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "pas"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "pgsql"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "pp"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "proto"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "ps1"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "psd1"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "psm1"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "psql"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "py"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "pyi"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "pyw"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "r"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "rs"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "s"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "sh"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "sql"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "sqlite"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "sqlite3"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "swift"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "tf"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "tfvars"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "toml"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "ts"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "tsx"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "txt"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "webmanifest"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "xhtml"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "xml"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "xsd"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "xsl"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "xslt"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "yaml"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "yml"
-  !insertmacro JC_PRESERVE_PRIOR_OWNER "zsh"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "asm"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "bash"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "bat"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "c"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "cc"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "cjs"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "cmd"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "cpp"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "cs"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "css"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "csv"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "csx"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "cts"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "cxx"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "dart"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "dpk"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "dpr"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "dproj"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "e"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "go"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "h"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "hcl"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "hh"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "hpp"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "htm"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "html"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "hxx"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "inc"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "java"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "js"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "json"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "jsonc"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "jsx"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "ksh"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "kt"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "kts"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "log"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "lpr"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "markdown"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "md"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "mdown"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "mjs"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "mkd"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "mts"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "mysql"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "nasm"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "pas"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "pgsql"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "pp"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "proto"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "ps1"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "psd1"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "psm1"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "psql"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "py"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "pyi"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "pyw"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "r"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "rs"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "s"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "sh"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "sql"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "sqlite"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "sqlite3"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "swift"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "tf"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "tfvars"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "toml"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "ts"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "tsx"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "txt"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "webmanifest"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "xhtml"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "xml"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "xsd"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "xsl"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "xslt"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "yaml"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "yml"
+  !insertmacro CODILO_PRESERVE_PRIOR_OWNER "zsh"
   Pop $R1
   Pop $R0
 
@@ -560,97 +560,97 @@
 !macro NSIS_HOOK_POSTUNINSTALL
   Push $R0
   Push $R1
-  !insertmacro JC_UNREGISTER_EXT "asm"
-  !insertmacro JC_UNREGISTER_EXT "bash"
-  !insertmacro JC_UNREGISTER_EXT "bat"
-  !insertmacro JC_UNREGISTER_EXT "c"
-  !insertmacro JC_UNREGISTER_EXT "cc"
-  !insertmacro JC_UNREGISTER_EXT "cjs"
-  !insertmacro JC_UNREGISTER_EXT "cmd"
-  !insertmacro JC_UNREGISTER_EXT "cpp"
-  !insertmacro JC_UNREGISTER_EXT "cs"
-  !insertmacro JC_UNREGISTER_EXT "css"
-  !insertmacro JC_UNREGISTER_EXT "csv"
-  !insertmacro JC_UNREGISTER_EXT "csx"
-  !insertmacro JC_UNREGISTER_EXT "cts"
-  !insertmacro JC_UNREGISTER_EXT "cxx"
-  !insertmacro JC_UNREGISTER_EXT "dart"
-  !insertmacro JC_UNREGISTER_EXT "dpk"
-  !insertmacro JC_UNREGISTER_EXT "dpr"
-  !insertmacro JC_UNREGISTER_EXT "dproj"
-  !insertmacro JC_UNREGISTER_EXT "e"
-  !insertmacro JC_UNREGISTER_EXT "go"
-  !insertmacro JC_UNREGISTER_EXT "h"
-  !insertmacro JC_UNREGISTER_EXT "hcl"
-  !insertmacro JC_UNREGISTER_EXT "hh"
-  !insertmacro JC_UNREGISTER_EXT "hpp"
-  !insertmacro JC_UNREGISTER_EXT "htm"
-  !insertmacro JC_UNREGISTER_EXT "html"
-  !insertmacro JC_UNREGISTER_EXT "hxx"
-  !insertmacro JC_UNREGISTER_EXT "inc"
-  !insertmacro JC_UNREGISTER_EXT "java"
-  !insertmacro JC_UNREGISTER_EXT "js"
-  !insertmacro JC_UNREGISTER_EXT "json"
-  !insertmacro JC_UNREGISTER_EXT "jsonc"
-  !insertmacro JC_UNREGISTER_EXT "jsx"
-  !insertmacro JC_UNREGISTER_EXT "ksh"
-  !insertmacro JC_UNREGISTER_EXT "kt"
-  !insertmacro JC_UNREGISTER_EXT "kts"
-  !insertmacro JC_UNREGISTER_EXT "log"
-  !insertmacro JC_UNREGISTER_EXT "lpr"
-  !insertmacro JC_UNREGISTER_EXT "markdown"
-  !insertmacro JC_UNREGISTER_EXT "md"
-  !insertmacro JC_UNREGISTER_EXT "mdown"
-  !insertmacro JC_UNREGISTER_EXT "mjs"
-  !insertmacro JC_UNREGISTER_EXT "mkd"
-  !insertmacro JC_UNREGISTER_EXT "mts"
-  !insertmacro JC_UNREGISTER_EXT "mysql"
-  !insertmacro JC_UNREGISTER_EXT "nasm"
-  !insertmacro JC_UNREGISTER_EXT "pas"
-  !insertmacro JC_UNREGISTER_EXT "pgsql"
-  !insertmacro JC_UNREGISTER_EXT "pp"
-  !insertmacro JC_UNREGISTER_EXT "proto"
-  !insertmacro JC_UNREGISTER_EXT "ps1"
-  !insertmacro JC_UNREGISTER_EXT "psd1"
-  !insertmacro JC_UNREGISTER_EXT "psm1"
-  !insertmacro JC_UNREGISTER_EXT "psql"
-  !insertmacro JC_UNREGISTER_EXT "py"
-  !insertmacro JC_UNREGISTER_EXT "pyi"
-  !insertmacro JC_UNREGISTER_EXT "pyw"
-  !insertmacro JC_UNREGISTER_EXT "r"
-  !insertmacro JC_UNREGISTER_EXT "rs"
-  !insertmacro JC_UNREGISTER_EXT "s"
-  !insertmacro JC_UNREGISTER_EXT "sh"
-  !insertmacro JC_UNREGISTER_EXT "sql"
-  !insertmacro JC_UNREGISTER_EXT "sqlite"
-  !insertmacro JC_UNREGISTER_EXT "sqlite3"
-  !insertmacro JC_UNREGISTER_EXT "swift"
-  !insertmacro JC_UNREGISTER_EXT "tf"
-  !insertmacro JC_UNREGISTER_EXT "tfvars"
-  !insertmacro JC_UNREGISTER_EXT "toml"
-  !insertmacro JC_UNREGISTER_EXT "ts"
-  !insertmacro JC_UNREGISTER_EXT "tsx"
-  !insertmacro JC_UNREGISTER_EXT "txt"
-  !insertmacro JC_UNREGISTER_EXT "webmanifest"
-  !insertmacro JC_UNREGISTER_EXT "xhtml"
-  !insertmacro JC_UNREGISTER_EXT "xml"
-  !insertmacro JC_UNREGISTER_EXT "xsd"
-  !insertmacro JC_UNREGISTER_EXT "xsl"
-  !insertmacro JC_UNREGISTER_EXT "xslt"
-  !insertmacro JC_UNREGISTER_EXT "yaml"
-  !insertmacro JC_UNREGISTER_EXT "yml"
-  !insertmacro JC_UNREGISTER_EXT "zsh"
+  !insertmacro CODILO_UNREGISTER_EXT "asm"
+  !insertmacro CODILO_UNREGISTER_EXT "bash"
+  !insertmacro CODILO_UNREGISTER_EXT "bat"
+  !insertmacro CODILO_UNREGISTER_EXT "c"
+  !insertmacro CODILO_UNREGISTER_EXT "cc"
+  !insertmacro CODILO_UNREGISTER_EXT "cjs"
+  !insertmacro CODILO_UNREGISTER_EXT "cmd"
+  !insertmacro CODILO_UNREGISTER_EXT "cpp"
+  !insertmacro CODILO_UNREGISTER_EXT "cs"
+  !insertmacro CODILO_UNREGISTER_EXT "css"
+  !insertmacro CODILO_UNREGISTER_EXT "csv"
+  !insertmacro CODILO_UNREGISTER_EXT "csx"
+  !insertmacro CODILO_UNREGISTER_EXT "cts"
+  !insertmacro CODILO_UNREGISTER_EXT "cxx"
+  !insertmacro CODILO_UNREGISTER_EXT "dart"
+  !insertmacro CODILO_UNREGISTER_EXT "dpk"
+  !insertmacro CODILO_UNREGISTER_EXT "dpr"
+  !insertmacro CODILO_UNREGISTER_EXT "dproj"
+  !insertmacro CODILO_UNREGISTER_EXT "e"
+  !insertmacro CODILO_UNREGISTER_EXT "go"
+  !insertmacro CODILO_UNREGISTER_EXT "h"
+  !insertmacro CODILO_UNREGISTER_EXT "hcl"
+  !insertmacro CODILO_UNREGISTER_EXT "hh"
+  !insertmacro CODILO_UNREGISTER_EXT "hpp"
+  !insertmacro CODILO_UNREGISTER_EXT "htm"
+  !insertmacro CODILO_UNREGISTER_EXT "html"
+  !insertmacro CODILO_UNREGISTER_EXT "hxx"
+  !insertmacro CODILO_UNREGISTER_EXT "inc"
+  !insertmacro CODILO_UNREGISTER_EXT "java"
+  !insertmacro CODILO_UNREGISTER_EXT "js"
+  !insertmacro CODILO_UNREGISTER_EXT "json"
+  !insertmacro CODILO_UNREGISTER_EXT "jsonc"
+  !insertmacro CODILO_UNREGISTER_EXT "jsx"
+  !insertmacro CODILO_UNREGISTER_EXT "ksh"
+  !insertmacro CODILO_UNREGISTER_EXT "kt"
+  !insertmacro CODILO_UNREGISTER_EXT "kts"
+  !insertmacro CODILO_UNREGISTER_EXT "log"
+  !insertmacro CODILO_UNREGISTER_EXT "lpr"
+  !insertmacro CODILO_UNREGISTER_EXT "markdown"
+  !insertmacro CODILO_UNREGISTER_EXT "md"
+  !insertmacro CODILO_UNREGISTER_EXT "mdown"
+  !insertmacro CODILO_UNREGISTER_EXT "mjs"
+  !insertmacro CODILO_UNREGISTER_EXT "mkd"
+  !insertmacro CODILO_UNREGISTER_EXT "mts"
+  !insertmacro CODILO_UNREGISTER_EXT "mysql"
+  !insertmacro CODILO_UNREGISTER_EXT "nasm"
+  !insertmacro CODILO_UNREGISTER_EXT "pas"
+  !insertmacro CODILO_UNREGISTER_EXT "pgsql"
+  !insertmacro CODILO_UNREGISTER_EXT "pp"
+  !insertmacro CODILO_UNREGISTER_EXT "proto"
+  !insertmacro CODILO_UNREGISTER_EXT "ps1"
+  !insertmacro CODILO_UNREGISTER_EXT "psd1"
+  !insertmacro CODILO_UNREGISTER_EXT "psm1"
+  !insertmacro CODILO_UNREGISTER_EXT "psql"
+  !insertmacro CODILO_UNREGISTER_EXT "py"
+  !insertmacro CODILO_UNREGISTER_EXT "pyi"
+  !insertmacro CODILO_UNREGISTER_EXT "pyw"
+  !insertmacro CODILO_UNREGISTER_EXT "r"
+  !insertmacro CODILO_UNREGISTER_EXT "rs"
+  !insertmacro CODILO_UNREGISTER_EXT "s"
+  !insertmacro CODILO_UNREGISTER_EXT "sh"
+  !insertmacro CODILO_UNREGISTER_EXT "sql"
+  !insertmacro CODILO_UNREGISTER_EXT "sqlite"
+  !insertmacro CODILO_UNREGISTER_EXT "sqlite3"
+  !insertmacro CODILO_UNREGISTER_EXT "swift"
+  !insertmacro CODILO_UNREGISTER_EXT "tf"
+  !insertmacro CODILO_UNREGISTER_EXT "tfvars"
+  !insertmacro CODILO_UNREGISTER_EXT "toml"
+  !insertmacro CODILO_UNREGISTER_EXT "ts"
+  !insertmacro CODILO_UNREGISTER_EXT "tsx"
+  !insertmacro CODILO_UNREGISTER_EXT "txt"
+  !insertmacro CODILO_UNREGISTER_EXT "webmanifest"
+  !insertmacro CODILO_UNREGISTER_EXT "xhtml"
+  !insertmacro CODILO_UNREGISTER_EXT "xml"
+  !insertmacro CODILO_UNREGISTER_EXT "xsd"
+  !insertmacro CODILO_UNREGISTER_EXT "xsl"
+  !insertmacro CODILO_UNREGISTER_EXT "xslt"
+  !insertmacro CODILO_UNREGISTER_EXT "yaml"
+  !insertmacro CODILO_UNREGISTER_EXT "yml"
+  !insertmacro CODILO_UNREGISTER_EXT "zsh"
   Pop $R1
   Pop $R0
 
   DeleteRegKey SHELL_CONTEXT "Software\Classes\Applications\${MAINBINARYNAME}.exe"
-  DeleteRegValue SHELL_CONTEXT "Software\RegisteredApplications" "JustCode"
-  DeleteRegKey SHELL_CONTEXT "Software\JustCode\Capabilities"
+  DeleteRegValue SHELL_CONTEXT "Software\RegisteredApplications" "Codilo"
+  DeleteRegKey SHELL_CONTEXT "Software\Codilo\Capabilities"
   ; NSIS parks the chosen installer language under Software<publisher><product>
   ; and never removes it, which also keeps the publisher key alive.
   DeleteRegKey SHELL_CONTEXT "Software\${MANUFACTURER}\${PRODUCTNAME}"
   DeleteRegKey /ifempty SHELL_CONTEXT "Software\${MANUFACTURER}"
-  DeleteRegKey /ifempty SHELL_CONTEXT "Software\JustCode"
+  DeleteRegKey /ifempty SHELL_CONTEXT "Software\Codilo"
 
   System::Call 'shell32::SHChangeNotify(i 0x08000000, i 0, i 0, i 0)'
 !macroend

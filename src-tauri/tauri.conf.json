@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "JustCode",
-  "version": "0.4.6",
-  "identifier": "com.justcode.editor",
+  "productName": "Codilo",
+  "version": "0.4.7",
+  "identifier": "com.codilo.editor",
   "build": {
     "frontendDist": "../dist",
     "devUrl": "http://localhost:1420",
@@ -13,7 +13,9 @@
     "withGlobalTauri": false,
     "windows": [
       {
-        "title": "JustCode",
+        "label": "main",
+        "create": false,
+        "title": "Codilo",
         "width": 1200,
         "height": 800,
         "minWidth": 640,
@@ -30,14 +32,14 @@
   "bundle": {
     "active": true,
     "targets": "all",
-    "publisher": "JustCode",
+    "publisher": "Codilo",
     "shortDescription": "A small, fast code editor",
     "fileAssociations": [
       {
         "ext": [
           "asm"
         ],
-        "name": "JustCode.asm",
+        "name": "Codilo.asm",
         "description": "Assembly source",
         "role": "Editor"
       },
@@ -45,7 +47,7 @@
         "ext": [
           "bash"
         ],
-        "name": "JustCode.bash",
+        "name": "Codilo.bash",
         "description": "Bash script",
         "role": "Editor"
       },
@@ -53,7 +55,7 @@
         "ext": [
           "bat"
         ],
-        "name": "JustCode.bat",
+        "name": "Codilo.bat",
         "description": "Batch file",
         "role": "Editor"
       },
@@ -61,7 +63,7 @@
         "ext": [
           "c"
         ],
-        "name": "JustCode.c",
+        "name": "Codilo.c",
         "description": "C source",
         "role": "Editor"
       },
@@ -69,7 +71,7 @@
         "ext": [
           "cc"
         ],
-        "name": "JustCode.cc",
+        "name": "Codilo.cc",
         "description": "C / C++ file",
         "role": "Editor"
       },
@@ -77,7 +79,7 @@
         "ext": [
           "cjs"
         ],
-        "name": "JustCode.cjs",
+        "name": "Codilo.cjs",
         "description": "CommonJS module",
         "role": "Editor"
       },
@@ -85,7 +87,7 @@
         "ext": [
           "cmd"
         ],
-        "name": "JustCode.cmd",
+        "name": "Codilo.cmd",
         "description": "Command script",
         "role": "Editor"
       },
@@ -93,7 +95,7 @@
         "ext": [
           "cpp"
         ],
-        "name": "JustCode.cpp",
+        "name": "Codilo.cpp",
         "description": "C++ source",
         "role": "Editor"
       },
@@ -101,7 +103,7 @@
         "ext": [
           "cs"
         ],
-        "name": "JustCode.cs",
+        "name": "Codilo.cs",
         "description": "C# source",
         "role": "Editor"
       },
@@ -109,7 +111,7 @@
         "ext": [
           "css"
         ],
-        "name": "JustCode.css",
+        "name": "Codilo.css",
         "description": "Style sheet",
         "role": "Editor"
       },
@@ -117,7 +119,7 @@
         "ext": [
           "csv"
         ],
-        "name": "JustCode.csv",
+        "name": "Codilo.csv",
         "description": "Comma-separated values",
         "role": "Editor"
       },
@@ -125,7 +127,7 @@
         "ext": [
           "csx"
         ],
-        "name": "JustCode.csx",
+        "name": "Codilo.csx",
         "description": "C# file",
         "role": "Editor"
       },
@@ -133,7 +135,7 @@
         "ext": [
           "cts"
         ],
-        "name": "JustCode.cts",
+        "name": "Codilo.cts",
         "description": "TypeScript file",
         "role": "Editor"
       },
@@ -141,7 +143,7 @@
         "ext": [
           "cxx"
         ],
-        "name": "JustCode.cxx",
+        "name": "Codilo.cxx",
         "description": "C / C++ file",
         "role": "Editor"
       },
@@ -149,7 +151,7 @@
         "ext": [
           "dart"
         ],
-        "name": "JustCode.dart",
+        "name": "Codilo.dart",
         "description": "Dart source",
         "role": "Editor"
       },
@@ -157,7 +159,7 @@
         "ext": [
           "dpk"
         ],
-        "name": "JustCode.dpk",
+        "name": "Codilo.dpk",
         "description": "Delphi package",
         "role": "Editor"
       },
@@ -165,7 +167,7 @@
         "ext": [
           "dpr"
         ],
-        "name": "JustCode.dpr",
+        "name": "Codilo.dpr",
         "description": "Delphi project",
         "role": "Editor"
       },
@@ -173,7 +175,7 @@
         "ext": [
           "dproj"
         ],
-        "name": "JustCode.dproj",
+        "name": "Codilo.dproj",
         "description": "Delphi project file",
         "role": "Editor"
       },
@@ -181,7 +183,7 @@
         "ext": [
           "e"
         ],
-        "name": "JustCode.e",
+        "name": "Codilo.e",
         "description": "Neper source",
         "role": "Editor"
       },
@@ -189,7 +191,7 @@
         "ext": [
           "go"
         ],
-        "name": "JustCode.go",
+        "name": "Codilo.go",
         "description": "Go source",
         "role": "Editor"
       },
@@ -197,7 +199,7 @@
         "ext": [
           "h"
         ],
-        "name": "JustCode.h",
+        "name": "Codilo.h",
         "description": "C/C++ header",
         "role": "Editor"
       },
@@ -205,7 +207,7 @@
         "ext": [
           "hcl"
         ],
-        "name": "JustCode.hcl",
+        "name": "Codilo.hcl",
         "description": "HCL document",
         "role": "Editor"
       },
@@ -213,7 +215,7 @@
         "ext": [
           "hh"
         ],
-        "name": "JustCode.hh",
+        "name": "Codilo.hh",
         "description": "C / C++ file",
         "role": "Editor"
       },
@@ -221,7 +223,7 @@
         "ext": [
           "hpp"
         ],
-        "name": "JustCode.hpp",
+        "name": "Codilo.hpp",
         "description": "C / C++ file",
         "role": "Editor"
       },
@@ -229,7 +231,7 @@
         "ext": [
           "htm"
         ],
-        "name": "JustCode.htm",
+        "name": "Codilo.htm",
         "description": "HTML document",
         "role": "Editor"
       },
@@ -237,7 +239,7 @@
         "ext": [
           "html"
         ],
-        "name": "JustCode.html",
+        "name": "Codilo.html",
         "description": "HTML document",
         "role": "Editor"
       },
@@ -245,7 +247,7 @@
         "ext": [
           "hxx"
         ],
-        "name": "JustCode.hxx",
+        "name": "Codilo.hxx",
         "description": "C / C++ file",
         "role": "Editor"
       },
@@ -253,7 +255,7 @@
         "ext": [
           "inc"
         ],
-        "name": "JustCode.inc",
+        "name": "Codilo.inc",
         "description": "Include file",
         "role": "Editor"
       },
@@ -261,7 +263,7 @@
         "ext": [
           "java"
         ],
-        "name": "JustCode.java",
+        "name": "Codilo.java",
         "description": "Java source",
         "role": "Editor"
       },
@@ -269,7 +271,7 @@
         "ext": [
           "js"
         ],
-        "name": "JustCode.js",
+        "name": "Codilo.js",
         "description": "JavaScript",
         "role": "Editor"
       },
@@ -277,7 +279,7 @@
         "ext": [
           "json"
         ],
-        "name": "JustCode.json",
+        "name": "Codilo.json",
         "description": "JSON document",
         "role": "Editor"
       },
@@ -285,7 +287,7 @@
         "ext": [
           "jsonc"
         ],
-        "name": "JustCode.jsonc",
+        "name": "Codilo.jsonc",
         "description": "JSON file",
         "role": "Editor"
       },
@@ -293,7 +295,7 @@
         "ext": [
           "jsx"
         ],
-        "name": "JustCode.jsx",
+        "name": "Codilo.jsx",
         "description": "JavaScript JSX",
         "role": "Editor"
       },
@@ -301,7 +303,7 @@
         "ext": [
           "ksh"
         ],
-        "name": "JustCode.ksh",
+        "name": "Codilo.ksh",
         "description": "Shell file",
         "role": "Editor"
       },
@@ -309,7 +311,7 @@
         "ext": [
           "kt"
         ],
-        "name": "JustCode.kt",
+        "name": "Codilo.kt",
         "description": "Kotlin source",
         "role": "Editor"
       },
@@ -317,7 +319,7 @@
         "ext": [
           "kts"
         ],
-        "name": "JustCode.kts",
+        "name": "Codilo.kts",
         "description": "Kotlin file",
         "role": "Editor"
       },
@@ -325,7 +327,7 @@
         "ext": [
           "log"
         ],
-        "name": "JustCode.log",
+        "name": "Codilo.log",
         "description": "Log file",
         "role": "Editor"
       },
@@ -333,7 +335,7 @@
         "ext": [
           "lpr"
         ],
-        "name": "JustCode.lpr",
+        "name": "Codilo.lpr",
         "description": "Lazarus project",
         "role": "Editor"
       },
@@ -341,7 +343,7 @@
         "ext": [
           "markdown"
         ],
-        "name": "JustCode.markdown",
+        "name": "Codilo.markdown",
         "description": "Markdown",
         "role": "Editor"
       },
@@ -349,7 +351,7 @@
         "ext": [
           "md"
         ],
-        "name": "JustCode.md",
+        "name": "Codilo.md",
         "description": "Markdown",
         "role": "Editor"
       },
@@ -357,7 +359,7 @@
         "ext": [
           "mdown"
         ],
-        "name": "JustCode.mdown",
+        "name": "Codilo.mdown",
         "description": "Markdown file",
         "role": "Editor"
       },
@@ -365,7 +367,7 @@
         "ext": [
           "mjs"
         ],
-        "name": "JustCode.mjs",
+        "name": "Codilo.mjs",
         "description": "JavaScript module",
         "role": "Editor"
       },
@@ -373,7 +375,7 @@
         "ext": [
           "mkd"
         ],
-        "name": "JustCode.mkd",
+        "name": "Codilo.mkd",
         "description": "Markdown file",
         "role": "Editor"
       },
@@ -381,7 +383,7 @@
         "ext": [
           "mts"
         ],
-        "name": "JustCode.mts",
+        "name": "Codilo.mts",
         "description": "TypeScript file",
         "role": "Editor"
       },
@@ -389,7 +391,7 @@
         "ext": [
           "mysql"
         ],
-        "name": "JustCode.mysql",
+        "name": "Codilo.mysql",
         "description": "SQL (MySQL) file",
         "role": "Editor"
       },
@@ -397,7 +399,7 @@
         "ext": [
           "nasm"
         ],
-        "name": "JustCode.nasm",
+        "name": "Codilo.nasm",
         "description": "NASM source",
         "role": "Editor"
       },
@@ -405,7 +407,7 @@
         "ext": [
           "pas"
         ],
-        "name": "JustCode.pas",
+        "name": "Codilo.pas",
         "description": "Object Pascal unit",
         "role": "Editor"
       },
@@ -413,7 +415,7 @@
         "ext": [
           "pgsql"
         ],
-        "name": "JustCode.pgsql",
+        "name": "Codilo.pgsql",
         "description": "SQL (PostgreSQL) file",
         "role": "Editor"
       },
@@ -421,7 +423,7 @@
         "ext": [
           "pp"
         ],
-        "name": "JustCode.pp",
+        "name": "Codilo.pp",
         "description": "Free Pascal unit",
         "role": "Editor"
       },
@@ -429,7 +431,7 @@
         "ext": [
           "proto"
         ],
-        "name": "JustCode.proto",
+        "name": "Codilo.proto",
         "description": "Protocol Buffers",
         "role": "Editor"
       },
@@ -437,7 +439,7 @@
         "ext": [
           "ps1"
         ],
-        "name": "JustCode.ps1",
+        "name": "Codilo.ps1",
         "description": "PowerShell script",
         "role": "Editor"
       },
@@ -445,7 +447,7 @@
         "ext": [
           "psd1"
         ],
-        "name": "JustCode.psd1",
+        "name": "Codilo.psd1",
         "description": "PowerShell file",
         "role": "Editor"
       },
@@ -453,7 +455,7 @@
         "ext": [
           "psm1"
         ],
-        "name": "JustCode.psm1",
+        "name": "Codilo.psm1",
         "description": "PowerShell module",
         "role": "Editor"
       },
@@ -461,7 +463,7 @@
         "ext": [
           "psql"
         ],
-        "name": "JustCode.psql",
+        "name": "Codilo.psql",
         "description": "SQL (PostgreSQL) file",
         "role": "Editor"
       },
@@ -469,7 +471,7 @@
         "ext": [
           "py"
         ],
-        "name": "JustCode.py",
+        "name": "Codilo.py",
         "description": "Python script",
         "role": "Editor"
       },
@@ -477,7 +479,7 @@
         "ext": [
           "pyi"
         ],
-        "name": "JustCode.pyi",
+        "name": "Codilo.pyi",
         "description": "Python file",
         "role": "Editor"
       },
@@ -485,7 +487,7 @@
         "ext": [
           "pyw"
         ],
-        "name": "JustCode.pyw",
+        "name": "Codilo.pyw",
         "description": "Python file",
         "role": "Editor"
       },
@@ -493,7 +495,7 @@
         "ext": [
           "r"
         ],
-        "name": "JustCode.r",
+        "name": "Codilo.r",
         "description": "R script",
         "role": "Editor"
       },
@@ -501,7 +503,7 @@
         "ext": [
           "rs"
         ],
-        "name": "JustCode.rs",
+        "name": "Codilo.rs",
         "description": "Rust source",
         "role": "Editor"
       },
@@ -509,7 +511,7 @@
         "ext": [
           "s"
         ],
-        "name": "JustCode.s",
+        "name": "Codilo.s",
         "description": "GNU as source",
         "role": "Editor"
       },
@@ -517,7 +519,7 @@
         "ext": [
           "sh"
         ],
-        "name": "JustCode.sh",
+        "name": "Codilo.sh",
         "description": "Shell script",
         "role": "Editor"
       },
@@ -525,7 +527,7 @@
         "ext": [
           "sql"
         ],
-        "name": "JustCode.sql",
+        "name": "Codilo.sql",
         "description": "SQL script",
         "role": "Editor"
       },
@@ -533,7 +535,7 @@
         "ext": [
           "sqlite"
         ],
-        "name": "JustCode.sqlite",
+        "name": "Codilo.sqlite",
         "description": "SQL (SQLite) file",
         "role": "Editor"
       },
@@ -541,7 +543,7 @@
         "ext": [
           "sqlite3"
         ],
-        "name": "JustCode.sqlite3",
+        "name": "Codilo.sqlite3",
         "description": "SQL (SQLite) file",
         "role": "Editor"
       },
@@ -549,7 +551,7 @@
         "ext": [
           "swift"
         ],
-        "name": "JustCode.swift",
+        "name": "Codilo.swift",
         "description": "Swift source",
         "role": "Editor"
       },
@@ -557,7 +559,7 @@
         "ext": [
           "tf"
         ],
-        "name": "JustCode.tf",
+        "name": "Codilo.tf",
         "description": "Terraform config",
         "role": "Editor"
       },
@@ -565,7 +567,7 @@
         "ext": [
           "tfvars"
         ],
-        "name": "JustCode.tfvars",
+        "name": "Codilo.tfvars",
         "description": "Terraform variables",
         "role": "Editor"
       },
@@ -573,7 +575,7 @@
         "ext": [
           "toml"
         ],
-        "name": "JustCode.toml",
+        "name": "Codilo.toml",
         "description": "TOML document",
         "role": "Editor"
       },
@@ -581,7 +583,7 @@
         "ext": [
           "ts"
         ],
-        "name": "JustCode.ts",
+        "name": "Codilo.ts",
         "description": "TypeScript",
         "role": "Editor"
       },
@@ -589,7 +591,7 @@
         "ext": [
           "tsx"
         ],
-        "name": "JustCode.tsx",
+        "name": "Codilo.tsx",
         "description": "TypeScript JSX",
         "role": "Editor"
       },
@@ -597,7 +599,7 @@
         "ext": [
           "txt"
         ],
-        "name": "JustCode.txt",
+        "name": "Codilo.txt",
         "description": "Plain text",
         "role": "Editor"
       },
@@ -605,7 +607,7 @@
         "ext": [
           "webmanifest"
         ],
-        "name": "JustCode.webmanifest",
+        "name": "Codilo.webmanifest",
         "description": "JSON file",
         "role": "Editor"
       },
@@ -613,7 +615,7 @@
         "ext": [
           "xhtml"
         ],
-        "name": "JustCode.xhtml",
+        "name": "Codilo.xhtml",
         "description": "XHTML document",
         "role": "Editor"
       },
@@ -621,7 +623,7 @@
         "ext": [
           "xml"
         ],
-        "name": "JustCode.xml",
+        "name": "Codilo.xml",
         "description": "XML document",
         "role": "Editor"
       },
@@ -629,7 +631,7 @@
         "ext": [
           "xsd"
         ],
-        "name": "JustCode.xsd",
+        "name": "Codilo.xsd",
         "description": "XML file",
         "role": "Editor"
       },
@@ -637,7 +639,7 @@
         "ext": [
           "xsl"
         ],
-        "name": "JustCode.xsl",
+        "name": "Codilo.xsl",
         "description": "XML file",
         "role": "Editor"
       },
@@ -645,7 +647,7 @@
         "ext": [
           "xslt"
         ],
-        "name": "JustCode.xslt",
+        "name": "Codilo.xslt",
         "description": "XML file",
         "role": "Editor"
       },
@@ -653,7 +655,7 @@
         "ext": [
           "yaml"
         ],
-        "name": "JustCode.yaml",
+        "name": "Codilo.yaml",
         "description": "YAML document",
         "role": "Editor"
       },
@@ -661,7 +663,7 @@
         "ext": [
           "yml"
         ],
-        "name": "JustCode.yml",
+        "name": "Codilo.yml",
         "description": "YAML document",
         "role": "Editor"
       },
@@ -669,7 +671,7 @@
         "ext": [
           "zsh"
         ],
-        "name": "JustCode.zsh",
+        "name": "Codilo.zsh",
         "description": "Shell file",
         "role": "Editor"
       }

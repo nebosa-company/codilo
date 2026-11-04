@@ -3,15 +3,15 @@
 ## Icons
 
 `make-icon.py` regenerates every app icon (desktop, Windows Store tiles,
-Android, iOS, and the About box) from `justcode-mark.png`, the source mark.
-Run `python tools/make-icon.py`; see the script's docstring for details.
+Android, iOS, and the About box) from `../assets/branding/codilo.svg`, the
+single vector source. Run `python tools/make-icon.py`; see the script's
+docstring for details.
 
-The other files here are inputs/scratch space for that script and aren't
-meant to be edited directly:
+The other files here are generated inputs for `tauri icon` and aren't meant
+to be edited directly:
 
-- `justcode-mark.png` — the "jc" mark, transparent background
-- `justcode-mark-android-fg.png` — the mark padded onto a larger transparent
-  square so it fits Android's adaptive-icon safe zone
-- `android-bg-white.png` — plain white Android adaptive-icon background layer
-- `icon-manifest.json` — tells `tauri icon` how to combine the above
-  (rewritten by `make-icon.py` on every run)
+- `codilo-mark-android-fg.svg` — the white C padded into Android's
+  adaptive-icon safe zone
+- `android-bg-blue.svg` — solid `#1B3A6B` Android adaptive-icon background
+- `icon-manifest.json` — tells `tauri icon` how to combine the above with the
+  brand tile (rewritten by `make-icon.py` on every run)
