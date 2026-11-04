@@ -15,7 +15,7 @@
     "language": "en-US",
     "shortDescription": "A small, fast code editor for Windows. Open files and folders instantly, edit with syntax highlighting, split panes, a built-in terminal, and 36 interface languages — no account, telemetry, or plugin marketplace.",
     "whatsNew": null,
-    "description": null,
+    "description": "A small, fast code editor for Windows. Open files and folders instantly, edit with syntax highlighting, split panes, a built-in terminal, and 36 interface languages — no account, telemetry, or plugin marketplace.",
     "features": [
       "Opens instantly: one native window, no splash screen, no background indexer.",
       "Syntax highlighting and editing for 35 languages, with automatic detection and per-file language overrides.",
