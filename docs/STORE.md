@@ -176,6 +176,24 @@ status bar.
 No account, telemetry, or plugin marketplace. A small editor that stays out of
 the way.
 
+### Supported languages
+
+The full list belongs in the long **Description** field; Product features are
+capped at 200 characters each. If you want a languages entry in Product
+features, this one is 174 characters:
+
+Syntax highlighting for 35 languages and text formats, including JavaScript,
+TypeScript, Python, Rust, Go, C/C++, C#, Java, Kotlin, Swift, SQL, HTML, CSS,
+JSON, YAML and XML.
+
+Full list for the Description:
+
+Supported languages: HTML, CSS, JavaScript, TypeScript, JSX, TSX, Markdown,
+Python, C/C++, Java, C#, Kotlin, Swift, R, TOML, Protocol Buffers, Go, Rust,
+GNU assembly, Intel/NASM assembly, Neper, JSON, YAML, XML, SQL (standard,
+SQLite, MySQL, PostgreSQL), Dart, Object Pascal, PowerShell, Shell
+(sh/bash/zsh/ksh), Terraform/HCL, Batch, and plain text (txt/log/csv).
+
 ### Keywords
 
 code editor, text editor, source code editor, syntax highlighting,
