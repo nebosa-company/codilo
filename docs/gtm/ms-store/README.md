@@ -3,6 +3,8 @@
 Ready for Partner Center. All five images are **1920×1080 PNG**, 16:9, and show
 the Store build on a clean demo project (`aurora`).
 
+The machine-readable submission manifest is [submission.json](submission.json).
+
 | File | Caption |
 | --- | --- |
 | `01-editor-explorer-dark.png` | A fast, focused editor: Explorer, tabs, syntax highlighting and the status bar. |

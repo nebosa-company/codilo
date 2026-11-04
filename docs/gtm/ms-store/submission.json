@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "product": {
+    "name": "Codilo",
+    "title": "Codilo",
+    "identity": {
+      "packageIdentityName": "Nebosa.Codilo",
+      "publisher": "CN=51659C92-55D6-4A2E-AE5D-09CE932FDEF0",
+      "publisherDisplayName": "Nebosa",
+      "packageVersion": "0.4.7.0",
+      "architecture": "x64"
+    }
+  },
+  "listing": {
+    "language": "en-US",
+    "shortDescription": "A small, fast code editor for Windows. Open files and folders instantly, edit with syntax highlighting, split panes, a built-in terminal, and 36 interface languages — no account, telemetry, or plugin marketplace.",
+    "whatsNew": null,
+    "description": null,
+    "features": [
+      "Opens instantly: one native window, no splash screen, no background indexer.",
+      "Syntax highlighting and editing for 35 languages, with automatic detection and per-file language overrides.",
+      "Explorer with Open Folder, create, rename, delete to the Recycle Bin, and drag to move or copy.",
+      "Split panes: drag a tab to any edge to edit two or more files side by side.",
+      "Built-in terminal with real PowerShell and Command Prompt sessions, opened in the current file's folder.",
+      "Find and replace, Go to Symbol, a Problems panel, and optional spell check.",
+      "Session restore reopens saved files in the same panes and at the same caret positions.",
+      "Light, dark, and low-sensory themes, adjustable zoom, and show/hide toolbar and status bar.",
+      "36 interface languages, including right-to-left layouts.",
+      "No account, telemetry, or plugin marketplace. A small editor that stays out of the way."
+    ],
+    "keywords": [
+      "code editor",
+      "text editor",
+      "source code editor",
+      "syntax highlighting",
+      "lightweight editor",
+      "developer tools",
+      "plain text editor"
+    ],
+    "supportedLanguages": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "JSX",
+      "TSX",
+      "Markdown",
+      "Python",
+      "C/C++",
+      "Java",
+      "C#",
+      "Kotlin",
+      "Swift",
+      "R",
+      "TOML",
+      "Protocol Buffers",
+      "Go",
+      "Rust",
+      "GNU assembly",
+      "Intel/NASM assembly",
+      "Neper",
+      "JSON",
+      "YAML",
+      "XML",
+      "SQL",
+      "SQL (SQLite)",
+      "SQL (MySQL)",
+      "SQL (PostgreSQL)",
+      "Dart",
+      "Object Pascal",
+      "PowerShell",
+      "Shell",
+      "Terraform/HCL",
+      "Batch",
+      "Plain Text"
+    ],
+    "additionalLicenseTerms": "https://github.com/nebosa-company/codilo/blob/main/LICENSE",
+    "copyrightAndTrademark": "Copyright © 2026 Nebosa. Codilo is a trademark of Nebosa. Includes third-party open-source components under their respective licenses.",
+    "privacyPolicyUrl": null,
+    "supportContact": null,
+    "website": null
+  },
+  "media": {
+    "heroArt": {
+      "role": "16:9 hero art above the trailer",
+      "path": "./trailer/hero-art.png",
+      "contentType": "image/png",
+      "bytes": 518080,
+      "sha256": "2ecde5b340e25cac09c75b2889eba6de37730bbbc97ed7f65781785098fc71e2",
+      "width": 1920,
+      "height": 1080
+    },
+    "screenshots": [
+      {
+        "id": "01",
+        "caption": "One window. Explorer, tabs, syntax highlighting and the status bar — ready instantly.",
+        "path": "./01-editor-explorer-dark.png",
+        "contentType": "image/png",
+        "bytes": 125245,
+        "sha256": "ef2fd554498c5cecbbd08f46ea1fa03556b0b165ba65b215a9fa569f5ec42f40",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "02",
+        "caption": "Edit two files side by side with draggable split panes.",
+        "path": "./02-split-panes-dark.png",
+        "contentType": "image/png",
+        "bytes": 174995,
+        "sha256": "69cc557ed3e7fd9b291ec09394a9fc9d33c161b59c4b9ef49ba039dc655b9c0b",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "03",
+        "caption": "A real PowerShell or Command Prompt session, docked in the editor.",
+        "path": "./03-integrated-terminal.png",
+        "contentType": "image/png",
+        "bytes": 79982,
+        "sha256": "b1813b9c8208264d24794825bd8366f652a02844f1298f4d690ff28a97475c6c",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "04",
+        "caption": "A clean light theme for Markdown, prose and long editing sessions.",
+        "path": "./04-light-theme.png",
+        "contentType": "image/png",
+        "bytes": 75880,
+        "sha256": "fc652c9788aa46d0a05da76eb7ffa5683fc056c3aa1ca79ffbcd0d371d2fcf10",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "05",
+        "caption": "Find any command in seconds with the searchable palette.",
+        "path": "./05-command-palette.png",
+        "contentType": "image/png",
+        "bytes": 122187,
+        "sha256": "c0013fbbbcf8c6e68d66b61f091332d1bfbef35b40168fd98da8fa4691e337c1",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "06",
+        "caption": "Choose from 35 language modes, from TypeScript to Rust, SQL and Markdown.",
+        "path": "./06-language-modes.png",
+        "contentType": "image/png",
+        "bytes": 154462,
+        "sha256": "7ef3cc1305bf8a0207eca6f5191106ab832c236edd27f23947265ee27f2ade69",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "tiles": {
+      "300x300": {
+        "path": "./tiles/codilo-tile-300x300.png",
+        "contentType": "image/png",
+        "bytes": 12943,
+        "sha256": "98edba4877e68f3ac4547223b731c0cdf4a9eee811214d179ff48342089bc3f8",
+        "width": 300,
+        "height": 300
+      },
+      "150x150": {
+        "path": "./tiles/codilo-tile-150x150.png",
+        "contentType": "image/png",
+        "bytes": 3273,
+        "sha256": "74bc4ed811a9f6416ad687e121af936f702a930a33a65a5dd4f00b9a37caa06f",
+        "width": 150,
+        "height": 150
+      },
+      "71x71": {
+        "path": "./tiles/codilo-tile-71x71.png",
+        "contentType": "image/png",
+        "bytes": 1633,
+        "sha256": "4e2fcb406f7adab672d985ad08d04500f5fafec763bd78f4147ee6571476839a",
+        "width": 71,
+        "height": 71
+      }
+    }
+  },
+  "trailer": {
+    "title": "Codilo — A small, fast code editor",
+    "caption": "Codilo — Small. Fast. Yours.",
+    "video": {
+      "path": "./trailer/codilo-trailer.mp4",
+      "contentType": "video/mp4",
+      "bytes": 2702242,
+      "sha256": "e60dea605e7cc1fb8cb49b90a93715ed8a767f2e7f9e878abca2013232dfa84f",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 30,
+      "videoCodec": "H.264",
+      "audioCodec": "AAC"
+    },
+    "thumbnail": {
+      "path": "./trailer/trailer-thumbnail.png",
+      "contentType": "image/png",
+      "bytes": 518080,
+      "sha256": "2ecde5b340e25cac09c75b2889eba6de37730bbbc97ed7f65781785098fc71e2",
+      "width": 1920,
+      "height": 1080
+    },
+    "audioDescription": {
+      "path": "./trailer/codilo-trailer-audio-description.mp3",
+      "contentType": "audio/mpeg",
+      "bytes": 481532,
+      "sha256": "5c22640e21353a5f0fbfc5fe8c8c0477c22a5470b5eb9ee0252b78aec2c16a38",
+      "durationSeconds": 30,
+      "bitrateKbps": 128
+    },
+    "closedCaptions": {
+      "path": "./trailer/codilo-trailer-captions.vtt",
+      "contentType": "text/vtt",
+      "bytes": 615,
+      "sha256": "c34e8808139a07166ac70904d7dde45b0fc1400bb8eaaa280abdcca018344276"
+    },
+    "compliance": {
+      "heroArt16x9": true,
+      "noIarcAgeRating": true,
+      "retailSubmissionOnly": true,
+      "maxTrailers": 15
+    }
+  },
+  "submission": {
+    "type": "Retail",
+    "pricing": null,
+    "markets": null,
+    "ageRating": null,
+    "notesForCertification": null
+  }
+}
