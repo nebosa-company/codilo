@@ -159,8 +159,9 @@
         "height": 1080
       }
     ],
-    "tiles": {
-      "300x300": {
+    "appTileIcons": [
+      {
+        "size": "300x300",
         "path": "./tiles/codilo-tile-300x300.png",
         "contentType": "image/png",
         "bytes": 12943,
@@ -168,7 +169,8 @@
         "width": 300,
         "height": 300
       },
-      "150x150": {
+      {
+        "size": "150x150",
         "path": "./tiles/codilo-tile-150x150.png",
         "contentType": "image/png",
         "bytes": 3273,
@@ -176,7 +178,8 @@
         "width": 150,
         "height": 150
       },
-      "71x71": {
+      {
+        "size": "71x71",
         "path": "./tiles/codilo-tile-71x71.png",
         "contentType": "image/png",
         "bytes": 1633,
@@ -184,7 +187,7 @@
         "width": 71,
         "height": 71
       }
-    }
+    ]
   },
   "trailer": {
     "title": "Codilo — A small, fast code editor",
