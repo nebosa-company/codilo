@@ -84,9 +84,22 @@
     ],
     "additionalLicenseTerms": "https://github.com/nebosa-company/codilo/blob/main/LICENSE",
     "copyrightAndTrademark": "Copyright © 2026 Nebosa. Includes third-party open-source components under their respective licenses.",
+    "category": "Developer tools",
+    "subcategory": "Development kits",
+    "secondaryCategory": "Utilities + tools",
+    "privacyPolicy": "Doesn't use any personal information.",
     "privacyPolicyUrl": null,
-    "supportContact": null,
-    "website": null
+    "website": "https://github.com/nebosa-company/codilo",
+    "support": {
+      "contactInfo": null,
+      "phoneNumber": null,
+      "addressLine1": null,
+      "addressLine2": null,
+      "postalCode": null,
+      "city": null,
+      "stateProvince": null,
+      "countryRegion": null
+    }
   },
   "media": {
     "heroArt": {
