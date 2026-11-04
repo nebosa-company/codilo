@@ -3,6 +3,7 @@
   "product": {
     "name": "Codilo",
     "title": "Codilo",
+    "developedBy": "Nebosa",
     "identity": {
       "packageIdentityName": "Nebosa.Codilo",
       "publisher": "CN=51659C92-55D6-4A2E-AE5D-09CE932FDEF0",
