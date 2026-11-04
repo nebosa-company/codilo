@@ -106,3 +106,5 @@ python tools/make-icon.py
 
 See the script's docstring for what each step does; there's no need to
 touch `src-tauri/icons/` by hand.
+
+For the Microsoft Store MSIX package, see [STORE.md](STORE.md).

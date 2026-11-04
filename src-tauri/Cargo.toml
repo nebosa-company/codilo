@@ -15,6 +15,12 @@ edition = "2021"
 name = "codilo_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
+[features]
+# Set only for the Microsoft Store MSIX build. It turns off the GitHub
+# installer flow and the app's own file-association screen, both of which the
+# Store manages instead. Ordinary installers and portable builds leave it off.
+store = []
+
 [build-dependencies]
 tauri-build = { version = "2", features = [] }
 

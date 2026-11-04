@@ -1031,7 +1031,7 @@ function topicContent(topic, ctx) {
           t("help.filesPoint1"),
           t("help.filesPoint2"),
           t("help.filesPoint3"),
-          t("help.filesPoint4"),
+          ...(ctx?.storeBuild ? [] : [t("help.filesPoint4")]),
         ],
       };
     case "editing":

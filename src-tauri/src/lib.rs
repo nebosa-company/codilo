@@ -11,6 +11,14 @@ use std::time::{Duration, Instant};
 use tauri::{Emitter, Manager};
 use tauri_plugin_opener::OpenerExt;
 
+/// Whether this binary was built for the Microsoft Store package. The Store
+/// owns updates and file associations, so those flows are compiled out there
+/// but stay untouched for ordinary installers and portable builds.
+#[tauri::command]
+fn is_store_build() -> bool {
+    cfg!(feature = "store")
+}
+
 /// Reads a UTF-8 source file chosen by the user in the open dialog.
 #[tauri::command(async)]
 fn read_text_file(path: String) -> Result<String, String> {
@@ -526,6 +534,9 @@ fn numbered(target: &Path, n: u32) -> PathBuf {
 /// wherever it liked.
 #[tauri::command(async)]
 fn download_update(url: String, file_name: String) -> Result<String, String> {
+    if cfg!(feature = "store") {
+        return Err("Updates are managed by Microsoft Store".into());
+    }
     if !url.starts_with(RELEASE_PREFIX) {
         return Err(format!("{url} is not a Codilo release asset"));
     }
@@ -556,6 +567,9 @@ fn download_update(url: String, file_name: String) -> Result<String, String> {
 /// turned into "run any program on the disk".
 #[tauri::command(async)]
 fn install_update(app: tauri::AppHandle, path: String) -> Result<(), String> {
+    if cfg!(feature = "store") {
+        return Err("Updates are managed by Microsoft Store".into());
+    }
     let file = PathBuf::from(&path);
     if !file.is_file() {
         return Err(format!("{} does not exist", file.display()));
@@ -2555,6 +2569,9 @@ fn set_file_associations(
     associate: Vec<(String, String)>,
     remove: Vec<String>,
 ) -> Result<Vec<String>, String> {
+    if cfg!(feature = "store") {
+        return Err("File associations are managed by Microsoft Store".into());
+    }
     #[cfg(windows)]
     {
         let mut failures = Vec::new();
@@ -2997,10 +3014,16 @@ pub fn run() {
                 .first()
                 .cloned()
                 .ok_or_else(|| std::io::Error::other("no window configuration"))?;
-            let data_dir = webview_data_dir(app.handle())?;
-            tauri::WebviewWindowBuilder::from_config(app.handle(), &window_config)?
-                .data_directory(data_dir)
-                .build()?;
+            let data_dir = if cfg!(feature = "store") {
+                None
+            } else {
+                Some(webview_data_dir(app.handle())?)
+            };
+            let mut window = tauri::WebviewWindowBuilder::from_config(app.handle(), &window_config)?;
+            if let Some(data_dir) = data_dir {
+                window = window.data_directory(data_dir);
+            }
+            window.build()?;
 
             // The window starts hidden so the first thing shown is the painted
             // editor rather than an empty white frame. The frontend reveals it
@@ -3024,19 +3047,21 @@ pub fn run() {
             // "only do this once" bookkeeping is worth the complexity.
             #[cfg(windows)]
             {
-                let extensions: Vec<String> = app
-                    .config()
-                    .bundle
-                    .file_associations
-                    .iter()
-                    .flatten()
-                    .flat_map(|association| association.ext.iter().map(|ext| ext.0.clone()))
-                    .collect();
-                std::thread::spawn(move || {
-                    if associations::register_application(&extensions).is_ok() {
-                        associations::notify_shell();
-                    }
-                });
+                if !cfg!(feature = "store") {
+                    let extensions: Vec<String> = app
+                        .config()
+                        .bundle
+                        .file_associations
+                        .iter()
+                        .flatten()
+                        .flat_map(|association| association.ext.iter().map(|ext| ext.0.clone()))
+                        .collect();
+                    std::thread::spawn(move || {
+                        if associations::register_application(&extensions).is_ok() {
+                            associations::notify_shell();
+                        }
+                    });
+                }
             }
 
             Ok(())
@@ -3081,6 +3106,7 @@ pub fn run() {
             perp_watch,
             perp_unwatch,
             startup_files,
+            is_store_build,
             report_ready,
             associated_extensions,
             foreign_extensions,

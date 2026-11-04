@@ -1,0 +1,52 @@
+name: Store package
+
+on:
+  workflow_dispatch:
+    inputs:
+      identity_name:
+        description: Package identity name from Partner Center
+        required: true
+        default: Nebosa.Codilo
+      publisher:
+        description: Publisher identity from Partner Center (CN=...)
+        required: true
+        default: CN=Nebosa
+      publisher_display_name:
+        description: Publisher display name
+        required: true
+        default: Nebosa
+
+permissions:
+  contents: read
+
+jobs:
+  msix:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build MSIX
+        shell: pwsh
+        run: |
+          .\tools\build-msix.ps1 `
+            -IdentityName "${{ inputs.identity_name }}" `
+            -Publisher "${{ inputs.publisher }}" `
+            -PublisherDisplayName "${{ inputs.publisher_display_name }}"
+
+      - name: Upload MSIX
+        uses: actions/upload-artifact@v4
+        with:
+          name: codilo-msix
+          path: src-tauri/target/msix/*.msix

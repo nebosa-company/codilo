@@ -259,6 +259,10 @@ let showToolbar = true;
 // flight.
 let harnessVerbose = localStorage.getItem(STORAGE.harnessVerbose) === "true";
 let showStatusbar = true;
+// True only in the Microsoft Store build. The Store owns updates and file
+// associations, so those entries are hidden there while staying untouched in
+// every ordinary installer or portable build.
+let storeBuild = false;
 // Off by default: in source code most identifiers are "misspelled".
 let spellcheck = false;
 // Off by default: wrapping makes long lines readable but breaks the one-row-
@@ -2263,6 +2267,7 @@ function setBionicReading(enabled) {
  * the real state, then writes back only the difference.
  */
 async function chooseFileAssociations() {
+  if (storeBuild) return;
   const groups = associationGroups();
   const every = groups.flatMap((group) => group.extensions.map((entry) => entry.extension));
 
@@ -2505,7 +2510,9 @@ function buildMenus() {
         run: copyPathToClipboard,
       },
       { separator: true },
-      { label: t("file.associations"), icon: "link", run: chooseFileAssociations },
+      ...(storeBuild
+        ? []
+        : [{ label: t("file.associations"), icon: "link", run: chooseFileAssociations }]),
       { separator: true },
       { label: t("file.run"), icon: "play", accel: "F5", run },
       {
@@ -2947,7 +2954,9 @@ function buildMenus() {
     items: [
       { label: t("help.center"), icon: "help", accel: "F1", run: showHelp },
       { separator: true },
-      { label: t("help.newVersion"), icon: "refresh", run: checkForUpdate },
+      ...(storeBuild
+        ? []
+        : [{ label: t("help.newVersion"), icon: "refresh", run: checkForUpdate }]),
       { label: t("help.about"), icon: "info", run: showAboutDialog },
     ],
   },
@@ -2988,6 +2997,18 @@ function applyTranslations() {
 onLocaleChange(applyTranslations);
 createMenuBar(dom.menubar, buildMenus());
 
+// The first menu build is synchronous; the Store flag arrives from Rust. If it
+// is set, rebuild once so the update and association entries disappear.
+if (underTauri()) {
+  invoke("is_store_build")
+    .then((value) => {
+      if (!value) return;
+      storeBuild = true;
+      createMenuBar(dom.menubar, buildMenus());
+    })
+    .catch(() => {});
+}
+
 /** Reads the version from Tauri, falling back when running in a browser. */
 async function runningVersion() {
   try {
@@ -3004,6 +3025,7 @@ async function showAboutDialog() {
 
 /** Help ▸ New Version. The flow itself lives in update.js. */
 async function checkForUpdate() {
+  if (storeBuild) return;
   await checkForNewVersion(await runningVersion(), { flash: flashStatus, quit: closeWindow });
 }
 
@@ -3018,6 +3040,7 @@ function showHelp() {
     setAutismTheme: () => setTheme("autism"),
     bionicReading: () => bionicReading,
     toggleBionicReading: () => setBionicReading(!bionicReading),
+    storeBuild,
   });
 }
 

@@ -11,6 +11,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "tauri": "tauri",
+    "build:msix": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/build-msix.ps1",
     "sync:associations": "node tools/sync-associations.mjs",
     "check:associations": "node tools/sync-associations.mjs --check",
     "test": "npm run check:file-icons && npm run test:js && npm run test:rust",
