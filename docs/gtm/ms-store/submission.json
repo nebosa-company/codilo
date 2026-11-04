@@ -251,6 +251,9 @@
     "pricing": null,
     "markets": null,
     "ageRating": null,
+    "restrictedCapabilities": {
+      "runFullTrust": "Codilo is a packaged Win32/Tauri code editor. runFullTrust is required to launch codilo.exe and support user-initiated editing of files/folders chosen in Windows pickers, the folder tree, and user-started PowerShell/Command Prompt terminals. It runs as a standard user, without admin rights, services, drivers, settings changes, or background file access. The Store build disables the updater and file associations. No personal data is collected."
+    },
     "notesForCertification": null
   }
 }
