@@ -27,3 +27,7 @@ and the interface-language picker.
 
 The Store trailer, hero art, thumbnail and submission checklist are in
 [trailer/](trailer/README.md).
+
+## App tile icons
+
+1:1 PNG tiles at 300×300, 150×150 and 71×71 are in [tiles/](tiles/README.md).
