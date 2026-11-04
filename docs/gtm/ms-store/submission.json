@@ -21,12 +21,19 @@
       "Syntax highlighting and editing for 35 languages, with automatic detection and per-file language overrides.",
       "Explorer with Open Folder, create, rename, delete to the Recycle Bin, and drag to move or copy.",
       "Split panes: drag a tab to any edge to edit two or more files side by side.",
-      "Built-in terminal with real PowerShell and Command Prompt sessions, opened in the current file's folder.",
+      "Built-in terminal with PowerShell and Command Prompt sessions, opened in the current file's folder.",
       "Find and replace, Go to Symbol, a Problems panel, and optional spell check.",
       "Session restore reopens saved files in the same panes and at the same caret positions.",
       "Light, dark, and low-sensory themes, adjustable zoom, and show/hide toolbar and status bar.",
       "36 interface languages, including right-to-left layouts.",
-      "No account, telemetry, or plugin marketplace. A small editor that stays out of the way."
+      "No account, telemetry, or plugin marketplace. A small editor that stays out of the way.",
+      "Optimized for people with sensory integration disorder - autism theme, bionic reading.",
+      "Web and documents: HTML, CSS, JavaScript, TypeScript, JSX, TSX, Markdown, JSON, YAML, XML.",
+      "Systems: Neper, C/C++, Rust, Go, GNU assembly, Intel/NASM assembly.",
+      "Java/.NET/mobile: Java, C#, Kotlin, Swift, Dart, Object Pascal.",
+      "Scripting: Python, R, PowerShell, Shell (sh/bash/zsh/ksh), Batch.",
+      "Config and data: TOML, Protocol Buffers, Terraform/HCL, SQL (standard, SQLite, MySQL, PostgreSQL).",
+      "Other: plain text (txt/log/csv)."
     ],
     "keywords": [
       "code editor",
