@@ -1,0 +1,1 @@
+Codilo — A small, fast code editor

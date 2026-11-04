@@ -22,3 +22,8 @@ readable; in the app the list scrolls within the popup.
 Partner Center accepts up to 10 screenshots; these five cover the main
 differentiators. If more are wanted, useful additions would be Project Metrics
 and the interface-language picker.
+
+## Trailer
+
+The Store trailer, hero art, thumbnail and submission checklist are in
+[trailer/](trailer/README.md).
