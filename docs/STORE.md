@@ -21,6 +21,28 @@ package:
 The Store package must use those values. The defaults in the build script
 (`Nebosa.Codilo`, `CN=Nebosa`) are only for local development.
 
+### Where to find the identity values
+
+These values are assigned by Microsoft; they are not created by the build
+script or by a certificate.
+
+1. Sign in to Partner Center and open **Apps and games**.
+2. Select the Codilo product (reserve the name first with **New product →
+   MSIX or PWA app** if it is not there yet).
+3. Expand **Product management** in the left navigation and open
+   **Product identity**.
+4. Copy these three values exactly:
+   - **Package/Identity/Name** → `-IdentityName`
+   - **Package/Identity/Publisher** → `-Publisher`
+   - **Package/Properties/PublisherDisplayName** → `-PublisherDisplayName`
+
+Microsoft's reference: [View product identity details](https://learn.microsoft.com/en-us/windows/apps/publish/view-app-identity-details).
+
+A **Company** developer account publishes under the verified Nebosa legal
+entity; an **Individual** account publishes under your own name. Partner Center
+does not allow converting an Individual account to a Company account later, so
+choose Company up front if Nebosa is the publisher.
+
 ## 2. Build the MSIX
 
 Requirements: Windows 10/11, Node.js, a Rust toolchain, and the Windows SDK
