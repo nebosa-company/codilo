@@ -128,6 +128,68 @@ In Partner Center create the submission and provide:
 Submit for certification and fix any certification report. Store review is
 usually a few business days.
 
+## Store listing copy (English)
+
+These fit the Partner Center limits: short description 1000 characters (only
+the first ~270 are shown), What's new 1500 characters, up to 20 features at 200
+characters each, up to 7 keywords at 40 characters each and 21 words total.
+
+### Short description
+
+A small, fast code editor for Windows. Open files and folders instantly, edit
+with syntax highlighting, split panes, a built-in terminal, and 36 interface
+languages — no account, telemetry, or plugin marketplace.
+
+### What's new in this version
+
+Leave this blank on the first submission; Microsoft recommends that for a new
+product. For later releases, use:
+
+Initial Microsoft Store release: Codilo 0.4.7 brings the full editor, Explorer,
+terminal, split panes, session restore, and 36 interface languages to Windows.
+
+### Product features
+
+Opens instantly: one native window, no splash screen, no background indexer.
+
+Syntax highlighting and editing for 35 languages, with automatic detection and
+per-file language overrides.
+
+Explorer with Open Folder, create, rename, delete to the Recycle Bin, and drag
+to move or copy.
+
+Split panes: drag a tab to any edge to edit two or more files side by side.
+
+Built-in terminal with real PowerShell and Command Prompt sessions, opened in
+the current file's folder.
+
+Find and replace, Go to Symbol, a Problems panel, and optional spell check.
+
+Session restore reopens saved files in the same panes and at the same caret
+positions.
+
+Light, dark, and low-sensory themes, adjustable zoom, and show/hide toolbar and
+status bar.
+
+36 interface languages, including right-to-left layouts.
+
+No account, telemetry, or plugin marketplace. A small editor that stays out of
+the way.
+
+### Keywords
+
+code editor, text editor, source code editor, syntax highlighting,
+lightweight editor, developer tools, plain text editor
+
+### Additional license terms
+
+Use this single URL so the Store renders it as a clickable license link:
+
+https://github.com/nebosa-company/codilo/blob/main/LICENSE
+
+Leaving this field blank would apply Microsoft's Standard Application License
+Terms, which do not match Codilo's MIT license.
+
 ## 5. Automation
 
 `.github/workflows/store.yml` builds the MSIX on demand. Run it from the Actions
